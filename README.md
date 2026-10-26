@@ -4,12 +4,12 @@ The live invitation is at **https://himanshikapoor3099.github.io/wedding-invite/
 
 It's a single scrolling page that works best on a phone:
 
-envelope → blessings, names and parents → save the date (scratch card + countdown) →
-**#KaranMani-fested**, our story told as a streaming series (with the book proposal and the tennis-court proposal) →
-Ivy's memo → Sagan & Cocktails · Mehndi · Haldi · The Wedding → RSVP → families & contacts → sign-off.
+the door opens → Ivy delivers the invitation (blessings, names, parents, dates, countdown) →
+**#KaranMani-fested**, our story as a storybook (with a surprise to unwrap) →
+Sagan & Cocktails · Mehndi · Haldi · The Wedding → RSVP → families & contacts → sign-off.
 
-All artwork is drawn in code (`js/art.js`): no photographs are used. The page colour blends from one
-celebration's palette to the next as you scroll (`THEMES` in `js/page.js`).
+Paintings go in `assets/art/` (names in `assets/art/README.md`, prompts in `ARTWORK-BRIEF.md`).
+The page colour blends from one celebration's palette to the next as you scroll (`THEMES` in `js/page.js`).
 
 ## Changing any text, date, venue or photo
 
@@ -21,8 +21,8 @@ Everything lives in **`js/content.js`**. Change the value after the colon and ke
 | Parents' lines | `hero.brideParents`, `hero.groomParents` |
 | Events (date, time, venue, map link, dress code) | `events` |
 | Wedding-day rituals | `events.wedding.schedule` |
-| Story episodes, the book's pages | `story` |
-| Ivy's memo | `ivy` |
+| Ivy's delivery, names, parents | `invite` |
+| Storybook chapters | `story` |
 | Lines between sections | `passages` |
 | RSVP | `rsvp` |
 | Contacts | `contacts` |
@@ -37,7 +37,7 @@ The link itself carries the details, so you can also write them by hand:
 
 | Add to the link | What it does |
 |---|---|
-| `?to=Sharma%20Family` | Envelope says "Dear Sharma Family", and Ivy's memo is addressed to them |
+| `?to=Sharma%20Family` | The door says "Dear Sharma Family" |
 | `?side=groom` | Karan's name and family first; RSVP goes to the groom's family |
 | `?events=haldi,wedding` | Shows only those events (`cocktail`, `mehndi`, `haldi`, `wedding`) |
 

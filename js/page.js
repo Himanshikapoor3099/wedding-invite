@@ -1,28 +1,80 @@
 /* Builds the invitation from js/content.js and runs everything that moves. */
 (function () {
     const S = window.SITE;
-    const A = window.ART;
     const $ = (sel, root = document) => root.querySelector(sel);
     const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
     const get = (path) => path.split(".").reduce((o, k) => (o == null ? o : o[k]), S);
     const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
     const lines = (s) => esc(s).replace(/\n/g, "<br>");
-    const rand = (a, b) => a + Math.random() * (b - a);
     const TZ = S.timeZone;
     const events = Object.entries(S.events).map(([id, e]) => Object.assign({ id }, e));
-    const [first, second] = S.groomFirst ? [S.couple.groom, S.couple.bride] : [S.couple.bride, S.couple.groom];
+    const ORDINAL = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight"];
 
     /* Each section's palette. While a passage between two sections crosses
        the middle of the screen, the page blends from one palette to the next. */
     const THEMES = {
-        paper:    { bg: "#f4ede1", ink: "#2a1d17", soft: "#6e5a4c", accent: "#9b111e" },
-        screen:   { bg: "#121212", ink: "#f2f2f2", soft: "#a3a3a3", accent: "#e50914" },
-        memo:     { bg: "#e6dccb", ink: "#2a1d17", soft: "#6e5a4c", accent: "#b3261e" },
-        cocktail: { bg: "#0c0b0d", ink: "#f3e6c4", soft: "#b4a685", accent: "#d4af37" },
+        peach:    { bg: "#f2d6bf", ink: "#3a2116", soft: "#7a5040", accent: "#9b111e" },
+        desk:     { bg: "#2a1c15", ink: "#f4e9d8", soft: "#c8b29a", accent: "#d9a441" },
+        cocktail: { bg: "#0d1d3a", ink: "#eef2f8", soft: "#a9b7cc", accent: "#c9d1dc" },
         mehndi:   { bg: "#0f3a2e", ink: "#f4ead2", soft: "#b7c8b2", accent: "#e9b949" },
         haldi:    { bg: "#f4e3a1", ink: "#3e2b63", soft: "#6b5a86", accent: "#7c5cc4" },
         wedding:  { bg: "#efe3cf", ink: "#5c0f16", soft: "#7a4b3a", accent: "#b8892f" },
+        paper:    { bg: "#f4ede1", ink: "#2a1d17", soft: "#6e5a4c", accent: "#9b111e" },
     };
+
+    /* ---------- paintings ----------
+       Each slot looks for assets/art/<name>.jpg, then .png, then .webp. If
+       none exists yet, it shows a labelled placeholder so it's clear which
+       painting goes where (see ARTWORK-BRIEF.md). */
+    const ART_DIR = "assets/art/";
+    const EXTS = ["jpg", "png", "webp"];
+    const PLACEHOLDERS = {
+        "door-closed": "The carved front door",
+        "ivy-room": "Ivy by the dresser, invitation in her mouth",
+        "book-cover": "The red book on the desk",
+        "ch1-fixture": "The football tournament",
+        "ch2-metro": "The i10 at Naraina Metro",
+        "ch3-food": "Momos, chai and black coffee",
+        "ch4-poles": "Mountains by night, beach at sunset",
+        "ch5-book": "The card between the pages",
+        "ch6-tennis": "On one knee on the tennis court",
+        "finale": "The three of you, walking home",
+        "ev-cocktail": "Cocktail night in blue and silver",
+        "ev-mehndi": "Mehndi, musicians and string lights",
+        "ev-haldi": "The haldi courtyard",
+        "ev-wedding": "The royal mandap",
+    };
+    function findArt(name, done) {
+        let i = 0;
+        const img = new Image();
+        img.decoding = "async";
+        img.onload = () => done(img);
+        img.onerror = () => { if (++i < EXTS.length) img.src = `${ART_DIR}${name}.${EXTS[i]}`; else done(null); };
+        img.src = `${ART_DIR}${name}.${EXTS[0]}`;
+    }
+    function artSlot(el) {
+        const name = el.dataset.art;
+        el.classList.add("art");
+        findArt(name, (img) => {
+            if (img) {
+                img.alt = PLACEHOLDERS[name] || "";
+                el.prepend(img);
+                el.classList.add("has-art");
+            } else if (!el.hasAttribute("data-art-optional")) {
+                el.classList.add("missing");
+                el.insertAdjacentHTML("afterbegin", `<span class="ph"><small>Painting</small><b>${esc(name)}</b><em>${esc(PLACEHOLDERS[name] || "")}</em></span>`);
+            }
+        });
+    }
+
+    /* ---------- monogram: the painted one if it exists, else a typeset one ---------- */
+    function monogram(el) {
+        findArt("monogram", (img) => {
+            if (img) { img.alt = "H & K"; el.appendChild(img); el.classList.add("has-art"); return; }
+            const [h, k] = S.couple.initials;
+            el.innerHTML = `<span class="mono-type" aria-label="${esc(h)} and ${esc(k)}"><i>${esc(h)}</i><i>${esc(k)}</i></span>`;
+        });
+    }
 
     /* ---------- dates ---------- */
     const at = (date, time) => new Date(`${date}T${time}:00${TZ.offset}`);
@@ -36,45 +88,32 @@
     const utcStamp = (d) => d.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
     const mapsUrl = (e) => e.mapUrl || "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(e.venue + ", " + e.address);
 
-    /* ---------- simple fields and artwork ---------- */
+    /* ---------- text fields ---------- */
     $$("[data-k]").forEach((el) => {
         const v = get(el.dataset.k);
         if (v) el.innerHTML = lines(v); else el.hidden = true;
     });
-    $$("[data-art]").forEach((el) => { el.innerHTML = A[el.dataset.art]; });
-    const monoColours = { gold: A.C.gold, cherry: A.C.cherry, seal: "#f3d9a0" };
-    $$("[data-monogram]").forEach((el) => { el.innerHTML = A.monogram(...S.couple.initials, monoColours[el.dataset.monogram]); });
     document.title = `${S.couple.bride} & ${S.couple.groom} · Wedding Invitation`;
-    $("#env-names").innerHTML = `${esc(first)} <i>&amp;</i> ${esc(second)}`;
 
-    /* ---------- opening ---------- */
-    $("#blessings").innerHTML = S.hero.blessings.map((b, i) => `
-        <div class="blessing hero-in" style="--d:${0.2 + i * 0.2}s">
-          <span class="bl-symbol" lang="${b.lang}">${esc(b.symbol)}</span>
-          <span class="bl-line" lang="${b.lang}">${esc(b.line)}</span>
-        </div>`).join("");
-
-    const people = [
-        { name: S.couple.brideFull, parents: S.hero.brideParents },
-        { name: S.couple.groomFull, parents: S.hero.groomParents },
+    /* ---------- behind the door ---------- */
+    $("#blessings").innerHTML = S.invite.blessings.map((b) => `<span lang="${b.lang}">${esc(b.line)}</span>`).join("");
+    const names = S.groomFirst ? [S.couple.groomFull, S.couple.brideFull] : [S.couple.brideFull, S.couple.groomFull];
+    $("#couple").innerHTML = `<span class="hero-in" style="--d:1.1s">${esc(names[0])}</span><i class="hero-in" style="--d:1.5s">&amp;</i><span class="hero-in" style="--d:1.8s">${esc(names[1])}</span>`;
+    const parentLines = [
+        { name: S.couple.brideFull, p: S.invite.brideParents },
+        { name: S.couple.groomFull, p: S.invite.groomParents },
     ];
-    if (S.groomFirst) people.reverse();
-    $("#couple").innerHTML = `
-        <span class="c-name rv">${esc(people[0].name)}</span>
-        <span class="c-parents rv">${lines(people[0].parents)}</span>
-        <span class="c-amp rv">&amp;</span>
-        <span class="c-name rv">${esc(people[1].name)}</span>
-        <span class="c-parents rv">${lines(people[1].parents)}</span>`;
+    if (S.groomFirst) parentLines.reverse();
+    $("#parents").innerHTML = parentLines.map((x) => `<p><b>${esc(x.name)}</b><span>${lines(x.p)}</span></p>`).join('<i class="amp">&amp;</i>');
 
-    /* ---------- save the date + countdown ---------- */
-    const target = S.events[S.saveTheDate.countdownTo] ? range(S.events[S.saveTheDate.countdownTo]) : range(events[0]);
+    /* ---------- countdown ---------- */
+    const target = range(S.events[S.saveTheDate.countdownTo] || events[0]);
     const firstStart = range(events[0]).start;
     const lastEnd = range(events[events.length - 1]).end;
-    $("#scratch-dates").innerHTML = events.length === 4
-        ? lines(S.saveTheDate.dates)
-        : events.map((e) => esc(fmt(at(e.date, e.start), { day: "2-digit", month: "short" }))).join(" · ") + "<br>2026 · New Delhi";
     $("#cd-label").textContent = S.events[S.saveTheDate.countdownTo] ? S.saveTheDate.countdownLabel : "until the celebrations begin";
-
+    if (events.length < 4) {
+        $('[data-k="invite.dates"]').textContent = events.map((e) => fmt(at(e.date, e.start), { day: "2-digit", month: "long" })).join(" · ") + " 2026";
+    }
     function tick() {
         const now = Date.now();
         if (now >= target.start.getTime()) {
@@ -90,166 +129,94 @@
     tick();
     setInterval(tick, 1000);
 
-    function scratchCard() {
-        const box = $("#scratch");
-        const cv = $("#scratch-foil");
-        const ctx = cv.getContext("2d");
-        let done = false, drawing = false, strokes = 0;
-        function paint() {
-            const r = box.getBoundingClientRect();
-            const dpr = window.devicePixelRatio || 1;
-            cv.width = r.width * dpr; cv.height = r.height * dpr;
-            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-            const g = ctx.createLinearGradient(0, 0, r.width, r.height);
-            g.addColorStop(0, "#a8802c"); g.addColorStop(0.42, "#ecd08a"); g.addColorStop(0.58, "#d8b25e"); g.addColorStop(1, "#9c7322");
-            ctx.fillStyle = g; ctx.fillRect(0, 0, r.width, r.height);
-            ctx.strokeStyle = "rgba(255,255,255,.5)"; ctx.lineWidth = 1;
-            ctx.strokeRect(9.5, 9.5, r.width - 19, r.height - 19);
-            ctx.fillStyle = "#fffaf0"; ctx.font = "500 12px Manrope, sans-serif"; ctx.textAlign = "center";
-            ctx.fillText(S.saveTheDate.scratch.toUpperCase().split("").join(String.fromCharCode(8202, 8202)), r.width / 2, r.height / 2 + 4);
-        }
-        paint();
-        const pos = (ev) => { const r = cv.getBoundingClientRect(); return [ev.clientX - r.left, ev.clientY - r.top]; };
-        function scratch(ev) {
-            if (!drawing || done) return;
-            const [x, y] = pos(ev);
-            ctx.globalCompositeOperation = "destination-out";
-            ctx.beginPath(); ctx.arc(x, y, 22, 0, Math.PI * 2); ctx.fill();
-            ctx.globalCompositeOperation = "source-over";
-            if (++strokes % 12 === 0) check();
-        }
-        function check() {
-            const d = ctx.getImageData(0, 0, cv.width, cv.height).data;
-            let clear = 0;
-            for (let i = 3; i < d.length; i += 64) if (d[i] === 0) clear++;
-            if (clear / (d.length / 64) > 0.45) reveal();
-        }
-        function reveal() { done = true; box.classList.add("revealed"); }
-        cv.addEventListener("pointerdown", (e) => { drawing = true; cv.setPointerCapture(e.pointerId); scratch(e); });
-        cv.addEventListener("pointermove", scratch);
-        cv.addEventListener("pointerup", () => { drawing = false; check(); });
-        cv.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") reveal(); });
-        window.addEventListener("resize", () => { if (!done) paint(); });
-    }
-
-    /* ---------- our story ---------- */
+    /* ---------- the storybook ---------- */
     const ST = S.story;
-    $("#story-meta").innerHTML = ST.meta.map((m, i) => `<span class="${i === 0 ? "match" : i === 2 ? "tag" : ""}">${esc(m)}</span>`).join("");
-
-    const ring = `<svg viewBox="0 0 40 40" class="ring-svg" aria-hidden="true"><circle cx="20" cy="25" r="10" fill="none" stroke="#c9a14a" stroke-width="2.6"/><path d="M14 13 L20 6 L26 13 L20 17 Z" fill="#eaf4fb" stroke="#a9c7da" stroke-width=".8"/></svg>`;
-
-    function storyExtra(kind) {
-        if (kind === "food") {
-            return `<div class="tickets">${ST.restaurants.map((r, i) => `
-                <div class="ticket rv" style="--r:${[-3, 2, -2, 3][i % 4]}deg"><small>Table for two</small><b>${esc(r.name)}</b><span>${esc(r.note)}</span></div>`).join("")}</div>`;
+    const pages = [];
+    pages.push(`
+        <div class="pg-cover">
+          <span class="cover-rule"></span>
+          <p class="cover-sub">${esc(ST.subtitle)}</p>
+          <h2 class="cover-title">${esc(ST.title)}</h2>
+          <div class="cover-mono" data-monogram></div>
+          <p class="cover-by">${esc(ST.coverBy)}</p>
+          <span class="cover-rule"></span>
+          <p class="cover-hint">${esc(ST.openHint)}</p>
+        </div>`);
+    ST.chapters.forEach((c, i) => {
+        let overlay = "";
+        if (c.surprise) {
+            overlay = `
+              <button type="button" class="gift" aria-label="${esc(c.surprise.wrap)}">
+                <span class="gift-half gift-l"></span><span class="gift-half gift-r"></span>
+                <span class="gift-tag">${esc(c.surprise.wrap)}</span>
+              </button>
+              <div class="gift-card"><p>${lines(c.surprise.card)}</p></div>`;
         }
-        if (kind === "opposites") {
-            const o = ST.opposites;
-            return `<div class="opp rv">
-                <div class="opp-row opp-head"><span>${esc(o.her)}</span><span>${esc(o.him)}</span></div>
-                ${o.rows.map((r) => `<div class="opp-row"><span>${esc(r[0])}</span><span>${esc(r[1])}</span></div>`).join("")}
-                <p class="opp-common-label">${esc(o.commonLabel)}</p>
-                <p class="opp-common">${o.common.map((c) => esc(c).replace(/ /g, "&nbsp;")).join('<i aria-hidden="true">·</i>')}</p>
-            </div>`;
-        }
-        if (kind === "book") {
-            const b = ST.book;
-            const p = b.pages;
-            const leaves = [
-                [`<div class="bk-cover"><b>${esc(b.cover)}</b><small>${esc(b.coverBy)}</small></div>`, p[0]],
-                [p[1], p[2]],
-                [p[3], p[4]],
-            ];
-            const page = (t) => (t.startsWith("<") ? t : `<div class="bk-page"><p>${lines(t)}</p></div>`);
-            return `<div class="book-wrap rv">
-                <div class="book" id="book" role="button" tabindex="0" aria-label="Turn the page">
-                  <div class="bk-base"><div class="bk-page bk-final"><p class="bk-q">${lines(p[5])}</p>${ring}<p class="bk-answer">${esc(b.answer)}</p></div></div>
-                  ${leaves.map((l) => `<div class="leaf"><div class="face front">${page(l[0])}</div><div class="face back">${page(l[1])}</div></div>`).join("")}
-                </div>
-                <div class="book-nav"><button type="button" id="bk-prev" aria-label="Previous page">‹</button><span>${esc(b.hint)}</span><button type="button" id="bk-next" aria-label="Next page">›</button></div>
-            </div>`;
-        }
-        if (kind === "tennis") {
+        if (c.balls) {
             let n = 0;
-            return `<div class="tennis">
-                <div class="balls rv" aria-label="${esc(ST.tennisBalls)}">${ST.tennisBalls.split(" ").map((w) => `<span class="ball-word">${w.split("").map((ch) => `<span class="ball" style="--n:${n++}">${esc(ch)}</span>`).join("")}</span>`).join("")}</div>
-                <p class="tennis-answer rv">${esc(ST.tennisAnswer)}</p>
-            </div>`;
+            overlay = `<div class="balls">${c.balls.split(" ").map((w) => `<span class="ball-word">${w.split("").map((ch) => `<span class="ball" style="--n:${n++}">${esc(ch)}</span>`).join("")}</span>`).join("")}</div>`;
         }
-        return "";
-    }
-
-    $("#episode-list").innerHTML = ST.episodes.map((ep, i) => `
-        <li class="ep">
-          <div class="ep-row rv">
-            <div class="ep-thumb">${A[ep.art] || ""}<span class="ep-play"><svg viewBox="0 0 12 14"><path d="M0 0 L12 7 L0 14Z" fill="#fff"/></svg></span></div>
-            <div class="ep-info">
-              <p class="ep-num">Episode ${i + 1}</p>
-              <h4>${esc(ep.title)}</h4>
-              <p>${lines(ep.text)}</p>
+        pages.push(`
+          <div class="pg-chapter">
+            <div class="pg-art" data-art="${esc(c.art)}">${overlay}</div>
+            <div class="pg-text">
+              <p class="pg-num">Chapter ${ORDINAL[i] || i + 1}</p>
+              <h3>${esc(c.title)}</h3>
+              <p>${lines(c.text)}</p>
+              ${c.surprise ? `<p class="pg-after">${esc(c.surprise.after)}</p>` : ""}
             </div>
+          </div>`);
+    });
+    pages.push(`
+        <div class="pg-chapter pg-finale">
+          <div class="pg-art" data-art="${esc(ST.finale.art)}"></div>
+          <div class="pg-text">
+            <h3>${esc(ST.finale.title)}</h3>
+            <p>${lines(ST.finale.text)}</p>
           </div>
-          ${ep.extra ? storyExtra(ep.extra) : ""}
-        </li>`).join("");
+        </div>`);
 
-    (function book() {
-        const el = $("#book");
-        if (!el) return;
-        const leaves = $$(".leaf", el);
-        let turned = 0;
-        function show() {
-            el.classList.toggle("open", turned > 0);
-            el.classList.toggle("done", turned === leaves.length);
-            leaves.forEach((l, i) => {
-                l.classList.toggle("turned", i < turned);
-                l.style.zIndex = i < turned ? i + 1 : leaves.length - i + 1;
-            });
-        }
-        const next = () => { if (turned < leaves.length) { turned++; show(); } };
-        const prev = () => { if (turned > 0) { turned--; show(); } };
-        el.addEventListener("click", next);
-        el.addEventListener("keydown", (e) => {
-            if (e.key === "Enter" || e.key === " " || e.key === "ArrowRight") { e.preventDefault(); next(); }
-            if (e.key === "ArrowLeft") prev();
+    const book = $("#storybook");
+    book.innerHTML = `<div class="story-desk" data-art="book-cover" data-art-optional></div>` + pages.map((p, i) => `
+        <div class="page${i === 0 ? " is-cover" : ""}" data-i="${i}">
+          <div class="face front">${p}</div>
+          <div class="face back"></div>
+        </div>`).join("");
+    $("#pg-dots").innerHTML = pages.map((_, i) => `<i data-i="${i}"></i>`).join("");
+    const pageEls = $$(".page", book);
+    let current = 0;
+    function showPage() {
+        book.classList.toggle("opened", current > 0);
+        pageEls.forEach((p, i) => {
+            p.classList.toggle("turned", i < current);
+            p.classList.toggle("current", i === current);
+            p.style.zIndex = i < current ? i + 1 : pageEls.length - i + 1;
         });
-        $("#bk-next").addEventListener("click", next);
-        $("#bk-prev").addEventListener("click", prev);
-        show();
-    })();
-
-    /* ---------- Ivy's memo ---------- */
-    $("#memo-body").innerHTML = S.ivy.body.map((p) => `<p>${esc(p)}</p>`).join("");
-    $("#memo-list").innerHTML = events.map((e) => `
-        <li>
-          <a href="#ev-${e.id}">
-            <span class="ml-date">${esc(fmt(at(e.date, e.start), { day: "2-digit", month: "short" }))}</span>
-            <span class="ml-what"><b>${esc(e.short)}</b><em>${esc(S.ivy.notes[e.id] || "")}</em></span>
-          </a>
-        </li>`).join("");
+        $$("#pg-dots i").forEach((d, i) => d.classList.toggle("on", i === current));
+        $("#pg-prev").disabled = current === 0;
+        $("#pg-next").disabled = current === pageEls.length - 1;
+        $("#book-hint").textContent = current === 0 ? "" : ST.turnHint;
+    }
+    const turn = (d) => { const n = Math.min(pageEls.length - 1, Math.max(0, current + d)); if (n !== current) { current = n; showPage(); } };
+    $("#pg-next").addEventListener("click", () => turn(1));
+    $("#pg-prev").addEventListener("click", () => turn(-1));
+    pageEls[0].addEventListener("click", () => { if (current === 0) turn(1); });
+    let sx = null;
+    book.addEventListener("pointerdown", (e) => { sx = e.clientX; });
+    book.addEventListener("pointerup", (e) => {
+        if (sx == null) return;
+        const dx = e.clientX - sx;
+        sx = null;
+        if (Math.abs(dx) > 40) turn(dx < 0 ? 1 : -1);
+    });
+    book.addEventListener("keydown", (e) => { if (e.key === "ArrowRight") turn(1); if (e.key === "ArrowLeft") turn(-1); });
+    $$(".gift", book).forEach((g) => g.addEventListener("click", (e) => {
+        e.stopPropagation();
+        g.closest(".pg-chapter").classList.add("unwrapped");
+    }));
+    showPage();
 
     /* ---------- events ---------- */
-    function decor(id) {
-        if (id === "cocktail") {
-            return `<div class="fan">${A.decoFan}</div>
-                <span class="mirror mirror-l"></span><span class="mirror mirror-r"></span>
-                <div class="bubbles">${Array.from({ length: 18 }, () => `<i style="--x:${rand(2, 98)}%;--s:${rand(3, 8)}px;--t:${rand(7, 14)}s;--dl:${rand(-14, 0)}s"></i>`).join("")}</div>`;
-        }
-        if (id === "mehndi") {
-            return `<div class="rings">${Array.from({ length: 4 }, (_, i) => `<i style="--dl:${i * -1.5}s"></i>`).join("")}</div>
-                <div class="eq">${Array.from({ length: 32 }, () => `<i style="--h:${rand(20, 100)}%;--t:${rand(0.7, 1.6)}s;--dl:${rand(-2, 0)}s"></i>`).join("")}</div>`;
-        }
-        if (id === "haldi") {
-            const blob = (fill, x, y, s, r) => `<svg class="splash" style="--x:${x}%;--y:${y}%;--s:${s};--r:${r}deg" viewBox="0 0 100 100" aria-hidden="true"><path fill="${fill}" d="M52 6 C70 4 70 24 84 26 C98 28 96 48 90 58 C84 70 96 84 80 92 C64 100 56 86 44 92 C30 98 14 90 14 76 C14 62 2 56 6 42 C10 26 26 30 32 18 C38 8 44 7 52 6 Z"/></svg>`;
-            return `<div class="sunburst"></div><span class="sun"></span>
-                ${blob("#f2c230", 8, 70, 1.3, 20)}${blob("#b9a3e3", 82, 78, 1, -30)}${blob("#e8a91e", 88, 18, 0.7, 60)}${blob("#cdb8f0", 4, 22, 0.6, 0)}
-                <div class="dots">${Array.from({ length: 26 }, (_, i) => `<i style="--x:${rand(0, 100)}%;--y:${rand(0, 100)}%;--c:${i % 2 ? "#7c5cc4" : "#e8a91e"};--s:${rand(4, 9)}px"></i>`).join("")}</div>`;
-        }
-        if (id === "wedding") {
-            return `<div class="arch">${A.arch}</div><div class="colonnade-wrap">${A.colonnade}</div>`;
-        }
-        return "";
-    }
-
     function calendar(e) {
         const { start, end } = range(e);
         const title = `${e.title} · ${S.couple.bride} & ${S.couple.groom}`;
@@ -271,10 +238,10 @@
         const passage = S.passages["to" + e.id[0].toUpperCase() + e.id.slice(1)];
         const schedule = e.schedule ? `
             <div class="schedule-wrap">
-              <p class="eyebrow rv">${esc(e.scheduleTitle)}</p>
-              <p class="schedule-hint rv">${esc(e.scheduleHint)}</p>
+              <p class="eyebrow">${esc(e.scheduleTitle)}</p>
+              <p class="schedule-hint">${esc(e.scheduleHint)}</p>
               <ol class="schedule">${e.schedule.map((s) => `
-                <li class="rv"><button type="button" aria-expanded="false">
+                <li><button type="button" aria-expanded="false">
                   <span class="s-time">${esc(s.time)}</span><span class="s-dot"></span><span class="s-name">${esc(s.name)}</span></button>
                   <p class="s-about" hidden>${esc(s.about)}</p></li>`).join("")}
               </ol>
@@ -282,25 +249,29 @@
         return `
         <div class="passage">${passage ? `<p>${esc(passage)}</p>` : ""}</div>
         <section class="event ev-${e.id}" id="ev-${e.id}" data-theme="${e.id}">
-          <div class="ev-decor" aria-hidden="true">${decor(e.id)}</div>
-          <div class="ev-inner">
-            <p class="ev-kicker rv">${esc(e.kicker)}</p>
-            <h2 class="ev-title rv">${esc(e.title)}</h2>
-            <p class="ev-tagline rv">${esc(e.tagline)}</p>
-            <div class="date-block rv">
+          <div class="ev-stage">
+            <div class="ev-art" data-art="${esc(e.art)}"></div>
+            <div class="ev-head">
+              <p class="ev-kicker rv">${esc(e.kicker)}</p>
+              <h2 class="ev-title rv">${esc(e.title)}</h2>
+              <p class="ev-tagline rv">${esc(e.tagline)}</p>
+            </div>
+          </div>
+          <div class="ev-card rv">
+            <div class="date-block">
               <span class="db-side">${esc(fmt(d, { weekday: "long" }))}</span>
               <span class="db-mid"><small>${esc(fmt(d, { month: "long" }))}</small><b>${esc(fmt(d, { day: "2-digit" }))}</b></span>
               <span class="db-side">${esc(e.timeLabel)}</span>
             </div>
-            <div class="venue rv">
+            <div class="venue">
               <p class="v-name">${esc(e.venue)}</p>
               <p class="v-addr">${esc(e.address)}</p>
             </div>
-            ${e.note ? `<p class="ev-note rv">${esc(e.note)}</p>` : ""}
-            ${e.dressCode ? `<div class="dress rv"><span class="dress-label">Dress code</span><span class="dress-text">${esc(e.dressCode)}</span>
+            ${e.note ? `<p class="ev-note">${esc(e.note)}</p>` : ""}
+            ${e.dressCode ? `<div class="dress"><span class="dress-label">Dress code</span><span class="dress-text">${esc(e.dressCode)}</span>
                 <span class="swatches">${e.swatches.map((c) => `<i style="background:${c}"></i>`).join("")}</span></div>` : ""}
             ${schedule}
-            <div class="ev-actions rv">
+            <div class="ev-actions">
               <a class="btn" href="${esc(mapsUrl(e))}" target="_blank" rel="noopener">Directions</a>
               <a class="btn" href="${esc(cal.g)}" target="_blank" rel="noopener">Google Calendar</a>
               <a class="btn" href="${cal.ics}" download="${e.id}.ics">Apple / Outlook</a>
@@ -319,6 +290,10 @@
         const t = S.passages[el.dataset.kPassage];
         if (t) el.innerHTML = `<p>${esc(t)}</p>`;
     });
+
+    // paintings and monograms, now that every slot is on the page
+    $$("[data-art]").forEach(artSlot);
+    $$("[data-monogram]").forEach(monogram);
 
     /* ---------- RSVP ---------- */
     const contact = S.contacts.people[0];
@@ -360,10 +335,9 @@
     const root = document.documentElement.style;
     const themeMeta = $('meta[name="theme-color"]');
     const flow = $$("#main > section, #main > .passage, #events > section, #events > .passage");
-    let lastBg = "";
     function applyTheme(th) {
         Object.keys(th).forEach((k) => root.setProperty("--" + k, th[k]));
-        if (th.bg !== lastBg) { themeMeta.content = th.bg; lastBg = th.bg; }
+        themeMeta.content = th.bg;
     }
     function blend() {
         const y = window.scrollY + window.innerHeight * 0.55;
@@ -384,9 +358,17 @@
         if (!ticking) { ticking = true; requestAnimationFrame(() => { blend(); ticking = false; }); }
     }, { passive: true });
     window.addEventListener("resize", blend);
-    applyTheme(THEMES.paper);
+    applyTheme(THEMES.peach);
 
-    /* ---------- envelope and music ---------- */
+    /* ---------- the door ---------- */
+    findArt("door-closed", (img) => {
+        if (!img) return;
+        $$("[data-door]").forEach((f) => {
+            f.style.backgroundImage = `url("${img.src}")`;
+            f.classList.add("painted");
+        });
+    });
+
     const audio = new Audio();
     audio.loop = true;
     audio.preload = "none";
@@ -399,26 +381,24 @@
     musicBtn.addEventListener("click", () => setMusic(audio.paused));
 
     let opened = false;
-    $("#envelope").addEventListener("click", () => {
+    $("#door").addEventListener("click", () => {
         if (opened) return;
         opened = true;
         if (S.musicUrl) { audio.src = S.musicUrl; musicBtn.hidden = false; setMusic(true); }
-        $("#envelope").classList.add("open");
-        setTimeout(() => document.body.classList.add("revealing"), 1700);
+        document.body.classList.add("door-open");
+        setTimeout(() => document.body.classList.add("ready"), 900);
         setTimeout(() => {
-            $("#envelope-screen").remove();
-            document.body.classList.remove("locked", "revealing");
-            document.body.classList.add("ready");
+            $("#door-screen").remove();
+            document.body.classList.remove("locked");
             $("#main").inert = false;
-            scratchCard();
             blend();
             if (location.hash && $(location.hash)) $(location.hash).scrollIntoView();
-        }, 2700);
+        }, 2200);
     });
 
     /* ---------- reveal on scroll ---------- */
     const io = new IntersectionObserver((list) => list.forEach((en) => {
         if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
     }), { rootMargin: "0px 0px -10% 0px" });
-    $$(".rv, .passage, .event, .memo").forEach((el) => io.observe(el));
+    $$(".rv, .passage, .event").forEach((el) => io.observe(el));
 })();
