@@ -1,0 +1,81 @@
+:root {
+  --cream: #fbf7f0;
+  --ink: #3b2f2f;
+  --gold: #b8924a;
+  --rose: #c9787f;
+  --card: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.15rem;
+  color: var(--ink);
+  background: var(--cream);
+  text-align: center;
+  line-height: 1.6;
+}
+
+h1, h2 { font-family: "Great Vibes", cursive; font-weight: 400; color: var(--rose); }
+h1 { font-size: clamp(3rem, 10vw, 5.5rem); margin: 0.2em 0; line-height: 1.1; }
+h2 { font-size: 2.6rem; margin: 0 0 0.5em; }
+h3 { margin: 0 0 0.3em; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; font-size: 1rem; }
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 16px;
+  border: 1px solid var(--gold);
+  outline: 1px solid var(--gold);
+  outline-offset: -12px;
+  background: radial-gradient(circle at top, #fff 0%, var(--cream) 70%);
+}
+.eyebrow { letter-spacing: 0.25em; text-transform: uppercase; font-size: 0.85rem; color: var(--gold); }
+.amp { color: var(--gold); }
+.date { font-size: 1.4rem; font-weight: 600; }
+
+.countdown { display: flex; gap: 1rem; margin: 1rem 0 2rem; flex-wrap: wrap; justify-content: center; }
+.countdown div { min-width: 64px; }
+.countdown span { display: block; font-size: 2rem; font-weight: 600; color: var(--gold); }
+.countdown small { text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.7rem; }
+
+.btn {
+  display: inline-block;
+  padding: 0.6em 2em;
+  border: 1px solid var(--gold);
+  background: var(--gold);
+  color: #fff;
+  font: inherit;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  border-radius: 2px;
+}
+.btn:hover { background: var(--rose); border-color: var(--rose); }
+.btn-outline { background: transparent; color: var(--gold); }
+.btn-outline:hover { color: #fff; }
+
+section { padding: 4rem 16px; max-width: 900px; margin: 0 auto; }
+.venue-name { font-weight: 600; font-size: 1.4rem; margin-bottom: 0; }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; }
+.card { background: var(--card); border: 1px solid #eadfcd; padding: 1.5rem 1rem; }
+.card p { margin: 0.2em 0; }
+
+form { display: grid; gap: 1rem; max-width: 420px; margin: 1.5rem auto 0; text-align: left; }
+label { display: grid; gap: 0.3rem; }
+input, select, textarea {
+  font: inherit;
+  padding: 0.5em;
+  border: 1px solid #d9cbb3;
+  background: #fff;
+  color: var(--ink);
+}
+form .btn { justify-self: center; }
+
+footer { padding: 2rem 16px; color: var(--gold); border-top: 1px solid #eadfcd; }
