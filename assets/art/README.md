@@ -7,8 +7,10 @@ automatically; until a file exists, a labelled placeholder shows in its place.
 |---|---|
 | `door-closed` | The front door (split in two so it can swing open) |
 | `ivy-room` | Behind the door: Ivy with the invitation |
+| `bg-invite` | Backdrop around the arched invitation card (optional) |
 | `book-cover` | Soft background behind the storybook (optional) |
 | `ch1-fixture` … `ch6-tennis` | The six storybook chapters |
 | `finale` | The last page of the storybook |
 | `ev-cocktail`, `ev-mehndi`, `ev-haldi`, `ev-wedding` | Full-screen scene for each celebration |
+| `bg-closing` | Backdrop behind the sign-off at the end (optional) |
 | `monogram` | The logo (square, transparent background works best) |
