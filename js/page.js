@@ -226,6 +226,10 @@
     ivyImg.onload = () => { ivyPic.innerHTML = ""; ivyPic.appendChild(ivyImg); ivyPic.classList.add("photo"); };
     ivyPic.innerHTML = A.ivy;
     if (S.ivy.photo) ivyImg.src = S.ivy.photo;
+    $("#ivy-gallery").innerHTML = (S.ivy.gallery || []).map((g, i) => `
+        <figure class="polaroid rv" style="--r:${[-5, 4, -3, 5][i % 4]}deg">
+          <img src="${esc(g.photo)}" alt="Ivy" loading="lazy"><figcaption>${esc(g.caption)}</figcaption>
+        </figure>`).join("");
     $("#ivy-list").innerHTML = events.map((e) => `
         <li><a href="#ev-${e.id}"><span class="paw">🐾</span><b>${esc(e.short)}</b><span>${esc(fmt(at(e.date, e.start), { day: "2-digit", month: "long", year: "numeric" }))}</span></a></li>`).join("");
 

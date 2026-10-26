@@ -132,6 +132,13 @@ window.SITE = {
         greeting: "Woof! I'm Ivy 🐾",
         text: "My hoomans Himanshi & Karan are getting married, and I've been put in charge of the invitations (I was promised treats). Please come to:",
         signoff: "Don't be late. I'll be checking.\n— Ivy, Chief Invitation Officer",
+        galleryTitle: "Ivy's portfolio",
+        gallery: [
+            { photo: "assets/photos/ivy-sunny.jpg", caption: "Dressed for the occasion" },
+            { photo: "assets/photos/ivy-chin.jpg", caption: "Accepting chin scratches" },
+            { photo: "assets/photos/ivy-ears.jpg", caption: "Ears ready for the dhol" },
+            { photo: "assets/photos/ivy-panda.jpg", caption: "My plus-one" },
+        ],
     },
 
     /* All event times are India Standard Time, wherever the guest opens it */
