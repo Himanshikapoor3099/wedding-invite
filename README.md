@@ -6,7 +6,10 @@ It's a single scrolling page that works best on a phone:
 
 envelope → blessings, names and parents → save the date (scratch card + countdown) →
 **#KaranMani-fested**, our story told as a streaming series (with the book proposal and the tennis-court proposal) →
-Ivy's invitation → Sagan & Cocktail · Mehndi · Haldi · Wedding → RSVP → families & contacts → sign-off.
+Ivy's memo → Sagan & Cocktails · Mehndi · Haldi · The Wedding → RSVP → families & contacts → sign-off.
+
+All artwork is drawn in code (`js/art.js`): no photographs are used. The page colour blends from one
+celebration's palette to the next as you scroll (`THEMES` in `js/page.js`).
 
 ## Changing any text, date, venue or photo
 
@@ -19,11 +22,10 @@ Everything lives in **`js/content.js`**. Change the value after the colon and ke
 | Events (date, time, venue, map link, dress code) | `events` |
 | Wedding-day rituals | `events.wedding.schedule` |
 | Story episodes, the book's pages | `story` |
-| Ivy's message | `ivy` |
+| Ivy's memo | `ivy` |
+| Lines between sections | `passages` |
 | RSVP | `rsvp` |
 | Contacts | `contacts` |
-
-**Photos** are in `assets/photos/`. To add Ivy's photo, save a square-ish photo as `assets/photos/ivy.jpg`. It replaces the drawing automatically.
 
 **Music** is `assets/audio/music.mp3`. Replace that file to change the song.
 
@@ -35,7 +37,7 @@ The link itself carries the details, so you can also write them by hand:
 
 | Add to the link | What it does |
 |---|---|
-| `?to=Sharma%20Family` | Envelope says "Dear Sharma Family" |
+| `?to=Sharma%20Family` | Envelope says "Dear Sharma Family", and Ivy's memo is addressed to them |
 | `?side=groom` | Karan's name and family first; RSVP goes to the groom's family |
 | `?events=haldi,wedding` | Shows only those events (`cocktail`, `mehndi`, `haldi`, `wedding`) |
 

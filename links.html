@@ -87,7 +87,7 @@
     if (!names.length) { out.innerHTML = '<li class="empty">Type a name above.</li>'; return; }
     out.innerHTML = names.map((n) => {
       const url = link(n);
-      const msg = `Dear ${n},\n\nWith joy in our hearts, we invite you to celebrate the wedding of ${S.couple.bride} & ${S.couple.groom} 💌\n\nOpen your invitation: ${url}\n\n${S.couple.hashtag}`;
+      const msg = `Dear ${n},\n\nWith joy in our hearts, we invite you to celebrate the wedding of ${S.couple.bride} & ${S.couple.groom}.\n\nOpen your invitation: ${url}\n\n${S.couple.hashtag}`;
       return `<li><b>${esc(n)}</b><code>${esc(url)}</code>
         <span class="btns"><button type="button" data-url="${esc(url)}">Copy link</button>
         <a class="wa" target="_blank" rel="noopener" href="https://wa.me/?text=${encodeURIComponent(msg)}">Send on WhatsApp</a></span></li>`;

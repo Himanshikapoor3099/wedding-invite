@@ -4,87 +4,87 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="color-scheme" content="only light">
-  <meta name="theme-color" content="#f6ecdc">
+  <meta name="theme-color" content="#f4ede1">
   <title>Himanshi &amp; Karan · Wedding Invitation</title>
-  <meta name="description" content="Sagan &amp; Cocktail, Mehndi, Haldi and Wedding · 28 Nov – 01 Dec 2026 · New Delhi · #KaranMani-fested">
+  <meta name="description" content="Sagan &amp; Cocktails, Mehndi, Haldi and the Wedding · 28 Nov — 01 Dec 2026 · New Delhi · #KaranMani-fested">
 
-  <!-- What WhatsApp / Instagram show when the link is shared. These must be
-       full addresses of the live site. -->
+  <!-- What WhatsApp / Instagram show when the link is shared -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Himanshi &amp; Karan">
   <meta property="og:title" content="Himanshi &amp; Karan · Wedding Invitation">
-  <meta property="og:description" content="You're invited! 28 Nov – 01 Dec 2026 · New Delhi · #KaranMani-fested">
+  <meta property="og:description" content="You're invited. 28 Nov — 01 Dec 2026 · New Delhi · #KaranMani-fested">
   <meta property="og:url" content="https://himanshikapoor3099.github.io/wedding-invite/">
-  <meta property="og:image" content="https://himanshikapoor3099.github.io/wedding-invite/assets/share.jpg">
+  <meta property="og:image" content="https://himanshikapoor3099.github.io/wedding-invite/assets/share.jpg?v=3">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
 
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💌</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='50' fill='%239b111e'/><text x='50' y='66' font-size='44' text-anchor='middle' fill='%23f3d9a0' font-family='Georgia'>HK</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@500;700&family=Cinzel:wght@400;600&family=Italianno&family=Jost:wght@300;400;500;600&family=Noto+Serif+Devanagari:wght@500&family=Noto+Serif+Gurmukhi:wght@500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css?v=2">
-  <script src="js/content.js?v=2"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Courier+Prime:ital@0;1&family=Manrope:wght@400;500;600&family=Noto+Serif+Devanagari:wght@500&family=Noto+Serif+Gurmukhi:wght@500&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css?v=3">
+  <script src="js/content.js?v=3"></script>
 </head>
 <body class="locked">
 
-  <!-- ============ 1. ENVELOPE ============ -->
+  <!-- ============ ENVELOPE ============ -->
   <div id="envelope-screen">
-    <div class="env-petals" id="env-petals" aria-hidden="true"></div>
+    <p class="env-pretext" data-k="envelope.pretext"></p>
     <button class="env" id="envelope" aria-label="Open the invitation">
       <span class="env-back"></span>
-      <span class="env-card"><span class="monogram" data-monogram></span></span>
+      <span class="env-card"><span data-monogram="cherry"></span></span>
       <span class="env-front"></span>
-      <span class="env-flap"><span class="env-seal" data-initials></span></span>
+      <span class="env-flap"></span>
+      <span class="env-seal"><span data-monogram="seal"></span></span>
     </button>
-    <p class="env-pretext" data-k="envelope.pretext"></p>
-    <p class="env-names"><span data-k="couple.bride"></span> <i>&amp;</i> <span data-k="couple.groom"></span></p>
+    <p class="env-names" id="env-names"></p>
     <p class="env-hint" data-k="envelope.hint"></p>
   </div>
 
   <main id="main" inert>
 
-    <!-- ============ 2. OPENING ============ -->
-    <section class="hero" id="top">
-      <div class="toran" aria-hidden="true"></div>
+    <!-- ============ OPENING ============ -->
+    <section class="hero" data-theme="paper">
+      <div class="frame" aria-hidden="true"></div>
       <div class="blessings" id="blessings"></div>
       <p class="hero-invite rv" data-k="hero.invite"></p>
       <h1 class="couple" id="couple"></h1>
-      <div class="hero-mono rv"><span class="monogram" data-monogram></span></div>
-      <p class="hashtag rv" data-k="couple.hashtag"></p>
+      <div class="hero-mono rv"><span data-monogram="gold"></span></div>
+      <p class="motto rv" data-k="hero.motto"></p>
     </section>
 
-    <!-- ============ 3. SAVE THE DATE ============ -->
-    <section class="dates" id="dates">
+    <section class="dates" data-theme="paper">
       <p class="eyebrow rv" data-k="saveTheDate.label"></p>
       <div class="scratch rv" id="scratch">
         <p class="scratch-dates" id="scratch-dates"></p>
         <canvas id="scratch-foil" aria-label="Scratch to reveal the dates" role="button" tabindex="0"></canvas>
       </div>
       <div class="countdown rv" id="countdown">
-        <div class="cd"><b data-u="d">00</b><small>Days</small></div>
-        <div class="cd"><b data-u="h">00</b><small>Hours</small></div>
-        <div class="cd"><b data-u="m">00</b><small>Minutes</small></div>
-        <div class="cd"><b data-u="s">00</b><small>Seconds</small></div>
+        <div class="cd"><b data-u="d">00</b><small>days</small></div>
+        <div class="cd"><b data-u="h">00</b><small>hours</small></div>
+        <div class="cd"><b data-u="m">00</b><small>minutes</small></div>
+        <div class="cd"><b data-u="s">00</b><small>seconds</small></div>
       </div>
       <p class="cd-label rv" id="cd-label"></p>
     </section>
 
-    <!-- ============ 4. OUR STORY (streaming series) ============ -->
-    <section class="story" id="story">
+    <div class="passage" data-k-passage="toStory"></div>
+
+    <!-- ============ OUR STORY ============ -->
+    <section class="story" id="story" data-theme="screen">
       <div class="story-hero">
-        <img class="story-poster" data-src="story.poster" alt="Himanshi and Karan by the sea">
+        <div class="story-poster" data-art="poster"></div>
         <div class="story-hero-text">
-          <p class="story-label"><span class="story-k">K</span><span data-k="story.label"></span></p>
+          <p class="story-label"><span class="story-k">HK</span><span data-k="story.label"></span></p>
           <h2 class="story-title" data-k="story.title"></h2>
           <p class="story-top10"><span>TOP<br>10</span><em data-k="story.top10"></em></p>
           <p class="story-meta" id="story-meta"></p>
           <p class="story-logline" data-k="story.logline"></p>
           <p class="story-genres" data-k="story.genres"></p>
           <div class="story-btns">
-            <a class="sbtn sbtn-play" href="#episodes">▶ <span data-k="story.playLabel"></span></a>
-            <a class="sbtn sbtn-more" href="#rsvp">＋ RSVP</a>
+            <a class="sbtn sbtn-play" href="#episodes"><svg viewBox="0 0 12 14" aria-hidden="true"><path d="M0 0 L12 7 L0 14Z" fill="currentColor"/></svg><span data-k="story.playLabel"></span></a>
+            <a class="sbtn sbtn-more" href="#rsvp">RSVP</a>
           </div>
         </div>
       </div>
@@ -96,67 +96,67 @@
       </div>
     </section>
 
-    <!-- ============ 5. IVY'S INVITATION ============ -->
-    <section class="ivy" id="ivy">
-      <p class="eyebrow rv" data-k="ivy.label"></p>
-      <div class="ivy-wrap">
-        <div class="ivy-pic rv" id="ivy-pic"></div>
-        <div class="ivy-bubble rv">
-          <p class="ivy-hello" data-k="ivy.greeting"></p>
-          <p data-k="ivy.text"></p>
-          <ul class="ivy-list" id="ivy-list"></ul>
-          <p class="ivy-sign" data-k="ivy.signoff"></p>
+    <div class="passage" data-k-passage="toIvy"></div>
+
+    <!-- ============ IVY'S MEMO ============ -->
+    <section class="ivy" id="ivy" data-theme="memo">
+      <article class="memo rv" id="memo">
+        <div class="memo-photo" data-art="ivy"></div>
+        <p class="memo-kicker" data-k="ivy.label"></p>
+        <h2 class="memo-title">Memo</h2>
+        <dl class="memo-fields">
+          <dt>From</dt><dd data-k="ivy.from"></dd>
+          <dt>To</dt><dd data-k="ivy.to"></dd>
+          <dt>Re</dt><dd data-k="ivy.re"></dd>
+        </dl>
+        <div class="memo-body" id="memo-body"></div>
+        <ol class="memo-list" id="memo-list"></ol>
+        <div class="memo-sign">
+          <p data-k="ivy.signoff"></p>
+          <p class="memo-signature" data-k="ivy.name"></p>
+          <p class="memo-role" data-k="ivy.title"></p>
         </div>
-      </div>
-      <p class="ivy-gallery-title rv" data-k="ivy.galleryTitle"></p>
-      <div class="ivy-gallery" id="ivy-gallery"></div>
+        <span class="stamp" data-k="ivy.stamp"></span>
+      </article>
     </section>
 
-    <!-- ============ 6. EVENTS (built from js/content.js) ============ -->
+    <!-- ============ EVENTS (built from js/content.js) ============ -->
     <div id="events"></div>
 
-    <section class="note-sec">
-      <p class="guest-note rv" data-k="guestNote"></p>
-    </section>
+    <div class="passage" data-k-passage="toRsvp"></div>
 
-    <!-- ============ 7. RSVP ============ -->
-    <section class="rsvp" id="rsvp">
-      <p class="eyebrow rv">RSVP</p>
+    <!-- ============ RSVP, FAMILIES, SIGN-OFF ============ -->
+    <section class="rsvp" id="rsvp" data-theme="paper">
       <h2 class="rv" data-k="rsvp.title"></h2>
       <p class="rv" data-k="rsvp.text"></p>
       <a class="btn btn-solid rv" id="rsvp-btn" target="_blank" rel="noopener" data-k="rsvp.button"></a>
       <p class="rsvp-by rv" data-k="rsvp.by"></p>
     </section>
 
-    <!-- ============ 8. FAMILIES & CONTACTS ============ -->
-    <section class="family" id="family">
+    <section class="family" data-theme="paper">
       <p class="eyebrow rv" data-k="family.label"></p>
-      <h2 class="rv" data-k="family.title"></h2>
       <div class="family-sides" id="family-sides"></div>
       <div class="contacts rv">
         <p class="eyebrow" data-k="contacts.title"></p>
         <ul id="contact-list"></ul>
       </div>
-      <div class="closing-actions rv">
-        <button class="btn" id="share-btn" type="button">Share the invitation</button>
-      </div>
     </section>
 
-    <!-- ============ 9. SIGN-OFF ============ -->
-    <section class="closing">
-      <div class="toran toran-bottom" aria-hidden="true"></div>
+    <section class="closing" data-theme="paper">
+      <div class="closing-mono rv"><span data-monogram="gold"></span></div>
       <p class="signoff rv" data-k="closing.signoff"></p>
       <p class="signoff-fam rv" data-k="closing.families"></p>
-      <p class="signoff-names rv"><span data-k="couple.bride"></span> &amp; <span data-k="couple.groom"></span></p>
+      <p class="signoff-line rv" data-k="closing.line"></p>
       <p class="hashtag rv" data-k="couple.hashtag"></p>
+      <button class="btn rv" id="share-btn" type="button">Share the invitation</button>
     </section>
   </main>
 
   <button class="music" id="music" type="button" aria-label="Pause music" hidden>
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/><path class="slash" d="M3 3l18 18"/></svg>
+    <span></span><span></span><span></span><span></span>
   </button>
 
-  <script src="js/art.js?v=2"></script>
-  <script src="js/page.js?v=2"></script>
+  <script src="js/art.js?v=3"></script>
+  <script src="js/page.js?v=3"></script>
 </body>
 </html>

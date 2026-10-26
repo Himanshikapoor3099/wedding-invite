@@ -1,9 +1,8 @@
 /* ==========================================================================
-   SITE CONTENT: every name, date, line of text, link and photo.
+   SITE CONTENT: every name, date, line of text and link.
    Edit the values on the right of each colon and keep the quotes and commas.
      • Leave a text as "" to hide it.
      • Use \n inside a text to start a new line.
-   After an edit, refresh the page.
    ========================================================================== */
 window.SITE = {
 
@@ -16,132 +15,150 @@ window.SITE = {
         hashtag: "#KaranMani-fested",
     },
 
-    /* ---------- Envelope (first screen) --------------------------------- */
     envelope: {
-        pretext: "You are invited to the wedding of",
-        hint: "Tap the envelope to open",
+        pretext: "Together with their families",
+        hint: "Break the seal",
     },
 
-    /* ---------- Opening: blessings, names and parents ------------------- */
     hero: {
         blessings: [
             { symbol: "ॐ", line: "॥ श्री गणेशाय नमः ॥", lang: "hi" },
             { symbol: "ੴ", line: "॥ ਵਾਹਿਗੁਰੂ ॥", lang: "pa" },
         ],
-        invite: "With the blessings of the Almighty and our elders,\nwe joyfully invite you to celebrate the wedding of",
-        brideParents: "D/O Mrs. Pramila & Mr. Gulshan Kapoor\nand Mrs. Chanchal & Mr. Praveen Kapoor",
-        groomParents: "S/O Mrs. Meenu & Mr. Gulshan Sachdeva",
+        invite: "With the blessings of our families,\nwe request the pleasure of your company\nat the marriage of",
+        brideParents: "Daughter of Mrs. Pramila & Mr. Gulshan Kapoor\nand Mrs. Chanchal & Mr. Praveen Kapoor",
+        groomParents: "Son of Mrs. Meenu & Mr. Gulshan Sachdeva",
+        motto: "Poles apart. Perfectly matched.",
     },
 
-    /* ---------- Save the date ------------------------------------------- */
     saveTheDate: {
-        label: "Save the Dates",
-        dates: "28 Nov – 01 Dec 2026",
-        scratch: "Scratch to reveal",
+        label: "Save the dates",
+        dates: "28 Nov — 01 Dec\n2026 · New Delhi",
+        scratch: "Scratch gently",
         countdownTo: "wedding",
-        countdownLabel: "until we say “I do”",
-        during: "The celebrations have begun!",
-        after: "Thank you for celebrating with us",
+        countdownLabel: "until forever, officially",
+        during: "The celebrations are underway.",
+        after: "Thank you for celebrating with us.",
+    },
+
+    /* The lines shown between sections while the colours change */
+    passages: {
+        toStory: "Before the wedding, a little backstory.",
+        toIvy: "A word from the one who really runs the house.",
+        toCocktail: "Night one. Dress to dazzle.",
+        toMehndi: "Night two. Turn the volume up.",
+        toHaldi: "Morning three. Things are about to get yellow.",
+        toWedding: "And then, the main event.",
+        toRsvp: "Now, the only question that matters.",
     },
 
     /* ---------- Our story, as a streaming series ------------------------ */
     story: {
-        label: "H&K Originals",
+        label: "An H&K Original",
         title: "KaranMani-fested",
-        meta: ["98% Match", "2026", "U/A ∞", "6 Episodes", "HD"],
-        top10: "#1 in Love Stories Today",
-        logline: "She scheduled his matches. He scheduled their first date. Two people who are opposites in almost every way find out that, somehow, they just fit.",
-        genres: "Romantic · Feel-good · Opposites Attract",
-        poster: "assets/photos/beach.jpg",
+        meta: ["98% match", "2026", "U/A ∞", "6 episodes"],
+        top10: "No. 1 in Love Stories today",
+        logline: "She scheduled his matches. He scheduled everything after. A series about two people who disagree on almost everything, except each other.",
+        genres: "Romance · Comedy · Opposites attract",
         playLabel: "Play",
         episodesLabel: "Episodes",
         episodes: [
             {
                 title: "The Fixture",
-                art: "football",
-                text: "He was playing in a football tournament. She was hosting it through Reliance Foundation Youth Sports. Every message she sent him was a match schedule… until one day, it wasn't.",
+                art: "fixture",
+                text: "Every love story needs a meet-cute. Ours came with a match schedule. She was running a Reliance Foundation Youth Sports tournament; he was a name on her player list. The messages were strictly business, until, quietly, they weren't.",
             },
             {
                 title: "Pickup at Naraina Metro",
-                image: "assets/photos/car-selfie.jpg",
-                text: "He finally asked to meet. The first date began with an i10 pulling up at Naraina Metro, and a conversation that has never really ended.",
+                art: "metro",
+                text: "He asked her out. She said yes. A trusty i10 pulled up at Naraina Metro, and somewhere between the station and the first stop, a conversation began that neither of them has managed to finish since.",
             },
             {
-                title: "The Food Trail",
-                image: "assets/photos/night-out.jpg",
-                text: "Many more meetings followed, most of them around a table. They ate their way across Delhi, one favourite restaurant at a time.",
+                title: "The Tasting Menu",
+                art: "table",
+                text: "What followed was a thorough investigation of Delhi's finest tables. Research, they called it. Everyone else called it dating.",
                 extra: "food",
             },
             {
                 title: "Poles Apart",
-                image: "assets/photos/beach.jpg",
-                text: "Different in almost every way. Somehow, it just works.",
+                art: "poles",
+                text: "On paper, a mismatch. In person, a perfect fit.",
                 extra: "opposites",
             },
             {
-                title: "The Book",
+                title: "Plot Twist",
                 art: "book",
-                text: "He loves surprises, and his most memorable one came between the pages of a book. Tap the book to read it.",
+                text: "He has a weakness for surprises, and he saved his best one for a book: written for her, with a final page that asked the only question that mattered. Turn the pages yourself.",
                 extra: "book",
             },
             {
                 title: "Game, Set, Match",
-                image: "assets/photos/tennis-proposal-wide.jpg",
-                text: "Then she turned the tables. On a tennis court, down on one knee, with tennis balls that asked the question for her.",
+                art: "tennis",
+                text: "Never one to be outdone, she returned the serve. On a tennis court, on one knee, with a row of tennis balls doing the talking.",
                 extra: "tennis",
             },
         ],
-        restaurants: ["Galaxy", "Moets", "Burma Burma", "Yum Yum Cha"],
+        restaurants: [
+            { name: "Yum Yum Cha", note: "for the dumplings" },
+            { name: "Burma Burma", note: "for the long dinners" },
+            { name: "Galaxy", note: "for the late nights" },
+            { name: "Moet's", note: "for the regulars' table" },
+        ],
         opposites: {
-            her: "Himanshi",
-            him: "Karan",
+            her: "Her",
+            him: "Him",
             rows: [
-                ["🍵", "Tea", "Coffee", "☕"],
-                ["🏔️", "Mountains", "Beaches", "🏖️"],
-                ["🌌", "Night skies", "Evening skies", "🌇"],
-                ["📚", "Books", "Sports", "⚽"],
+                ["Tea, strong", "Coffee, black"],
+                ["Mountains", "Beaches"],
+                ["Night skies", "Evening skies"],
+                ["A good book", "A good match"],
             ],
-            commonLabel: "…but both love",
-            common: ["🥟 Momos", "🚗 Long drives", "✈️ Travel", "❤️ Each other"],
+            commonLabel: "Common ground",
+            common: ["Momos", "Long drives", "New places", "Each other"],
         },
-        // The book he gave her: a cover, then pages, ending with the question
         book: {
             cover: "Us",
-            coverBy: "a story by Karan",
+            coverBy: "A love story · by Karan",
             pages: [
-                "For Himanshi —\nthe girl who sent the best match schedules.",
-                "Chapter 1\n\nA football tournament, a few messages, and a pickup from Naraina Metro.",
-                "Chapter 2\n\nTea & coffee.\nMountains & beaches.\nNight skies & evening skies.\n\nSomehow, we fit.",
-                "Chapter 3\n\nEvery plate of momos, every long drive, every trip — better with you.",
-                "The last chapter isn't written yet.\n\nI was hoping we could write it together…",
-                "Will you marry me?",
+                "For Himanshi,\nwho sent the best match schedules\nI have ever received.",
+                "Chapter One\n\nIn which a tournament becomes an excuse, and the excuse becomes a first date.",
+                "Chapter Two\n\nTea and coffee.\nMountains and beaches.\nStarlight and sunsets.\n\nWe never did agree on much.",
+                "Chapter Three\n\nExcept, it turns out, on momos, long drives and each other.",
+                "The rest of this book is blank.\n\nI was hoping we could write it together…",
+                "Will you\nmarry me?",
             ],
-            hint: "Tap the book to turn the page",
+            answer: "She said yes.",
+            hint: "Tap to turn the page",
         },
-        tennisPhoto: "assets/photos/tennis-proposal.jpg",
         tennisBalls: "WILL YOU MARRY ME?",
-        finale: "And that's how our story went from scheduling matches\nto planning our marriage together.",
-        nextSeason: "Season 2 · Happily Ever After · Premieres 01.12.2026",
+        tennisAnswer: "He said yes, too.",
+        finale: "From fixing match schedules\nto fixing a wedding date.",
+        nextSeason: "Season Two premieres 01 December 2026",
     },
 
-    /* ---------- Ivy invites you ----------------------------------------- */
+    /* ---------- Ivy's memo ---------------------------------------------- */
     ivy: {
-        label: "A message from Ivy",
-        // Put a photo of Ivy at this path to replace the drawing
-        photo: "assets/photos/ivy.jpg",
-        greeting: "Woof! I'm Ivy 🐾",
-        text: "My hoomans Himanshi & Karan are getting married, and I've been put in charge of the invitations (I was promised treats). Please come to:",
-        signoff: "Don't be late. I'll be checking.\n— Ivy, Chief Invitation Officer",
-        galleryTitle: "Ivy's portfolio",
-        gallery: [
-            { photo: "assets/photos/ivy-sunny.jpg", caption: "Dressed for the occasion" },
-            { photo: "assets/photos/ivy-chin.jpg", caption: "Accepting chin scratches" },
-            { photo: "assets/photos/ivy-ears.jpg", caption: "Ears ready for the dhol" },
-            { photo: "assets/photos/ivy-panda.jpg", caption: "My plus-one" },
+        label: "Inter-office memo",
+        from: "Ivy, Head of Household Security & Chief Snack Inspector",
+        to: "You, specifically",
+        re: "The wedding of my two favourite humans",
+        body: [
+            "I have been informed that my humans are getting married. I was not consulted. I approve anyway.",
+            "They have put me in charge of invitations, presumably because I am the most organised member of the household and the only one who has never been late for dinner.",
+            "Your attendance is requested as follows:",
         ],
+        notes: {
+            cocktail: "Wear something that catches the light. I will be judging.",
+            mehndi: "There will be dancing. I have been practising.",
+            haldi: "Things will get yellow. I have been asked not to roll in it.",
+            wedding: "The big one. Bring tissues. Treats also accepted.",
+        },
+        signoff: "With paws and regards,",
+        name: "Ivy",
+        title: "Very Good Girl, ret'd.",
+        stamp: "Approved",
     },
 
-    /* All event times are India Standard Time, wherever the guest opens it */
     timeZone: { offset: "+05:30", name: "Asia/Kolkata" },
 
     /* ---------- The events, in order -------------------------------------
@@ -149,116 +166,110 @@ window.SITE = {
        start means after midnight). mapUrl opens the venue in Google Maps. */
     events: {
         cocktail: {
-            short: "Sagan & Cocktail",
-            title: "Sagan & Cocktail Night",
-            tagline: "A Little Shagun, A Lot of Sparkle",
+            kicker: "Night one",
+            short: "Sagan & Cocktails",
+            title: "Sagan & Cocktails",
+            tagline: "A little shagun, a lot of sparkle.",
             date: "2026-11-28", start: "19:00", end: "23:30",
-            timeLabel: "7:00 PM onwards",
+            timeLabel: "7 pm onwards",
             venue: "ClubXO",
-            address: "Site 2, Shivaji Place, Shivaji Enclave, Raja Garden, New Delhi, Delhi – 110027",
+            address: "Site 2, Shivaji Place, Shivaji Enclave, Raja Garden, New Delhi 110027",
             mapUrl: "https://share.google/Hy4zNm8MEn87sH9yP",
-            dressCode: "Black & Gold, or Black & Silver. Bring the bling!",
+            dressCode: "Black with a flash of gold or silver",
             swatches: ["#0b0b0b", "#d4af37", "#c9ccd1"],
-            note: "Dance floor's open, disco balls are spinning. Come ready to sparkle.",
+            note: "Blessings first, then the bar opens and the dance floor takes over. The shinier, the better.",
         },
         mehndi: {
-            short: "Mehndi",
+            kicker: "Night two",
+            short: "Mehndi, Music & Masti",
             title: "Mehndi, Music & Masti",
-            tagline: "A Little Mehndi, A Lot of Masti",
+            tagline: "A little mehndi, a lot of masti.",
             date: "2026-11-29", start: "20:00", end: "23:59",
-            timeLabel: "8:00 PM onwards",
+            timeLabel: "8 pm onwards",
             venue: "Chatoreee Restaurant",
-            address: "Shop No. 7, AU Block, Ranikhet, Pitampura, Delhi – 110034",
+            address: "Shop No. 7, AU Block, Ranikhet, Pitampura, Delhi 110034",
             mapUrl: "",
             dressCode: "",
             swatches: [],
-            note: "Henna on the hands, music in the air and plenty of masti.",
+            note: "Henna on the hands, a playlist with no skip button, and an open invitation to dance like nobody's filming. Somebody will be.",
         },
         haldi: {
+            kicker: "Morning three",
             short: "Haldi",
-            title: "Haldi Ceremony",
-            kicker: "Let's Get Haldi-y!",
-            tagline: "A Little Haldi, A Lot of Hungama",
+            title: "Haldi",
+            tagline: "A little haldi, a lot of hungama.",
             date: "2026-11-30", start: "11:00", end: "15:00",
-            timeLabel: "11:00 AM onwards",
+            timeLabel: "11 am onwards",
             venue: "Pankh Punjabi Bagh Club",
-            address: "Ring Road, near Mahanvir Nursing Home, West Punjabi Bagh, Punjabi Bagh, New Delhi, Delhi – 110026",
+            address: "Ring Road, near Mahanvir Nursing Home, West Punjabi Bagh, Punjabi Bagh, New Delhi 110026",
             mapUrl: "https://share.google/j9eCTfdyrUy5IeD31",
-            dressCode: "Lavender & Yellow",
+            dressCode: "Lavender and yellow",
             swatches: ["#b9a3e3", "#f6cf3e"],
-            note: "Wear something you don't mind getting a little yellow!",
+            note: "Wear nothing you'd miss. Turmeric has a long memory.",
         },
         wedding: {
-            short: "Wedding",
-            title: "Wedding Ceremony",
-            kicker: "The Big Fat I Do",
-            tagline: "A Little Teary-Eyed, A Lot of Happily Ever After",
+            kicker: "The big day",
+            short: "The Wedding",
+            title: "The Wedding",
+            tagline: "A little teary-eyed, a lot of happily ever after.",
             date: "2026-12-01", start: "11:00", end: "16:00",
-            timeLabel: "11:00 AM – 4:00 PM",
+            timeLabel: "11 am — 4 pm",
             venue: "Ambria Pushpanjali",
-            address: "F-20, Dwarka Link Road, Samalka, New Delhi, Delhi – 110061",
+            address: "F-20, Dwarka Link Road, Samalka, New Delhi 110061",
             mapUrl: "https://share.google/MnzBjltmZXg6iUMne",
-            dressCode: "Beige & Cherry Red",
+            dressCode: "Beige and cherry red",
             swatches: ["#e8d8bf", "#9b111e"],
-            note: "",
-            scheduleTitle: "The Day",
-            scheduleHint: "Tap a ritual to know more",
+            note: "Come early. The baraat waits for no one.",
+            scheduleTitle: "Order of the day",
+            scheduleHint: "Tap a ritual to learn more",
             schedule: [
-                { time: "09:00 AM", name: "Sehrabandi & Ghodi Chadhi", about: "The sehra is tied on the groom by his family, and he mounts the ghodi for the journey ahead." },
-                { time: "10:00 AM", name: "Baraat", about: "The groom arrives with family and friends in a joyful procession of dhol, music and dancing." },
-                { time: "11:00 AM", name: "Milni", about: "The elders of both families meet and embrace. Two families become one." },
-                { time: "12:00 PM", name: "Varmala", about: "The bride and groom exchange garlands, choosing each other in front of everyone they love." },
-                { time: "01:00 PM", name: "Phere", about: "The couple walk around the sacred fire, taking a vow with every round." },
-                { time: "02:00 PM", name: "Lunch", about: "Good food, laughter and celebration, all together." },
-                { time: "04:00 PM", name: "Vidai", about: "A tender farewell as the bride leaves her parents' home, showered with blessings for her new life." },
+                { time: "9:00", name: "Sehrabandi & Ghodi Chadhi", about: "The groom's family ties on his sehra, and he mounts the ghodi for the journey ahead." },
+                { time: "10:00", name: "Baraat", about: "The groom arrives with family and friends in a procession of dhol, dancing and no small amount of noise." },
+                { time: "11:00", name: "Milni", about: "The elders of both families meet and embrace. Two families become one." },
+                { time: "12:00", name: "Varmala", about: "Garlands are exchanged, and the bride and groom choose each other in front of everyone they love." },
+                { time: "1:00", name: "Phere", about: "Around the sacred fire, the couple take their vows, one round at a time." },
+                { time: "2:00", name: "Lunch", about: "A long table, good food and everyone together." },
+                { time: "4:00", name: "Vidai", about: "A tender farewell as the bride leaves her parents' home, carried by everyone's blessings." },
             ],
         },
     },
 
-    /* A note to every guest (shown after the events) */
-    guestNote: "Four days, two families, one big celebration. Your presence is the only gift we need. Just bring your blessings, your dancing shoes and a big appetite!",
-
-    /* ---------- RSVP -----------------------------------------------------
-       formUrl: the Google Form's link (Send → link). Until it is set, the
-       button opens WhatsApp to the contact for the guest's side instead.
-       nameEntry: optional prefill id, e.g. "entry.123456789" (see README). */
     rsvp: {
-        title: "Will you join us?",
-        text: "Let us know how many of you are coming and which celebrations you'll attend.",
-        by: "Kindly respond by 10 November 2026",
-        button: "RSVP now",
+        title: "Kindly reply",
+        text: "The guest list is long; the dance floor is longer. Let us know you're coming, and to which celebrations.",
+        by: "Kindly reply by 10 November 2026",
+        button: "RSVP",
         formUrl: "",
         nameEntry: "",
     },
 
-    /* ---------- Families and contacts ----------------------------------- */
     family: {
-        label: "Swagatakankshi",
-        title: "Our Families",
+        label: "Hosted with love by",
         sides: [
-            { side: "bride", title: "Bride's Side", family: "The Kapoor Family", names: [] },
-            { side: "groom", title: "Groom's Side", family: "The Sachdeva Family", names: [] },
+            { side: "bride", title: "The bride's family", family: "The Kapoors", names: [] },
+            { side: "groom", title: "The groom's family", family: "The Sachdevas", names: [] },
         ],
     },
     contacts: {
-        title: "For any help, reach out to",
+        title: "Questions? Call us",
         people: [
-            { side: "bride", name: "Urvashi Kapoor", role: "Bride's side", phone: "+91 92107 08587" },
-            { side: "groom", name: "Gulshan Sachdeva", role: "Groom's father", phone: "+91 98111 38797" },
+            { side: "bride", name: "Urvashi Kapoor", role: "The bride's family", phone: "+91 92107 08587" },
+            { side: "groom", name: "Gulshan Sachdeva", role: "The groom's father", phone: "+91 98111 38797" },
         ],
     },
 
     closing: {
-        signoff: "With love",
-        families: "The Kapoor & Sachdeva Families",
+        signoff: "With love,",
+        families: "The Kapoor & Sachdeva families",
+        line: "See you on the dance floor.",
     },
 
-    shareText: "You're invited to the wedding of Himanshi & Karan · 28 Nov – 01 Dec 2026, New Delhi",
+    shareText: "You're invited to the wedding of Himanshi & Karan · 28 Nov — 01 Dec 2026 · New Delhi",
     musicUrl: "assets/audio/music.mp3",
 };
 
 /* ---------- Changes made by the link --------------------------------------
-   ?to=Sharma%20Family      → "Dear Sharma Family" on the envelope
+   ?to=Sharma%20Family      → "Dear Sharma Family" on the envelope and in Ivy's memo
    ?side=groom              → groom's name and family first, groom's contact for RSVP
    ?events=haldi,wedding    → only those celebrations
    (links.html makes these links for you) */
@@ -268,13 +279,16 @@ window.SITE = {
 
     const to = (q.get("to") || "").trim().slice(0, 60);
     S.guest = to;
-    if (to) S.envelope.pretext = "Dear " + to + ",\nyou are invited to the wedding of";
+    if (to) {
+        S.envelope.pretext = "Dear " + to;
+        S.ivy.to = to;
+    }
 
     S.groomFirst = q.get("side") === "groom";
     if (S.groomFirst) {
         S.family.sides.reverse();
         S.contacts.people.reverse();
-        S.closing.families = "The Sachdeva & Kapoor Families";
+        S.closing.families = "The Sachdeva & Kapoor families";
     }
 
     const only = (q.get("events") || "").split(",").map((s) => s.trim()).filter((s) => S.events[s]);
