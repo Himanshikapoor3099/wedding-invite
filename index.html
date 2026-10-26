@@ -2,65 +2,159 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Wedding Invitation</title>
-  <meta name="description" content="You're invited to celebrate our wedding">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="only light">
+  <meta name="theme-color" content="#f6ecdc">
+  <title>Himanshi &amp; Karan · Wedding Invitation</title>
+  <meta name="description" content="Sagan &amp; Cocktail, Mehndi, Haldi and Wedding · 28 Nov – 01 Dec 2026 · New Delhi · #KaranMani-fested">
+
+  <!-- What WhatsApp / Instagram show when the link is shared. These must be
+       full addresses of the live site. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Himanshi &amp; Karan">
+  <meta property="og:title" content="Himanshi &amp; Karan · Wedding Invitation">
+  <meta property="og:description" content="You're invited! 28 Nov – 01 Dec 2026 · New Delhi · #KaranMani-fested">
+  <meta property="og:url" content="https://himanshikapoor3099.github.io/wedding-invite/">
+  <meta property="og:image" content="https://himanshikapoor3099.github.io/wedding-invite/assets/share.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💌</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@500;700&family=Cinzel:wght@400;600&family=Italianno&family=Jost:wght@300;400;500;600&family=Noto+Serif+Devanagari:wght@500&family=Noto+Serif+Gurmukhi:wght@500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css?v=1">
+  <script src="js/content.js?v=1"></script>
 </head>
-<body>
-  <header class="hero">
-    <p class="eyebrow">Together with their families</p>
-    <h1><span data-field="bride">Bride</span> <span class="amp">&amp;</span> <span data-field="groom">Groom</span></h1>
-    <p class="lead">request the pleasure of your company<br>at the celebration of their marriage</p>
-    <p class="date" data-field="dateText"></p>
-    <div class="countdown" id="countdown" aria-live="polite"></div>
-    <a class="btn" href="#rsvp">RSVP</a>
-  </header>
+<body class="locked">
 
-  <main>
-    <section class="story">
-      <h2>Our Story</h2>
-      <p data-field="story"></p>
+  <!-- ============ 1. ENVELOPE ============ -->
+  <div id="envelope-screen">
+    <div class="env-petals" id="env-petals" aria-hidden="true"></div>
+    <button class="env" id="envelope" aria-label="Open the invitation">
+      <span class="env-back"></span>
+      <span class="env-card"><span class="monogram" data-monogram></span></span>
+      <span class="env-front"></span>
+      <span class="env-flap"><span class="env-seal" data-initials></span></span>
+    </button>
+    <p class="env-pretext" data-k="envelope.pretext"></p>
+    <p class="env-names"><span data-k="couple.bride"></span> <i>&amp;</i> <span data-k="couple.groom"></span></p>
+    <p class="env-hint" data-k="envelope.hint"></p>
+  </div>
+
+  <main id="main" inert>
+
+    <!-- ============ 2. OPENING ============ -->
+    <section class="hero" id="top">
+      <div class="toran" aria-hidden="true"></div>
+      <div class="blessings" id="blessings"></div>
+      <p class="hero-invite rv" data-k="hero.invite"></p>
+      <h1 class="couple" id="couple"></h1>
+      <div class="hero-mono rv"><span class="monogram" data-monogram></span></div>
+      <p class="hashtag rv" data-k="couple.hashtag"></p>
     </section>
 
-    <section class="events">
-      <h2>Celebrations</h2>
-      <div class="cards" id="events"></div>
+    <!-- ============ 3. SAVE THE DATE ============ -->
+    <section class="dates" id="dates">
+      <p class="eyebrow rv" data-k="saveTheDate.label"></p>
+      <div class="scratch rv" id="scratch">
+        <p class="scratch-dates" id="scratch-dates"></p>
+        <canvas id="scratch-foil" aria-label="Scratch to reveal the dates" role="button" tabindex="0"></canvas>
+      </div>
+      <div class="countdown rv" id="countdown">
+        <div class="cd"><b data-u="d">00</b><small>Days</small></div>
+        <div class="cd"><b data-u="h">00</b><small>Hours</small></div>
+        <div class="cd"><b data-u="m">00</b><small>Minutes</small></div>
+        <div class="cd"><b data-u="s">00</b><small>Seconds</small></div>
+      </div>
+      <p class="cd-label rv" id="cd-label"></p>
     </section>
 
-    <section class="venue">
-      <h2>Venue</h2>
-      <p class="venue-name" data-field="venueName"></p>
-      <p data-field="venueAddress"></p>
-      <a class="btn btn-outline" id="mapLink" target="_blank" rel="noopener">View on Map</a>
+    <!-- ============ 4. OUR STORY (streaming series) ============ -->
+    <section class="story" id="story">
+      <div class="story-hero">
+        <img class="story-poster" data-src="story.poster" alt="Himanshi and Karan by the sea">
+        <div class="story-hero-text">
+          <p class="story-label"><span class="story-k">K</span><span data-k="story.label"></span></p>
+          <h2 class="story-title" data-k="story.title"></h2>
+          <p class="story-top10"><span>TOP<br>10</span><em data-k="story.top10"></em></p>
+          <p class="story-meta" id="story-meta"></p>
+          <p class="story-logline" data-k="story.logline"></p>
+          <p class="story-genres" data-k="story.genres"></p>
+          <div class="story-btns">
+            <a class="sbtn sbtn-play" href="#episodes">▶ <span data-k="story.playLabel"></span></a>
+            <a class="sbtn sbtn-more" href="#rsvp">＋ RSVP</a>
+          </div>
+        </div>
+      </div>
+      <h3 class="story-eps-title" id="episodes" data-k="story.episodesLabel"></h3>
+      <ol class="episodes" id="episode-list"></ol>
+      <div class="story-finale rv">
+        <p data-k="story.finale"></p>
+        <span class="next-season" data-k="story.nextSeason"></span>
+      </div>
     </section>
 
+    <!-- ============ 5. IVY'S INVITATION ============ -->
+    <section class="ivy" id="ivy">
+      <p class="eyebrow rv" data-k="ivy.label"></p>
+      <div class="ivy-wrap">
+        <div class="ivy-pic rv" id="ivy-pic"></div>
+        <div class="ivy-bubble rv">
+          <p class="ivy-hello" data-k="ivy.greeting"></p>
+          <p data-k="ivy.text"></p>
+          <ul class="ivy-list" id="ivy-list"></ul>
+          <p class="ivy-sign" data-k="ivy.signoff"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 6. EVENTS (built from js/content.js) ============ -->
+    <div id="events"></div>
+
+    <section class="note-sec">
+      <p class="guest-note rv" data-k="guestNote"></p>
+    </section>
+
+    <!-- ============ 7. RSVP ============ -->
     <section class="rsvp" id="rsvp">
-      <h2>RSVP</h2>
-      <p>Kindly respond by <strong data-field="rsvpBy"></strong></p>
-      <form id="rsvpForm">
-        <label>Your name <input name="name" required></label>
-        <label>Number of guests <input name="guests" type="number" min="1" max="10" value="1" required></label>
-        <label>Will you attend?
-          <select name="attending">
-            <option>Joyfully accepts</option>
-            <option>Regretfully declines</option>
-          </select>
-        </label>
-        <label>Message for the couple <textarea name="message" rows="3"></textarea></label>
-        <button class="btn" type="submit">Send RSVP</button>
-      </form>
+      <p class="eyebrow rv">RSVP</p>
+      <h2 class="rv" data-k="rsvp.title"></h2>
+      <p class="rv" data-k="rsvp.text"></p>
+      <a class="btn btn-solid rv" id="rsvp-btn" target="_blank" rel="noopener" data-k="rsvp.button"></a>
+      <p class="rsvp-by rv" data-k="rsvp.by"></p>
+    </section>
+
+    <!-- ============ 8. FAMILIES & CONTACTS ============ -->
+    <section class="family" id="family">
+      <p class="eyebrow rv" data-k="family.label"></p>
+      <h2 class="rv" data-k="family.title"></h2>
+      <div class="family-sides" id="family-sides"></div>
+      <div class="contacts rv">
+        <p class="eyebrow" data-k="contacts.title"></p>
+        <ul id="contact-list"></ul>
+      </div>
+      <div class="closing-actions rv">
+        <button class="btn" id="share-btn" type="button">Share the invitation</button>
+      </div>
+    </section>
+
+    <!-- ============ 9. SIGN-OFF ============ -->
+    <section class="closing">
+      <div class="toran toran-bottom" aria-hidden="true"></div>
+      <p class="signoff rv" data-k="closing.signoff"></p>
+      <p class="signoff-fam rv" data-k="closing.families"></p>
+      <p class="signoff-names rv"><span data-k="couple.bride"></span> &amp; <span data-k="couple.groom"></span></p>
+      <p class="hashtag rv" data-k="couple.hashtag"></p>
     </section>
   </main>
 
-  <footer>
-    <p>With love, <span data-field="bride"></span> &amp; <span data-field="groom"></span></p>
-  </footer>
+  <button class="music" id="music" type="button" aria-label="Pause music" hidden>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/><path class="slash" d="M3 3l18 18"/></svg>
+  </button>
 
-  <script src="config.js"></script>
-  <script src="script.js"></script>
+  <script src="js/art.js?v=1"></script>
+  <script src="js/page.js?v=1"></script>
 </body>
 </html>
