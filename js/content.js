@@ -49,9 +49,8 @@ window.SITE = {
     /* The lines shown between sections while the colours change */
     passages: {
         toStory: "But first, how did we get here?",
-        toCocktail: "Night one. Dress to dazzle.",
-        toMehndi: "Night two. Turn the volume up.",
-        toHaldi: "Morning three. Things are about to get yellow.",
+        toCocktail: "Saturday night. Dress to dazzle.",
+        toHaldi: "Monday morning. Things are about to get yellow.",
         toWedding: "And then, the main event.",
         toRsvp: "Now, the only question that matters.",
     },
@@ -75,20 +74,20 @@ window.SITE = {
                 text: "He asked her out. She said yes. A trusty i10 pulled up at Naraina Metro, and somewhere between the station and the first stop, a conversation began that neither of them has managed to finish since.",
             },
             {
-                title: "The Tasting Menu",
+                title: "Exploring Delhi, One Favourite at a Time",
                 art: "ch3-food",
-                text: "Then came a thorough investigation of Delhi's finest tables: momos at Yum Yum Cha, long dinners at Burma Burma, late nights at Galaxy and Moet's. Research, they called it. Everyone else called it dating.",
+                text: "Then came a very thorough tour of Delhi's best tables: Burma Burma, PF Chang's, Concept Shawarma, Galaxy Pizza, Moet's and Yum Yum Cha. Research, they called it. Everyone else called it dating.",
             },
             {
                 title: "Poles Apart",
                 art: "ch4-poles",
-                text: "She takes her tea strong and her mountains snow-capped. He takes his coffee black and his beaches sun-soaked. She loves a night sky; he loves an evening one. On paper, a mismatch. In person, a perfect fit.",
+                text: "She takes her tea strong and her mountains snow-capped. He takes his coffee black and his beaches sun-soaked, ideally from a shack by the sea. She loves a night sky; he loves an evening one. On paper, a mismatch. In person, a perfect fit.",
             },
             {
-                title: "Between the Pages",
+                title: "The Surprise",
                 art: "ch5-book",
-                text: "He has a weakness for surprises. One evening he handed her a book, nothing unusual about that, until a card slipped out from between the pages.",
-                surprise: { wrap: "Open for a surprise", card: "Will you\nmarry me?", after: "She said yes." },
+                text: "He has a weakness for surprises. It began with a book, nothing unusual about that. She was still holding it when she turned to find a heart of red balloons, a sky full of fairy lights, and a question glowing in neon.",
+                surprise: { wrap: "Open for a surprise", card: "", after: "She said yes." },
             },
             {
                 title: "Game, Set, Match",
@@ -112,7 +111,7 @@ window.SITE = {
     events: {
         cocktail: {
             art: "ev-cocktail",
-            kicker: "Night one",
+            kicker: "Saturday night",
             short: "Sagan & Cocktails",
             title: "Sagan & Cocktails",
             tagline: "A little shagun, a lot of sparkle.",
@@ -125,24 +124,9 @@ window.SITE = {
             swatches: ["#8fa9cf", "#c9d1dc"],
             note: "Blessings first, then the bar opens and the dance floor takes over. Wear something that catches the light.",
         },
-        mehndi: {
-            art: "ev-mehndi",
-            kicker: "Night two",
-            short: "Mehndi, Music & Masti",
-            title: "Mehndi, Music & Masti",
-            tagline: "A little mehndi, a lot of masti.",
-            date: "2026-11-29", start: "20:00", end: "23:59",
-            timeLabel: "8 pm onwards",
-            venue: "Chatoreee Restaurant",
-            address: "Shop No. 7, AU Block, Ranikhet, Pitampura, Delhi 110034",
-            mapUrl: "",
-            dressCode: "",
-            swatches: [],
-            note: "Henna on the hands, a playlist with no skip button, and an open invitation to dance like nobody's filming. Somebody will be.",
-        },
         haldi: {
             art: "ev-haldi",
-            kicker: "Morning three",
+            kicker: "Monday morning",
             short: "Haldi",
             title: "Haldi",
             tagline: "A little haldi, a lot of hungama.",
@@ -237,6 +221,7 @@ window.SITE = {
         S.closing.families = "The Sachdeva & Kapoor families";
     }
 
+    S.eventCount = Object.keys(S.events).length;
     const only = (q.get("events") || "").split(",").map((s) => s.trim()).filter((s) => S.events[s]);
     if (only.length) {
         Object.keys(S.events).forEach((id) => { if (!only.includes(id)) delete S.events[id]; });

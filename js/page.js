@@ -17,7 +17,6 @@
         peach:    { bg: "#fcefd3", ink: "#4b291b", soft: "#6b4c3f", accent: "#b48a52" },
         desk:     { bg: "#f6ead9", ink: "#4b291b", soft: "#6b4c3f", accent: "#b48a52" },
         cocktail: { bg: "#0f1a33", ink: "#eef2f8", soft: "#b8c4d8", accent: "#c9d1dc" },
-        mehndi:   { bg: "#f1f0dc", ink: "#3e5a45", soft: "#6c7f6a", accent: "#c3707f" },
         haldi:    { bg: "#fdf4e2", ink: "#7a5aa8", soft: "#8a5a4a", accent: "#e8a33d" },
         wedding:  { bg: "#ece0cc", ink: "#6b2a12", soft: "#7a5a3c", accent: "#a8452f" },
         paper:    { bg: "#e5d7c3", ink: "#7a4900", soft: "#7a5a3c", accent: "#9a7259" },
@@ -41,7 +40,6 @@
         "ch6-tennis": "On one knee on the tennis court",
         "finale": "The three of you, walking home",
         "ev-cocktail": "Cocktail night in blue and silver",
-        "ev-mehndi": "Mehndi, musicians and string lights",
         "ev-haldi": "The haldi courtyard",
         "ev-wedding": "The royal mandap",
     };
@@ -112,7 +110,7 @@
     const firstStart = range(events[0]).start;
     const lastEnd = range(events[events.length - 1]).end;
     $("#cd-label").textContent = S.events[S.saveTheDate.countdownTo] ? S.saveTheDate.countdownLabel : "until the celebrations begin";
-    if (events.length < 4) {
+    if (events.length < S.eventCount) {
         $('[data-k="invite.dates"]').textContent = events.map((e) => fmt(at(e.date, e.start), { day: "2-digit", month: "long" })).join(" · ") + " 2026";
     }
     function tick() {
@@ -151,7 +149,7 @@
                 <span class="gift-half gift-l"></span><span class="gift-half gift-r"></span>
                 <span class="gift-tag">${esc(c.surprise.wrap)}</span>
               </button>
-              <div class="gift-card"><p>${lines(c.surprise.card)}</p></div>`;
+              ${c.surprise.card ? `<div class="gift-card"><p>${lines(c.surprise.card)}</p></div>` : ""}`;
         }
         if (c.balls) {
             let n = 0;

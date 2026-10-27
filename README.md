@@ -6,7 +6,7 @@ It's a single scrolling page that works best on a phone:
 
 the door opens → Ivy delivers the invitation (blessings, names, parents, dates, countdown) →
 **#KaranMani-fested**, our story as a storybook (with a surprise to unwrap) →
-Sagan & Cocktails · Mehndi · Haldi · The Wedding → RSVP → families & contacts → sign-off.
+Sagan & Cocktails · Haldi · The Wedding → RSVP → families & contacts → sign-off.
 
 Paintings go in `assets/art/` (names in `assets/art/README.md`, prompts in `ARTWORK-BRIEF.md`).
 The page colour blends from one celebration's palette to the next as you scroll (`THEMES` in `js/page.js`).
@@ -39,7 +39,7 @@ The link itself carries the details, so you can also write them by hand:
 |---|---|
 | `?to=Sharma%20Family` | The door says "Dear Sharma Family" |
 | `?side=groom` | Karan's name and family first; RSVP goes to the groom's family |
-| `?events=haldi,wedding` | Shows only those events (`cocktail`, `mehndi`, `haldi`, `wedding`) |
+| `?events=haldi,wedding` | Shows only those events (`cocktail`, `haldi`, `wedding`) |
 
 Combine them with `&`: `…/wedding-invite/?to=Sharma%20Family&side=groom&events=haldi,wedding`
 
@@ -52,7 +52,7 @@ To collect RSVPs in a Google Sheet:
 1. Create a Google Form with these questions:
    - **Your name** (short answer)
    - **Number of guests** (short answer, or a dropdown 1–10)
-   - **Which celebrations will you attend?** (checkboxes: Sagan & Cocktail · 28 Nov, Mehndi · 29 Nov, Haldi · 30 Nov, Wedding · 01 Dec)
+   - **Which celebrations will you attend?** (checkboxes: Sagan & Cocktails · 28 Nov, Haldi · 30 Nov, Wedding · 01 Dec)
 2. In the form's **Responses** tab, click **Link to Sheets**.
 3. Click **Send → 🔗**, copy the link and paste it into `rsvp.formUrl` in `js/content.js`.
 4. Optional: to fill in each guest's name for them, open the form's ⋮ menu → **Get pre-filled link**, type `NAME` in the name question, click **Get link**, and copy the part that looks like `entry.123456789` into `rsvp.nameEntry`.
