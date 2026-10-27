@@ -526,3 +526,15 @@ body.door-open .leaf-r { transform: rotateY(105deg); }
 .welcome .bells-l { left: 2.5%; }
 .welcome .bells-r { right: 2.5%; }
 .welcome-text { padding-left: 46px; padding-right: 46px; }
+
+/* Ivy waits at the door with the invitation */
+.door-stage { position: relative; }
+.door-ivy {
+    position: absolute; z-index: 3; right: -22%; bottom: -6px; width: 46%; pointer-events: none;
+    filter: drop-shadow(0 10px 12px rgba(75, 41, 27, .25));
+    transform-origin: 50% 100%; animation: ivy-wag 3.2s ease-in-out infinite;
+}
+@keyframes ivy-wag { 0%, 100% { rotate: 0deg; } 50% { rotate: -2deg; } }
+body.door-open .door-ivy { animation: ivy-step .9s ease forwards; }
+@keyframes ivy-step { to { translate: 40% 0; opacity: 0; } }
+.welcome-text { padding-bottom: 50px; }
