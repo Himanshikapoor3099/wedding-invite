@@ -8,6 +8,12 @@ the door opens → Ivy delivers the invitation (blessings, names, parents, dates
 **#KaranMani-fested**, our story as a storybook (with a surprise to unwrap) →
 Sagan & Cocktails · Haldi · The Wedding → RSVP → families & contacts → sign-off.
 
+There is also a **streaming-app version** at **`netflix.html`**
+(https://himanshikapoor3099.github.io/wedding-invite/netflix.html): "Who's watching?" profiles, a
+title sting, a trailer of the story, Season 1 episodes (the story), Season 2 (the celebrations, with
+"Remind me" calendar buttons), the cast, and an "Are you still watching?" RSVP. It uses the same
+`js/content.js` and paintings, and the same `?to=`, `?side=` and `?events=` link options.
+
 Paintings go in `assets/art/` (names in `assets/art/README.md`, prompts in `ARTWORK-BRIEF.md`).
 The page colour blends from one celebration's palette to the next as you scroll (`THEMES` in `js/page.js`).
 
