@@ -364,31 +364,62 @@ body.door-open .leaf-r { transform: rotateY(105deg); }
 .ev-scene::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, var(--bg), transparent 14%, transparent 90%, var(--bg)); z-index: 4; }
 .fig { position: absolute; display: block; height: auto; }
 
-/* night one: she twirls across the floor into his arm */
+
+/* night one: he holds her fingertips up high and she twirls around him */
 .scene-cocktail .fig-him { left: 14%; bottom: 7%; width: 30%; z-index: 2; }
-.scene-cocktail .fig-her { left: 34%; bottom: 6%; width: 40%; z-index: 3; animation: twirl 7s cubic-bezier(.45, 0, .3, 1) infinite; transform-origin: 50% 90%; }
+.scene-cocktail .fig-her { left: 16.5%; bottom: 7%; width: 40.0%; z-index: 3; transform-origin: 64.6% 0; scale: -1 1; animation: twirl 8s ease-in-out infinite; }
 @keyframes twirl {
-    0%, 8% { translate: 52% 0; scale: 1 1; }
-    18% { scale: -1 1; } 28% { scale: 1 1; } 38% { scale: -1 1; } 48% { scale: 1 1; }
-    56%, 86% { translate: 0 0; scale: 1 1; rotate: -3deg; }
-    100% { translate: 52% 0; scale: 1 1; rotate: 0deg; }
+    0%, 6% { scale: -1 1; rotate: 0deg; z-index: 3; }
+    18% { scale: 1 1; rotate: 6deg; z-index: 3; }
+    30% { scale: -1 1; rotate: 0deg; z-index: 1; }
+    42% { scale: 1 1; rotate: 6deg; z-index: 3; }
+    54% { scale: -1 1; rotate: 0deg; z-index: 1; }
+    62%, 100% { scale: -1 1; rotate: 0deg; z-index: 3; }
 }
 
-/* morning three: he leans in and dabs haldi on her cheek */
-.scene-haldi .fig-him { left: 2%; bottom: 7%; width: 52%; z-index: 2; transform-origin: 30% 95%; animation: dab 5s ease-in-out infinite; }
-.scene-haldi .fig-her-wrap { position: absolute; right: 2%; bottom: 7%; width: 50%; z-index: 3; animation: giggle 5s ease-in-out infinite; transform-origin: 50% 100%; }
+/* morning three: they sit apart, he leans in, his fingers touch her cheek, the haldi appears */
+.scene-haldi .fig-him { left: 6.4%; bottom: 7%; width: 52%; z-index: 3; transform-origin: 30% 95%; animation: dab 6s ease-in-out infinite; }
+.scene-haldi .fig-her-wrap { position: absolute; left: 52%; bottom: 7%; width: 50%; z-index: 2; animation: giggle 6s ease-in-out infinite; transform-origin: 50% 100%; }
 .scene-haldi .fig-her { position: static; width: 100%; }
 .smudge {
-    position: absolute; left: 44%; top: 21%; width: 9%; aspect-ratio: 1.3; border-radius: 50%;
+    position: absolute; left: 31.5%; top: 12.5%; width: 9%; aspect-ratio: 1.3; border-radius: 50%;
     background: radial-gradient(ellipse, rgba(245, 190, 30, .95) 30%, rgba(245, 190, 30, 0) 70%);
-    opacity: 0; animation: smudge 5s ease-in-out infinite;
+    opacity: 0; animation: smudge 6s ease-in-out infinite;
 }
-@keyframes dab { 0%, 15% { translate: 0 0; rotate: 0deg; } 38%, 48% { translate: 15% -2%; rotate: 4deg; } 65%, 100% { translate: 0 0; rotate: 0deg; } }
-@keyframes giggle { 0%, 40% { rotate: 0deg; translate: 0 0; } 46% { rotate: 3deg; translate: 2% 0; } 52% { rotate: -1deg; } 58%, 100% { rotate: 0deg; translate: 0 0; } }
-@keyframes smudge { 0%, 42% { opacity: 0; scale: .4; } 50%, 92% { opacity: 1; scale: 1; } 100% { opacity: 0; } }
+@keyframes dab { 0%, 22% { left: 6.4%; rotate: 0deg; } 42%, 58% { left: 22.4%; rotate: -12.9deg; } 76%, 100% { left: 6.4%; rotate: 0deg; } }
+@keyframes giggle { 0%, 22% { left: 52%; rotate: 0deg; } 42% { left: 48%; rotate: 0deg; } 50% { left: 48%; rotate: 3deg; } 58% { left: 48%; rotate: -1deg; } 76%, 100% { left: 52%; rotate: 0deg; } }
+@keyframes smudge { 0%, 46% { opacity: 0; scale: .3; } 54%, 92% { opacity: 1; scale: 1; } 100% { opacity: 0; } }
 
-/* the D-Day: walking the pheras around the sacred fire */
-.scene-wedding .flame { position: absolute; left: 50%; bottom: 17%; width: 12%; aspect-ratio: 1 / 1.3; translate: -50% 0; z-index: 2; }
+/* the D-Day: walking the pheras around the sacred fire, behind it on the far side */
+.scene-wedding .flame { position: absolute; left: 53%; bottom: 24.5%; width: 9%; aspect-ratio: 1 / 1.3; translate: -50% 0; z-index: 2; }
+.scene-wedding .fig-pheras { width: 25%; translate: none; animation: pheras 16s linear infinite; }
+@keyframes pheras {
+    0.00% { left: 57.00%; bottom: 2.00%; transform: translateX(-50%) scale(1.000, 1.000); z-index: 4; }
+    4.17% { left: 63.99%; bottom: 2.56%; transform: translateX(-50%) scale(0.996, 0.996); z-index: 4; }
+    8.33% { left: 70.50%; bottom: 4.21%; transform: translateX(-50%) scale(0.983, 0.983); z-index: 4; }
+    12.50% { left: 76.09%; bottom: 6.83%; transform: translateX(-50%) scale(0.962, 0.962); z-index: 4; }
+    16.67% { left: 80.38%; bottom: 10.25%; transform: translateX(-50%) scale(0.935, 0.935); z-index: 4; }
+    20.83% { left: 83.08%; bottom: 14.23%; transform: translateX(-50%) scale(0.904, 0.904); z-index: 4; }
+    25.00% { left: 84.00%; bottom: 18.50%; transform: translateX(-50%) scale(0.870, 0.870); z-index: 4; }
+    29.17% { left: 83.08%; bottom: 22.77%; transform: translateX(-50%) scale(-0.836, 0.836); z-index: 1; }
+    33.33% { left: 80.38%; bottom: 26.75%; transform: translateX(-50%) scale(-0.805, 0.805); z-index: 1; }
+    37.50% { left: 76.09%; bottom: 30.17%; transform: translateX(-50%) scale(-0.778, 0.778); z-index: 1; }
+    41.67% { left: 70.50%; bottom: 32.79%; transform: translateX(-50%) scale(-0.757, 0.757); z-index: 1; }
+    45.83% { left: 63.99%; bottom: 34.44%; transform: translateX(-50%) scale(-0.744, 0.744); z-index: 1; }
+    50.00% { left: 57.00%; bottom: 35.00%; transform: translateX(-50%) scale(-0.740, 0.740); z-index: 1; }
+    54.17% { left: 50.01%; bottom: 34.44%; transform: translateX(-50%) scale(-0.744, 0.744); z-index: 1; }
+    58.33% { left: 43.50%; bottom: 32.79%; transform: translateX(-50%) scale(-0.757, 0.757); z-index: 1; }
+    62.50% { left: 37.91%; bottom: 30.17%; transform: translateX(-50%) scale(-0.778, 0.778); z-index: 1; }
+    66.67% { left: 33.62%; bottom: 26.75%; transform: translateX(-50%) scale(-0.805, 0.805); z-index: 1; }
+    70.83% { left: 30.92%; bottom: 22.77%; transform: translateX(-50%) scale(-0.836, 0.836); z-index: 1; }
+    75.00% { left: 30.00%; bottom: 18.50%; transform: translateX(-50%) scale(-0.870, 0.870); z-index: 4; }
+    79.17% { left: 30.92%; bottom: 14.23%; transform: translateX(-50%) scale(0.904, 0.904); z-index: 4; }
+    83.33% { left: 33.62%; bottom: 10.25%; transform: translateX(-50%) scale(0.935, 0.935); z-index: 4; }
+    87.50% { left: 37.91%; bottom: 6.83%; transform: translateX(-50%) scale(0.962, 0.962); z-index: 4; }
+    91.67% { left: 43.50%; bottom: 4.21%; transform: translateX(-50%) scale(0.983, 0.983); z-index: 4; }
+    95.83% { left: 50.01%; bottom: 2.56%; transform: translateX(-50%) scale(0.996, 0.996); z-index: 4; }
+    100.00% { left: 57.00%; bottom: 2.00%; transform: translateX(-50%) scale(1.000, 1.000); z-index: 4; }
+}
 .scene-wedding .flame i {
     position: absolute; left: 50%; bottom: 0; width: 70%; height: 100%; translate: -50% 0; border-radius: 50% 50% 35% 35% / 65% 65% 35% 35%;
     background: radial-gradient(ellipse at 50% 85%, #fff4c2 0 18%, #ffc24a 40%, rgba(242, 106, 33, .85) 66%, rgba(242, 106, 33, 0) 72%);
@@ -397,16 +428,6 @@ body.door-open .leaf-r { transform: rotateY(105deg); }
 .scene-wedding .flame i:nth-child(2) { width: 50%; height: 78%; translate: -90% 0; animation-duration: .8s; }
 .scene-wedding .flame i:nth-child(3) { width: 48%; height: 72%; translate: -10% 0; animation-duration: .95s; animation-delay: -.3s; }
 @keyframes flicker { from { scale: 1 1; } to { scale: .88 1.12; } }
-.scene-wedding .fig-pheras { left: 50%; bottom: 8%; width: 46%; translate: -50% 0; animation: pheras 12s linear infinite; }
-@keyframes pheras {
-    0% { transform: translate(-58%, 0) scale(1, 1); z-index: 3; }
-    24% { transform: translate(58%, -14%) scale(.9, .9); z-index: 3; }
-    25% { transform: translate(58%, -14%) scale(-.9, .9); z-index: 1; }
-    50% { transform: translate(0, -24%) scale(-.78, .78); z-index: 1; }
-    74% { transform: translate(-58%, -14%) scale(-.9, .9); z-index: 1; }
-    75% { transform: translate(-58%, -14%) scale(.9, .9); z-index: 3; }
-    100% { transform: translate(-58%, 0) scale(1, 1); z-index: 3; }
-}
 .scene-wedding .bells-r { right: 10%; height: 150px; }
 
 .ev-details { max-width: 460px; margin: 0 auto; padding: 26px 22px 0; }
@@ -425,15 +446,15 @@ body.door-open .leaf-r { transform: rotateY(105deg); }
 /* order of the day as a horizontal timeline */
 .schedule-wrap { margin: 8px -22px 26px; }
 .schedule-hint { font: italic 400 15px var(--display); color: var(--soft); margin: -6px 0 12px; }
-.timeline { list-style: none; margin: 0; padding: 6px 22px 4px; display: flex; overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none; }
+.timeline { list-style: none; margin: 0; padding: 6px 14px 4px; display: flex; flex-wrap: wrap; justify-content: center; row-gap: 16px; }
 .timeline::-webkit-scrollbar { display: none; }
-.timeline li { flex: 0 0 auto; scroll-snap-align: center; }
-.timeline button { position: relative; width: 104px; display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 0 4px; border: 0; background: none; color: inherit; cursor: pointer; font: inherit; }
+.timeline li { flex: 0 0 25%; }
+.timeline button { position: relative; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 0 4px; border: 0; background: none; color: inherit; cursor: pointer; font: inherit; }
 .timeline button::before { content: ""; position: absolute; top: 31px; left: 0; right: 0; height: 1px; background: var(--accent); opacity: .6; }
-.timeline li:first-child button::before { left: 50%; } .timeline li:last-child button::before { right: 50%; }
+.timeline li:nth-child(4n+1) button::before { left: 50%; } .timeline li:nth-child(4n) button::before, .timeline li:last-child button::before { right: 50%; }
 .t-time { font: 600 12px var(--sans); letter-spacing: .08em; color: var(--accent); }
 .t-dot { position: relative; z-index: 1; width: 12px; height: 12px; rotate: 45deg; background: var(--bg); border: 1.5px solid var(--ink); transition: background .3s, scale .3s; }
-.t-name { font: italic 500 16px/1.2 var(--display); min-height: 2.4em; }
+.t-name { font: italic 500 15px/1.2 var(--display); min-height: 2.4em; }
 .timeline button[aria-expanded="true"] .t-dot { background: var(--accent); border-color: var(--accent); scale: 1.3; }
 .t-about { min-height: 3em; max-width: 340px; margin: 10px auto 0; padding: 0 22px; font: italic 400 16px/1.5 var(--display); color: var(--soft); }
 

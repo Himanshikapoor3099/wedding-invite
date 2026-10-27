@@ -348,7 +348,7 @@
         <div class="passage">${passage ? `<p>${esc(passage)}</p>` : ""}</div>
         <section class="event ev-${e.id}" id="ev-${e.id}" data-theme="${e.id}">
           <div class="ev-head">
-            <p class="ev-kicker rv">${esc(e.kicker)}</p>
+            ${e.kicker ? `<p class="ev-kicker rv">${esc(e.kicker)}</p>` : ""}
             <h2 class="ev-title rv">${esc(e.title)}</h2>
             <p class="ev-tagline rv">${esc(e.tagline)}</p>
           </div>

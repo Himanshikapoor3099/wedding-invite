@@ -81,7 +81,7 @@ window.SITE = {
             {
                 title: "Exploring Each Other's Favourites",
                 art: "ch3-food",
-                text: "This was the getting-to-know-you phase. Endless car rides with no real destination, long talks, and a mission to eat their way across Delhi until they had a favourite for every cuisine. Burma Burma, PF Chang's, Concept Shawarma, Galaxy Pizza, Moet's, Yum Yum Cha… the list kept growing, and so did they.",
+                text: "This was the getting-to-know-you phase. Endless car rides with no real destination, long talks, and a mission to eat their way across Delhi until they had a favourite for every cuisine. Burma Burma, PF Chang's, Concept Shawarma, Galaxy Pizza, Moet's, Yum Yum Cha… the list kept growing, and so did their love.",
             },
             {
                 title: "Poles Apart",
@@ -146,7 +146,7 @@ window.SITE = {
         },
         wedding: {
             art: "ev-wedding",
-            kicker: "The D-Day",
+            kicker: "",
             short: "The Wedding",
             title: "The Wedding",
             tagline: "A little teary-eyed, a lot of happily ever after.",
@@ -192,7 +192,7 @@ window.SITE = {
         title: "Questions? Call us",
         people: [
             { side: "bride", name: "Urvashi Kapoor", role: "The bride's family", phone: "+91 92107 08587" },
-            { side: "groom", name: "Gulshan Sachdeva", role: "The groom's father", phone: "+91 98111 38797" },
+            { side: "groom", name: "Gulshan Sachdeva", role: "The groom's family", phone: "+91 98111 38797" },
         ],
     },
 
