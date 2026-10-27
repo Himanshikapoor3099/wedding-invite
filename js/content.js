@@ -121,8 +121,8 @@ window.SITE = {
             venue: "ClubXO",
             address: "Site 2, Shivaji Place, Shivaji Enclave, Raja Garden, New Delhi 110027",
             mapUrl: "https://share.google/Hy4zNm8MEn87sH9yP",
-            dressCode: "Midnight blue and silver",
-            swatches: ["#13254a", "#c9d1dc"],
+            dressCode: "Blue and silver",
+            swatches: ["#8fa9cf", "#c9d1dc"],
             note: "Blessings first, then the bar opens and the dance floor takes over. Wear something that catches the light.",
         },
         mehndi: {

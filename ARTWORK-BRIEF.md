@@ -1,428 +1,408 @@
-# Artwork brief · Himanshi & Karan
+# Artwork brief · Himanshi & Karan (Claude + Canva)
 
-17 artworks, in the order guests see them. Each one is self-contained: send **one artwork per message**
-and paste only that artwork's prompt.
+There are two styles:
 
----
-
-## Before you start (do this once)
-
-**1. Lock the characters.** In your Gemini chat, attach the character sheet you liked plus 1–2 real
-photos of each of you and Ivy, and send:
-
-```
-These are the final characters for a set of wedding illustrations. Remember them exactly and use them
-in every image I ask for from now on:
-• KARAN: tall, athletic, dark hair swept up and back, short full beard, black rectangular glasses.
-• HIMANSHI: long dark wavy hair past her shoulders, black rectangular glasses, slim.
-• IVY: their dog, a light golden-cream Labrador-type Indian dog, floppy ears with tan tips, warm brown
-  eyes, brown nose, navy-blue collar.
-Reply "ready" and wait for my first scene.
-```
-
-**2. Lock the style.** Attach one frame from your reference video that you love (the golden dog beside
-the wooden dresser is perfect) and send:
-
-```
-Match the painting style of this reference in every image: detailed hand-painted gouache illustration,
-visible brush texture, realistic proportions and faces, rich detailed backgrounds, warm cinematic light.
-Never put any text, letters, numbers, signs or logos in the images.
-```
-
-**3. Then send the artworks below, one per message.** If a face drifts, re-attach the character sheet
-and say "fix the faces to match the character sheet; change nothing else".
-
-**Saving:** download each at the highest quality, rename it to the **file name** given, and send it to me.
+| Part | Artworks | Style |
+|---|---|---|
+| **A · The invitation** | monogram, door, Ivy's room, invitation backdrop, the four celebrations, sign-off | **Exactly like the original reference invite** (Aarushika & Brahmansh): detailed hand-painted gouache on warm cream paper, decoration around the **edges and bottom only**, an **empty centre** where the words go |
+| **B · The storybook** | desk, six chapters, last page | **Soft watercolour**, like a picture book |
 
 ---
 
-## 1 · Monogram
+## How to make them with Claude + Canva
+
+1. Start a chat in Claude with the **Canva** connector switched on.
+2. Attach **2–3 clear photos** of Himanshi, Karan and Ivy (or the character sheet you liked).
+3. For **Part A**, also attach the **reference cards** I've sent you (`ref-1-opening`, `ref-3-cocktail`,
+   `ref-4-haldi`, `ref-5-wedding`) and say:
+   *"Upload these to Canva. Use the photos for the people and the reference cards for the style in every
+   Part A image."*
+4. Then ask for one artwork at a time: *"Make artwork A3 from this brief"*, pasting its prompt, and use
+   the **Canva aspect ratio** listed.
+5. Download each image, rename it to the **file name** shown, and send it to me.
+
+If a face drifts: *"Fix the faces to match the photos exactly; change nothing else."*
+
+**The characters (already written into each prompt where they appear):**
+KARAN: tall, athletic, dark hair swept up and back, short full beard, black rectangular glasses.
+HIMANSHI: long dark wavy hair past her shoulders, black rectangular glasses, slim.
+IVY: light golden-cream Labrador-type Indian dog, floppy ears with tan tips, warm brown eyes, brown nose,
+navy-blue collar.
+
+---
+
+# PART A · THE INVITATION (reference style)
+
+**Style line, at the end of every Part A prompt:**
+> Premium illustrated Indian wedding invitation card in the style of the attached reference cards:
+> detailed, soft hand-painted gouache on warm cream paper, delicate and elegant, gentle warm light.
+> Decoration only along the edges, corners and bottom; the centre is left as open, plain paper for text.
+> No text, no letters, no numbers, no logos.
+
+## A1 · Monogram
 
 | | |
 |---|---|
-| **File name** | `monogram.png` |
-| **Where it shows** | Behind the door (above your names), on the storybook cover, and at the sign-off. It appears small (80–100 px), so it must read clearly at small sizes |
-| **Size** | Square, 2048 × 2048, **transparent background** (if Gemini can't do transparent, plain ivory is fine and I'll remove it) |
-| **Design** | The letters **H** and **K** intertwined in an elegant engraved serif, inside a fine circular crest. Inside the crest, subtly: a mountain peak with a crescent moon on the H side (her), a wave with a setting sun on the K side (him), and a tiny line drawing of a momo at the top, the thing you both love |
-| **Colours** | Gold foil only, or gold with a touch of cherry red (#9B111E) |
-| **Avoid** | Hearts, cartoon icons, clutter, thick outlines, any other text |
+| **File** | `monogram.png` |
+| **Canva aspect ratio** | `SQUARE_1_1` |
+| **Where** | Small (80–100 px) above your names, on the storybook cover and at the sign-off |
 
 ```
-Design a luxury wedding monogram for Himanshi & Karan: the letters H and K intertwined in an elegant
-engraved serif typeface, enclosed in a fine, thin circular crest. Very subtly worked into the crest:
-on the H side a small mountain peak with a crescent moon, on the K side a small wave with a setting
-sun, and at the top a tiny, delicate line drawing of a single dumpling (momo). Gold foil on a plain
-ivory background, centred, crisp and minimal, must read clearly when shown very small. No other text,
-no hearts, no clutter. Square image.
+A small, elegant wedding monogram: the letters H and K written in a flowing gold calligraphy script
+(like the names on the reference cards), the two letters gently intertwined, inside a thin fine gold
+circle. Plain warm cream paper background, lots of empty space around it, minimal, crisp, must stay
+clear when shown very small. No other text, no flowers, no clutter. Square.
 ```
 
----
+*Your illustrated Delhi crest (#Karan-Mani-fested with the skyline) is lovely as it is. I'll use it as
+the WhatsApp preview picture.*
 
-## 2 · The front door
+## A2 · The front door
 
 | | |
 |---|---|
-| **File name** | `door-closed.jpg` |
-| **Where it shows** | The very first screen. The site **cuts it down the middle into two halves that swing open**, so it must be perfectly symmetrical with the meeting line of the two doors exactly in the centre |
-| **Size** | Portrait 9:16 (1080 × 1920) |
-| **Layout** | The double door **fills the entire frame edge to edge**, seen straight on, arched top. No wall, floor or people visible |
-| **Colours** | Rich carved teak or deep walnut, polished brass, a hint of cherry red |
-| **Avoid** | Flowers, plants, people, perspective/angle, anything off-centre |
+| **File** | `door-closed.jpg` |
+| **Canva aspect ratio** | `PORTRAIT_9_16` |
+| **Where** | First screen; the site **splits it down the middle and swings the halves open**, so it must be perfectly symmetrical and fill the frame |
+| **Note** | The carved door you already made works well; keep it if you like it |
 
 ```
-Using the painting style we agreed: a grand, ornate, carved wooden double door of an old Delhi
-haveli-style family home, seen perfectly straight on and perfectly symmetrical, the two door leaves
-meeting exactly in the centre of the image. Deep walnut-teak wood with intricate carved panels, brass
-studs, two round brass ring handles at the centre, an arched top. A row of small brass bells and a
-cherry-red fabric toran hang across the top. Warm golden evening light. The door fills the entire frame
-edge to edge: no wall, floor or surroundings visible. No people, no flowers, no plants, no text.
+A pair of ornate carved wooden double doors of an old Indian haveli, seen perfectly straight on and
+perfectly symmetrical, the two leaves meeting exactly in the centre, arched top. Warm honey-teak wood
+with delicate carved panels, brass studs and two round brass ring handles at the centre. A toran of
+mango leaves and small marigolds with tiny brass bells hangs across the top. The doors fill the entire
+frame edge to edge: no wall, floor or surroundings. No people.
+Premium illustrated Indian wedding invitation card in the style of the attached reference cards:
+detailed, soft hand-painted gouache, delicate and elegant, gentle warm light. No text, no letters,
+no numbers, no logos. Portrait 9:16.
+```
+
+## A3 · Behind the door: Ivy delivers the invitation
+
+| | |
+|---|---|
+| **File** | `ivy-room.jpg` |
+| **Canva aspect ratio** | `PORTRAIT_9_16` |
+| **Where** | Full screen after the door opens. **The blessings, monogram and your names sit in the top and centre**, so those must be open cream paper |
+| **Like** | `ref-1-opening` (the temple frame) |
+
+```
+An invitation card frame on warm cream paper. Top-left corner: banana leaves and a hanging brass lamp
+with small flames. Top-right corner: banana leaves and a jasmine garland hanging down. Along the bottom:
+IVY (a light golden-cream Labrador-type Indian dog with floppy tan-tipped ears, warm brown eyes, brown
+nose and a navy-blue collar) sits proudly on a small striped dhurrie, looking at the viewer, holding a
+cream envelope with a red wax seal gently in her mouth, wearing a small red tilak. Beside her, a low
+carved wooden chowki holding a vintage radio, a cup of chai, a small framed Lord Ganesha and a small
+framed Ik Onkar. A few lotus blooms at the bottom corners. The top half and centre of the card are open,
+plain cream paper.
+Premium illustrated Indian wedding invitation card in the style of the attached reference cards:
+detailed, soft hand-painted gouache on warm cream paper, delicate and elegant, gentle warm light.
+No text, no letters, no numbers, no logos. Portrait 9:16.
+```
+
+## A4 · Backdrop behind the invitation card
+
+| | |
+|---|---|
+| **File** | `bg-invite.jpg` |
+| **Canva aspect ratio** | `PORTRAIT_9_16` |
+| **Where** | Behind the arched card with your parents' names, dates and countdown; only the **edges** show |
+| **Note** | The jaali wall you already made works well; keep it if you like it |
+
+```
+A decorative frame of a pale carved sandstone haveli wall in warm peach, with jaali lattice screens,
+small jharokha balconies and glowing brass diyas around the edges and corners only. The centre is calm,
+plain, softly lit cream stone.
+Premium illustrated Indian wedding invitation card in the style of the attached reference cards:
+detailed, soft hand-painted gouache on warm cream paper, delicate and elegant, gentle warm light.
+No text, no letters, no numbers, no logos. Portrait 9:16.
+```
+
+## A5 · Night one · Sagan & Cocktails (blue and silver)
+
+| | |
+|---|---|
+| **File** | `ev-cocktail.jpg` |
+| **Canva aspect ratio** | `PORTRAIT_9_16` |
+| **Where** | Behind the cocktail details. **Centre must be open** (the site writes title, date, venue and dress code there) |
+| **Like** | `ref-3-cocktail`, but in **midnight blue and silver** instead of black |
+
+```
+An invitation card for a cocktail night on a deep midnight-blue background. Along the top: a curtain of
+falling silver sparkle strands and five hanging silver mirror balls. Along the bottom: KARAN (dark hair
+swept back, short full beard, black rectangular glasses) in a navy suit twirling HIMANSHI (long dark
+wavy hair, black rectangular glasses) in a shimmering silver saree, on a navy-and-silver chequered dance
+floor, with IVY sitting beside them in a tiny silver bow tie, and a mirror ball resting on the floor in
+the corner. Small silver sparkles scattered lightly. The centre of the card is open, plain midnight blue.
+Premium illustrated Indian wedding invitation card in the style of the attached reference cards:
+detailed, soft hand-painted gouache, delicate and elegant, palette of midnight blue, ice blue and
+silver, no gold. No text, no letters, no numbers, no logos. Portrait 9:16.
+```
+
+## A6 · Night two · Mehndi, Music & Masti
+
+| | |
+|---|---|
+| **File** | `ev-mehndi.jpg` |
+| **Canva aspect ratio** | `PORTRAIT_9_16` |
+| **Where** | Behind the mehndi details; **centre open** |
+| **Like** | `ref-4-haldi` in layout, in **sage green, blush pink and gold** |
+
+```
+An invitation card for a mehndi night on warm cream paper. Along the top: strings of soft fairy lights
+and hanging fabric streamers in sage green and blush pink, with small brass lanterns at the corners.
+Along the bottom: HIMANSHI (long dark wavy hair, black rectangular glasses) sits on floor cushions in a
+sage-and-blush outfit while an artist applies mehndi to her hands; KARAN (dark hair swept back, short
+full beard, black rectangular glasses) sits beside her in a sage kurta, laughing; a dholak player and a
+harmonium player on a patterned carpet; IVY lies at Himanshi's feet in a blush bandana. Brass bowls and
+henna cones in the corners. The centre of the card is open, plain cream paper.
+Premium illustrated Indian wedding invitation card in the style of the attached reference cards:
+detailed, soft hand-painted gouache on warm cream paper, palette of sage green, blush pink, cream and
+soft gold, delicate and elegant, gentle warm light. No text, no letters, no numbers, no logos.
 Portrait 9:16.
 ```
 
----
-
-## 3 · Behind the door: Ivy delivers the invitation
+## A7 · Morning three · Haldi (lavender and yellow)
 
 | | |
 |---|---|
-| **File name** | `ivy-room.jpg` |
-| **Where it shows** | Full screen, right after the door opens. **Text is placed over the top half** (blessings, monogram, your names) |
-| **Size** | Portrait 9:16 (1080 × 1920) |
-| **Layout** | **Top 50%: plain, softly lit warm-peach wall with nothing on it** (this is where the text goes). Bottom 50%: Ivy and the furniture |
-| **Characters** | **Ivy only.** Sitting proudly, looking at the viewer, holding a cream envelope with a red wax seal in her mouth. Wearing a cherry-red festive bandana and a small red tilak on her forehead |
-| **Props** | Antique wooden dresser beside her with a vintage radio and a cup of chai on it; a small framed Shri Ganesh picture and a small framed Ik Onkar sitting low on the dresser (not high on the wall); a striped cotton dhurrie on the floor |
-| **Colours** | Warm peach, terracotta, walnut, cherry red |
-| **Avoid** | Anything hanging on the upper wall, flowers, plants, text on the envelope |
+| **File** | `ev-haldi.jpg` |
+| **Canva aspect ratio** | `PORTRAIT_9_16` |
+| **Where** | Behind the haldi details; **centre open** |
+| **Like** | `ref-4-haldi`, in **lavender and butter yellow** |
 
 ```
-Using the characters and painting style we agreed: a cosy, warm Indian living room. Ivy the dog sits
-proudly in the lower half of the image, looking straight at the viewer, holding a cream envelope
-sealed with a red wax seal gently in her mouth. She wears a cherry-red festive bandana and has a small
-red tilak on her forehead. Beside her stands an antique carved wooden dresser with a vintage radio and
-a cup of chai on top, and a small framed painting of Lord Ganesha and a small framed Ik Onkar standing
-on the dresser top. A striped cotton dhurrie on the floor. IMPORTANT: the entire upper half of the image
-is a plain, softly lit, warm peach wall with nothing on it at all. Warm afternoon light. No people,
-no flowers, no plants, no text. Portrait 9:16.
-```
-
----
-
-## 4 · Backdrop behind the invitation card
-
-| | |
-|---|---|
-| **File name** | `bg-invite.jpg` |
-| **Where it shows** | Behind the arched cream card that lists your parents, the dates and the countdown. The card covers the **middle 80%**, so only the edges and corners show |
-| **Size** | Portrait 9:16 (1080 × 1920) |
-| **Layout** | A **pattern-like** backdrop, rich at the edges and calm in the centre |
-| **Colours** | Peach, terracotta, cherry red and gold, soft and low contrast |
-| **Avoid** | People, a strong focal point in the middle, flowers |
-
-```
-Using the painting style we agreed: a decorative backdrop of a carved sandstone jharokha wall in warm
-peach and terracotta, with intricate jaali lattice screens and small brass lamps glowing at the edges
-and corners. The centre of the image is calm and softly lit plain stone so a card can be placed over
-it. Low contrast, elegant, ornamental. No people, no flowers, no plants, no text. Portrait 9:16.
-```
-
----
-
-## 5 · Storybook: the desk (backdrop)
-
-| | |
-|---|---|
-| **File name** | `book-cover.jpg` |
-| **Where it shows** | Softly blurred **behind** the storybook, like the desk it's lying on |
-| **Size** | Landscape 16:9 (1920 × 1080) |
-| **Layout** | Top-down view of a desk; the centre is mostly clear (the book sits there) |
-| **Colours** | Dark walnut wood, warm lamp light, touches of cherry red |
-| **Avoid** | A book in the centre (the site draws the book), text |
-
-```
-Using the painting style we agreed: a top-down view of a dark walnut wooden desk in warm lamp light.
-Around the edges only: a pencil, a few sticky notes, a tennis ball, a folded football-match ticket,
-a cup of chai and a cup of black coffee, a pair of black glasses. The centre of the desk is clear and
-empty. Cosy, nostalgic, warm. No text on anything. Landscape 16:9.
-```
-
----
-
-## 6 · Chapter One · The Fixture
-
-| | |
-|---|---|
-| **File name** | `ch1-fixture.jpg` |
-| **Where it shows** | Top half of a storybook page, **cropped to a square** |
-| **Size** | **Square 1:1** (1080 × 1080) with the action in the centre |
-| **Story** | How you met: she was hosting a Reliance Foundation Youth Sports football tournament; he was one of the players. She sent him his match schedules |
-| **Characters** | Karan in a football kit mid-match in the background; Himanshi at the sideline in the foreground as the organiser, lanyard round her neck, clipboard in one hand, looking at her phone with a little smile |
-| **Avoid** | Real logos or banner text |
-
-```
-Using the characters and painting style we agreed: a sunny youth football tournament on a green ground
-with goalposts, bunting and spectators. In the foreground at the sideline, Himanshi as the event
-organiser, a lanyard around her neck and a clipboard in one hand, looking at her phone with a small
-smile. In the middle distance, Karan in a football kit, mid-match, glancing towards her. Bright,
-cheerful afternoon light. No logos, no text on banners or shirts. Square 1:1, subjects centred.
-```
-
----
-
-## 7 · Chapter Two · Pickup at Naraina Metro
-
-| | |
-|---|---|
-| **File name** | `ch2-metro.jpg` |
-| **Size** | **Square 1:1** (1080 × 1080) |
-| **Story** | Your first meeting: he picked you up from Naraina Metro in his i10 |
-| **Characters** | Karan at the wheel of a small red Hyundai i10 hatchback, smiling through the window; Himanshi walking down the station steps towards the car, a little nervous, a little excited |
-| **Setting** | Dusk in Delhi under the elevated metro line, warm street lights, an auto-rickshaw in the background |
-| **Avoid** | Station-name signs or any text |
-
-```
-Using the characters and painting style we agreed: dusk in Delhi beneath an elevated metro line with
-concrete pillars and warm street lights. A small red Hyundai i10 hatchback waits at the kerb with Karan
-at the wheel, smiling through the open window. Himanshi walks down the station steps towards the car,
-a little nervous, a little excited. A yellow-green auto-rickshaw in the background. Pink-and-orange
-evening sky. No signs, no text, no number plates. Square 1:1, subjects centred.
-```
-
----
-
-## 8 · Chapter Three · The Tasting Menu
-
-| | |
-|---|---|
-| **File name** | `ch3-food.jpg` |
-| **Size** | **Square 1:1** (1080 × 1080) |
-| **Story** | All the dates at Galaxy, Moet's, Burma Burma and Yum Yum Cha |
-| **Characters** | Both of you at a cosy restaurant table for two, laughing; she has a cup of chai, he has a black coffee |
-| **Props** | Bamboo steamers of momos between you, chopsticks |
-| **Avoid** | Menus, restaurant names or any text |
-
-```
-Using the characters and painting style we agreed: Karan and Himanshi at a cosy restaurant table for
-two, mid-laugh, leaning towards each other. Between them, open bamboo steamers of momos and a pair of
-chopsticks. She holds a cup of chai, he holds a black coffee. Warm pendant lights, dark wood, a softly
-blurred restaurant behind them. No menus, no text. Square 1:1, subjects centred.
-```
-
----
-
-## 9 · Chapter Four · Poles Apart
-
-| | |
-|---|---|
-| **File name** | `ch4-poles.jpg` |
-| **Size** | **Square 1:1** (1080 × 1080) |
-| **Story** | Opposites: she loves tea, mountains, night skies and books; he loves coffee, beaches, evening skies and sport |
-| **Layout** | Split down the middle. Left half: her. Right half: him. The two halves blend at the centre line where they look towards each other |
-| **Avoid** | Text, a hard white dividing line |
-
-```
-Using the characters and painting style we agreed: a single image split vertically down the middle.
-LEFT HALF: Himanshi on a wooden balcony in the snowy mountains at night under a deep starry sky, a book
-in her lap and a cup of tea in her hands. RIGHT HALF: Karan on a beach at sunset, a cup of black coffee
-in his hand and a football at his feet. The night sky on the left melts into the sunset sky on the
-right, and the two of them look towards each other across the middle. No text. Square 1:1.
-```
-
----
-
-## 10 · Chapter Five · Between the Pages
-
-| | |
-|---|---|
-| **File name** | `ch5-book.jpg` |
-| **Size** | **Square 1:1** (1080 × 1080) |
-| **Story** | He handed her an ordinary book; a card asking "Will you marry me?" slipped out from between the pages. **On the site this picture starts gift-wrapped** and guests tap "Open for a surprise" to unwrap it |
-| **Characters** | Himanshi on a sofa holding the open book, a small card in her other hand, her hand over her mouth in surprise. Karan kneeling beside her holding an open ring box |
-| **Avoid** | Writing on the card (the site adds "Will you marry me?") |
-
-```
-Using the characters and painting style we agreed: a cosy living room in soft lamp light. Himanshi sits
-on a sofa holding an open book; a small blank cream card has just slipped out from between its pages
-and she holds it in her other hand, her hand over her mouth, eyes wide with happy surprise. Karan kneels
-on one knee beside her, smiling, holding an open ring box with a sparkling ring. Warm, intimate,
-emotional. The card is blank: no writing, no text anywhere. Square 1:1, subjects centred.
-```
-
----
-
-## 11 · Chapter Six · Game, Set, Match
-
-| | |
-|---|---|
-| **File name** | `ch6-tennis.jpg` |
-| **Size** | **Square 1:1** (1080 × 1080) |
-| **Story** | She proposed back, on a tennis court, with tennis balls spelling "Will you marry me?" (**the site animates the balls with the letters**, so keep the bottom fifth of the image fairly plain court) |
-| **Characters** | Himanshi on one knee in a black-and-white striped sweater, white tennis skirt and black cap, holding up a ring. Karan in a dark grey hoodie and shorts with a blue racket backpack (orange racket handle sticking out), laughing in surprise |
-| **Setting** | Blue hard court, green mesh fence, tall palm trees and trees behind |
-
-```
-Using the characters and painting style we agreed: a blue hard tennis court with white lines and a
-tall green mesh fence, palm trees behind it, soft morning light. Himanshi is down on one knee, wearing
-a black-and-white striped sweater, a white pleated tennis skirt and a black cap, holding up a ring
-towards Karan. Karan stands in a dark grey hoodie and shorts, a blue tennis backpack on his back with
-an orange racket handle sticking out, laughing in delighted surprise. A few tennis balls on the court.
-Keep the bottom fifth of the image as plain blue court. No text. Square 1:1, subjects centred.
-```
-
----
-
-## 12 · The last page · To be continued
-
-| | |
-|---|---|
-| **File name** | `finale.jpg` |
-| **Size** | **Square 1:1** (1080 × 1080) |
-| **Story** | The end of the storybook: "From fixing match schedules to fixing a wedding date" |
-| **Characters** | All three of you seen from behind, walking hand in hand, Ivy trotting ahead on her lead |
-
-```
-Using the characters and painting style we agreed: Karan and Himanshi seen from behind, walking hand in
-hand down a quiet tree-lined Delhi lane at golden hour, Ivy trotting happily just ahead of them on a
-navy lead, her tail up. Long warm shadows, glowing sky, a hopeful, cinematic ending. No text.
-Square 1:1, subjects centred.
-```
-
----
-
-## 13 · Night one · Sagan & Cocktails (blue and silver)
-
-| | |
-|---|---|
-| **File name** | `ev-cocktail.jpg` |
-| **Where it shows** | Full screen. **Top 35%: the event title sits there. Bottom 30%: a details card covers it.** Keep the main action in the **middle** |
-| **Size** | Portrait 9:16 (1080 × 1920) |
-| **Characters & outfits** | Karan in a midnight-blue suit; Himanshi in a silver sequinned saree; dancing together. Ivy nearby in a small silver bow tie. Guests raising glasses in the background |
-| **Colours** | Midnight blue, ice blue, silver, a little white light |
-| **Setting** | A stylish club night with mirror balls, silver streamers and soft blue spotlights |
-| **Avoid** | Gold, black-and-gold, text or signage |
-
-```
-Using the characters and painting style we agreed: a glamorous cocktail night in a stylish club,
-coloured entirely in midnight blue, ice blue and silver. Mirror balls and silver streamers hang from
-the ceiling, soft blue spotlights sweep the room. In the middle of the image Karan, in a midnight-blue
-suit, dances with Himanshi, in a shimmering silver sequinned saree. Ivy sits nearby wearing a small
-silver bow tie, watching proudly. Guests in the background raise glasses. Keep the top third mostly
-dark blue ceiling with soft lights and the bottom third mostly dance floor. No gold, no text, no signs.
+An invitation card for a haldi ceremony on warm cream paper. Top corners: marigold garlands, small
+hanging brass birdcages and lavender fabric drapes. Left edge: a lavender parasol. Along the bottom:
+KARAN (dark hair swept back, short full beard, black rectangular glasses) in a lavender kurta playfully
+smearing haldi on the cheek of HIMANSHI (long dark wavy hair, black rectangular glasses) in a butter-
+yellow outfit with a lavender dupatta, both laughing, seated on low cushions; brass bowls of turmeric,
+a dholak, and IVY sitting beside them in a yellow bandana with a smudge of haldi on her nose. The
+centre of the card is open, plain cream paper.
+Premium illustrated Indian wedding invitation card in the style of the attached reference cards:
+detailed, soft hand-painted gouache on warm cream paper, palette of lavender, butter yellow, marigold
+and cream, delicate and elegant, gentle warm light. No text, no letters, no numbers, no logos.
 Portrait 9:16.
 ```
 
----
-
-## 14 · Night two · Mehndi, Music & Masti
+## A8 · The Wedding (beige and cherry red)
 
 | | |
 |---|---|
-| **File name** | `ev-mehndi.jpg` |
-| **Where it shows** | Full screen; title over the top 35%, details card over the bottom 30%; action in the **middle** |
-| **Size** | Portrait 9:16 (1080 × 1920) |
-| **Characters & outfits** | Himanshi seated, having mehndi applied to her hands, in an emerald-and-hot-pink outfit; Karan beside her in an emerald kurta, laughing; a dholak player and a harmonium player on a carpet; friends dancing. Ivy in an emerald bandana |
-| **Colours** | Emerald green, hot pink, gold |
-| **Setting** | A lively night-time terrace party with string lights overhead and floor cushions |
-| **Avoid** | Flowers, plants, text |
+| **File** | `ev-wedding.jpg` |
+| **Canva aspect ratio** | `PORTRAIT_9_16` |
+| **Where** | Behind the wedding details and the order of the day; **centre open** (this one has the most text) |
+| **Like** | `ref-5-wedding` |
 
 ```
-Using the characters and painting style we agreed: a lively night-time mehndi party on a rooftop
-terrace, strings of warm fairy lights criss-crossing overhead. In the middle of the image Himanshi sits
-on floor cushions in an emerald-green and hot-pink outfit while an artist applies mehndi to her hands;
-Karan sits beside her in an emerald kurta, laughing. A dholak player and a harmonium player perform on
-a patterned carpet, friends dance around them. Ivy, in an emerald bandana, lies happily at Himanshi's
-feet. Colours: emerald, hot pink, gold. Keep the top third mostly night sky with lights. No flowers,
-no plants, no text. Portrait 9:16.
+An invitation card for a royal wedding on soft beige paper. Left edge: a tall banana plant. Right edge:
+a slender carved sandstone pillar with a hanging brass bell. Along the bottom: a still life of a brass
+kalash with mango leaves, a tall brass diya stand with small flames, an urli of water with floating
+diyas, and a gentle Pichwai-style cow resting on the right; in the bottom centre, small and elegant,
+HIMANSHI (long dark wavy hair, black rectangular glasses) in a cherry-red bridal lehenga and KARAN (dark
+hair swept back, short full beard, black rectangular glasses) in a beige sherwani with a cherry-red safa,
+seated before a small sacred fire; IVY beside them in a cherry-and-gold bandana. The centre and top of
+the card are open, plain beige paper.
+Premium illustrated Indian wedding invitation card in the style of the attached reference cards:
+detailed, soft hand-painted gouache on beige paper, palette of beige, ivory, cherry red and soft gold,
+delicate and elegant, gentle warm light. No text, no letters, no numbers, no logos. Portrait 9:16.
 ```
 
----
-
-## 15 · Morning three · Haldi (lavender and yellow)
+## A9 · Sign-off backdrop
 
 | | |
 |---|---|
-| **File name** | `ev-haldi.jpg` |
-| **Where it shows** | Full screen; title over the top 35%, details card over the bottom 30%; action in the **middle** |
-| **Size** | Portrait 9:16 (1080 × 1920) |
-| **Characters & outfits** | Himanshi in a yellow outfit with a lavender dupatta and Karan in a lavender kurta, both seated on low wooden stools, laughing as family smear haldi on their cheeks. Ivy in a yellow bandana with a smudge of haldi on her nose |
-| **Colours** | Butter yellow, turmeric, lavender, white |
-| **Setting** | A sunny courtyard under colourful fabric canopies, brass bowls of turmeric paste |
-| **Avoid** | Marigolds or any flowers, plants, text |
+| **File** | `bg-closing.jpg` |
+| **Canva aspect ratio** | `PORTRAIT_9_16` |
+| **Where** | Behind "With love, the Kapoor & Sachdeva families"; **centre open** |
+| **Like** | the last screen of the reference (banana plant and brass still life) |
 
 ```
-Using the characters and painting style we agreed: a bright sunny morning in a courtyard under
-billowing canopies of yellow and lavender fabric. In the middle of the image Himanshi, in a yellow
-outfit with a lavender dupatta, and Karan, in a lavender kurta, sit side by side on low carved wooden
-stools, laughing, as family members dressed in yellow and lavender smear haldi on their cheeks. Brass
-bowls of turmeric paste on the floor. Ivy, in a yellow bandana with a smudge of haldi on her nose,
-sits beside them. Joyful, playful, full of light. No flowers, no plants, no text. Portrait 9:16.
+A closing card on soft beige paper. Left edge: a tall banana plant. Along the bottom: a brass kalash, a
+tall brass diya stand with small flames and an urli with floating diyas, and IVY (a light golden-cream
+Labrador-type Indian dog with floppy tan-tipped ears and a navy-blue collar) curled up contentedly
+beside them, eyes closed, as if the party is over. The centre and top of the card are open, plain beige
+paper.
+Premium illustrated Indian wedding invitation card in the style of the attached reference cards:
+detailed, soft hand-painted gouache on beige paper, delicate and elegant, gentle warm light.
+No text, no letters, no numbers, no logos. Portrait 9:16.
 ```
 
 ---
 
-## 16 · The Wedding (beige and cherry red)
+# PART B · THE STORYBOOK (watercolour)
+
+**Style line, at the end of every Part B prompt:**
+> Soft hand-painted watercolour illustration on textured cream paper, delicate fine ink linework, pastel
+> palette of cream, blush, peach, sage, powder blue and soft gold, airy and dreamy, gentle diffused light,
+> realistic proportions and natural faces, like a beautiful picture book. No text, no letters, no logos.
+
+## B1 · The desk behind the storybook
 
 | | |
 |---|---|
-| **File name** | `ev-wedding.jpg` |
-| **Where it shows** | Full screen; title over the top 35%, details card over the bottom 30%; action in the **middle** |
-| **Size** | Portrait 9:16 (1080 × 1920) |
-| **Characters & outfits** | Himanshi in a cherry-red bridal lehenga with gold embroidery; Karan in a beige sherwani with a cherry-red safa and sehra; seated at the sacred fire. Ivy in a cherry-red and gold bandana sitting nearby |
-| **Colours** | Beige, ivory, cherry red, gold |
-| **Setting** | A royal daytime wedding in a palace courtyard with carved sandstone arches; a cherry-red and gold mandap; elders blessing in the background |
-| **Avoid** | Flowers, plants, text |
+| **File** | `book-cover.jpg` |
+| **Canva aspect ratio** | `LANDSCAPE_16_9` |
+| **Where** | Faded behind the storybook; the **centre stays empty** |
 
 ```
-Using the characters and painting style we agreed: a royal daytime wedding in a palace courtyard with
-carved sandstone arches and jharokhas. In the middle of the image, beneath a cherry-red and gold
-draped mandap, Himanshi in a cherry-red bridal lehenga with gold embroidery and Karan in a beige
-sherwani with a cherry-red safa sit side by side before the sacred fire. Ivy, in a cherry-red and gold
-bandana, sits proudly nearby. Elders in beige and red watch and bless them in the background. Soft
-daylight, regal and calm. Colours: beige, ivory, cherry red, gold. Keep the top third mostly arches
-and sky. No flowers, no plants, no text. Portrait 9:16.
+A top-down view of a pale wooden table in soft morning light. Around the edges only: a pencil, pastel
+sticky notes, a tennis ball, a folded match ticket with no writing, a cup of chai, a cup of black coffee
+and a pair of black glasses. The centre of the table is completely clear.
+Soft hand-painted watercolour illustration on textured cream paper, delicate fine ink linework, pastel
+palette, airy, gentle diffused light. No text, no letters, no logos. Landscape 16:9.
 ```
 
----
-
-## 17 · Backdrop behind the sign-off
+## B2 · Chapter One · The Fixture
 
 | | |
 |---|---|
-| **File name** | `bg-closing.jpg` |
-| **Where it shows** | Behind "With love, the Kapoor & Sachdeva families" at the very end. Text sits in the **centre**, so the centre must be calm |
-| **Size** | Portrait 9:16 (1080 × 1920) |
-| **Characters** | Ivy only, small, at the bottom |
-| **Colours** | Ivory, beige, soft gold, a touch of cherry red |
+| **File** | `ch1-fixture.jpg` |
+| **Canva aspect ratio** | `SQUARE_1_1` |
 
 ```
-Using the characters and painting style we agreed: the open front door of the family home seen from
-inside at dusk, warm light spilling out onto the doorstep. At the very bottom of the image Ivy sits
-on the doormat in her cherry-red bandana, looking out as if waiting to welcome the guests. The centre
-and top of the image are a calm, softly lit ivory wall and doorway so text can sit over it.
-Ivory, beige, soft gold, a touch of cherry red. No people, no flowers, no plants, no text. Portrait 9:16.
+A sunny youth football tournament on a soft green ground with goalposts, pastel bunting and a few
+spectators. In the foreground at the sideline, HIMANSHI (long dark wavy hair, black rectangular glasses)
+as the event organiser, a lanyard around her neck and a clipboard in one hand, smiling at her phone. In
+the middle distance KARAN (tall, athletic, dark hair swept back, short full beard, black rectangular
+glasses) in a football kit, mid-match, glancing towards her.
+Soft hand-painted watercolour illustration on textured cream paper, delicate fine ink linework, pastel
+palette of cream, blush, peach, sage, powder blue and soft gold, airy and dreamy, gentle diffused light,
+realistic proportions and natural faces, like a beautiful picture book. No text, no letters, no logos.
+Square, subjects centred.
+```
+
+## B3 · Chapter Two · Pickup at Naraina Metro
+
+| | |
+|---|---|
+| **File** | `ch2-metro.jpg` |
+| **Canva aspect ratio** | `SQUARE_1_1` |
+
+```
+Soft dusk in Delhi beneath an elevated metro line with pale concrete pillars, glowing street lights and a
+blush-and-lilac evening sky. A small silver Hyundai i10 hatchback waits at the kerb with KARAN (dark hair
+swept back, short full beard, black rectangular glasses) at the wheel, smiling through the open window.
+HIMANSHI (long dark wavy hair, black rectangular glasses) walks down the station steps towards the car,
+a little nervous, a little excited. A pastel auto-rickshaw in the background.
+Soft hand-painted watercolour illustration on textured cream paper, delicate fine ink linework, pastel
+palette, airy and dreamy, gentle diffused light, realistic proportions and natural faces, like a
+beautiful picture book. No signs, no number plates, no text, no letters, no logos. Square, subjects
+centred.
+```
+
+## B4 · Chapter Three · The Tasting Menu
+
+| | |
+|---|---|
+| **File** | `ch3-food.jpg` |
+| **Canva aspect ratio** | `SQUARE_1_1` |
+
+```
+KARAN (dark hair swept back, short full beard, black rectangular glasses) and HIMANSHI (long dark wavy
+hair, black rectangular glasses) at a cosy café table for two, mid-laugh, leaning towards each other.
+Between them, open bamboo steamers of momos and chopsticks. She holds a cup of chai, he holds a black
+coffee. Soft pendant lights, pale wood, a softly blurred café behind them.
+Soft hand-painted watercolour illustration on textured cream paper, delicate fine ink linework, pastel
+palette, airy and dreamy, gentle diffused light, realistic proportions and natural faces, like a
+beautiful picture book. No menus, no signs, no text, no letters, no logos. Square, subjects centred.
+```
+
+## B5 · Chapter Four · Poles Apart
+
+| | |
+|---|---|
+| **File** | `ch4-poles.jpg` |
+| **Canva aspect ratio** | `SQUARE_1_1` |
+
+```
+One image split softly down the middle. LEFT: HIMANSHI (long dark wavy hair, black rectangular glasses)
+on a wooden cabin balcony in the snowy mountains at night under a powder-blue and lilac starry sky, a
+book in her lap and a cup of tea in her hands. RIGHT: KARAN (dark hair swept back, short full beard,
+black rectangular glasses) on a beach at sunset in blush and peach light, a black coffee in his hand
+and a football at his feet. The night sky on the left melts gently into the sunset on the right, and
+they look towards each other across the middle.
+Soft hand-painted watercolour illustration on textured cream paper, delicate fine ink linework, pastel
+palette, airy and dreamy, gentle diffused light, realistic proportions and natural faces, like a
+beautiful picture book. No text, no letters, no logos. Square.
+```
+
+## B6 · Chapter Five · Between the Pages
+
+| | |
+|---|---|
+| **File** | `ch5-book.jpg` |
+| **Canva aspect ratio** | `SQUARE_1_1` |
+| **Where** | **Starts gift-wrapped on the site**; the card in her hand must be **blank** (the site writes "Will you marry me?") |
+
+```
+A cosy living room in soft lamp light. HIMANSHI (long dark wavy hair, black rectangular glasses) sits on
+a pale sofa holding an open book; a small blank cream card has just slipped out from between its pages
+and she holds it, one hand over her mouth, eyes wide with happy surprise. KARAN (dark hair swept back,
+short full beard, black rectangular glasses) kneels on one knee beside her, smiling, holding an open
+ring box with a sparkling ring.
+Soft hand-painted watercolour illustration on textured cream paper, delicate fine ink linework, pastel
+palette, airy and dreamy, gentle diffused light, realistic proportions and natural faces, like a
+beautiful picture book. The card and the book pages are blank: no writing, no text, no letters
+anywhere. Square, subjects centred.
+```
+
+## B7 · Chapter Six · Game, Set, Match
+
+| | |
+|---|---|
+| **File** | `ch6-tennis.jpg` |
+| **Canva aspect ratio** | `SQUARE_1_1` |
+| **Where** | The site bounces lettered tennis balls across the **bottom fifth**; keep it plain court |
+
+```
+A soft powder-blue tennis court with white lines and a sage-green mesh fence, tall palm trees behind it,
+gentle morning light. HIMANSHI (long dark wavy hair, black rectangular glasses) is down on one knee in a
+black-and-white striped sweater, a white pleated tennis skirt and a black cap, holding up a ring. KARAN
+(tall, dark hair swept back, short full beard, black rectangular glasses) stands in a soft grey hoodie
+and shorts with a blue tennis backpack and an orange racket handle sticking out, laughing in delighted
+surprise. Keep the bottom fifth of the image as plain court.
+Soft hand-painted watercolour illustration on textured cream paper, delicate fine ink linework, pastel
+palette, airy and dreamy, gentle diffused light, realistic proportions and natural faces, like a
+beautiful picture book. No text, no letters, no logos. Square, subjects centred.
+```
+
+## B8 · The last page · To be continued
+
+| | |
+|---|---|
+| **File** | `finale.jpg` |
+| **Canva aspect ratio** | `SQUARE_1_1` |
+
+```
+KARAN and HIMANSHI seen from behind, walking hand in hand down a quiet Delhi lane at golden hour, IVY
+(a light golden-cream Labrador-type Indian dog with a navy-blue collar) trotting happily just ahead of
+them on a lead, tail up. Long soft shadows, a glowing peach and blush sky, hopeful and cinematic.
+Soft hand-painted watercolour illustration on textured cream paper, delicate fine ink linework, pastel
+palette, airy and dreamy, gentle diffused light, like a beautiful picture book. No text, no letters,
+no logos. Square, subjects centred.
 ```
 
 ---
 
 ## Checklist
 
-| # | File | Size | People |
-|---|---|---|---|
-| 1 | `monogram.png` | Square, transparent | none |
-| 2 | `door-closed.jpg` | 9:16 | none |
-| 3 | `ivy-room.jpg` | 9:16 | Ivy |
-| 4 | `bg-invite.jpg` | 9:16 | none |
-| 5 | `book-cover.jpg` | 16:9 | none |
-| 6 | `ch1-fixture.jpg` | 1:1 | both |
-| 7 | `ch2-metro.jpg` | 1:1 | both |
-| 8 | `ch3-food.jpg` | 1:1 | both |
-| 9 | `ch4-poles.jpg` | 1:1 | both |
-| 10 | `ch5-book.jpg` | 1:1 | both |
-| 11 | `ch6-tennis.jpg` | 1:1 | both |
-| 12 | `finale.jpg` | 1:1 | both + Ivy |
-| 13 | `ev-cocktail.jpg` | 9:16 | both + Ivy |
-| 14 | `ev-mehndi.jpg` | 9:16 | both + Ivy |
-| 15 | `ev-haldi.jpg` | 9:16 | both + Ivy |
-| 16 | `ev-wedding.jpg` | 9:16 | both + Ivy |
-| 17 | `bg-closing.jpg` | 9:16 | Ivy |
-
-The WhatsApp preview picture is made from these automatically. You don't need to create it.
+| # | File | Canva aspect ratio | Style | Who |
+|---|---|---|---|---|
+| A1 | `monogram.png` | `SQUARE_1_1` | Reference | none |
+| A2 | `door-closed.jpg` | `PORTRAIT_9_16` | Reference | none |
+| A3 | `ivy-room.jpg` | `PORTRAIT_9_16` | Reference | Ivy |
+| A4 | `bg-invite.jpg` | `PORTRAIT_9_16` | Reference | none |
+| A5 | `ev-cocktail.jpg` | `PORTRAIT_9_16` | Reference | both + Ivy |
+| A6 | `ev-mehndi.jpg` | `PORTRAIT_9_16` | Reference | both + Ivy |
+| A7 | `ev-haldi.jpg` | `PORTRAIT_9_16` | Reference | both + Ivy |
+| A8 | `ev-wedding.jpg` | `PORTRAIT_9_16` | Reference | both + Ivy |
+| A9 | `bg-closing.jpg` | `PORTRAIT_9_16` | Reference | Ivy |
+| B1 | `book-cover.jpg` | `LANDSCAPE_16_9` | Watercolour | none |
+| B2 | `ch1-fixture.jpg` | `SQUARE_1_1` | Watercolour | both |
+| B3 | `ch2-metro.jpg` | `SQUARE_1_1` | Watercolour | both |
+| B4 | `ch3-food.jpg` | `SQUARE_1_1` | Watercolour | both |
+| B5 | `ch4-poles.jpg` | `SQUARE_1_1` | Watercolour | both |
+| B6 | `ch5-book.jpg` | `SQUARE_1_1` | Watercolour | both |
+| B7 | `ch6-tennis.jpg` | `SQUARE_1_1` | Watercolour | both |
+| B8 | `finale.jpg` | `SQUARE_1_1` | Watercolour | both + Ivy |

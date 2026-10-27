@@ -13,13 +13,14 @@
     /* Each section's palette. While a passage between two sections crosses
        the middle of the screen, the page blends from one palette to the next. */
     const THEMES = {
-        peach:    { bg: "#f2d6bf", ink: "#3a2116", soft: "#7a5040", accent: "#9b111e" },
-        desk:     { bg: "#2a1c15", ink: "#f4e9d8", soft: "#c8b29a", accent: "#d9a441" },
-        cocktail: { bg: "#0d1d3a", ink: "#eef2f8", soft: "#a9b7cc", accent: "#c9d1dc" },
-        mehndi:   { bg: "#0f3a2e", ink: "#f4ead2", soft: "#b7c8b2", accent: "#e9b949" },
-        haldi:    { bg: "#f4e3a1", ink: "#3e2b63", soft: "#6b5a86", accent: "#7c5cc4" },
-        wedding:  { bg: "#efe3cf", ink: "#5c0f16", soft: "#7a4b3a", accent: "#b8892f" },
-        paper:    { bg: "#f4ede1", ink: "#2a1d17", soft: "#6e5a4c", accent: "#9b111e" },
+        // colours taken from the original reference invitation
+        peach:    { bg: "#fcefd3", ink: "#4b291b", soft: "#6b4c3f", accent: "#b48a52" },
+        desk:     { bg: "#f6ead9", ink: "#4b291b", soft: "#6b4c3f", accent: "#b48a52" },
+        cocktail: { bg: "#0f1a33", ink: "#eef2f8", soft: "#b8c4d8", accent: "#c9d1dc" },
+        mehndi:   { bg: "#f1f0dc", ink: "#3e5a45", soft: "#6c7f6a", accent: "#c3707f" },
+        haldi:    { bg: "#fdf4e2", ink: "#7a5aa8", soft: "#8a5a4a", accent: "#e8a33d" },
+        wedding:  { bg: "#ece0cc", ink: "#6b2a12", soft: "#7a5a3c", accent: "#a8452f" },
+        paper:    { bg: "#e5d7c3", ink: "#7a4900", soft: "#7a5a3c", accent: "#9a7259" },
     };
 
     /* ---------- paintings ----------
@@ -249,29 +250,25 @@
         return `
         <div class="passage">${passage ? `<p>${esc(passage)}</p>` : ""}</div>
         <section class="event ev-${e.id}" id="ev-${e.id}" data-theme="${e.id}">
-          <div class="ev-stage">
-            <div class="ev-art" data-art="${esc(e.art)}"></div>
-            <div class="ev-head">
-              <p class="ev-kicker rv">${esc(e.kicker)}</p>
-              <h2 class="ev-title rv">${esc(e.title)}</h2>
-              <p class="ev-tagline rv">${esc(e.tagline)}</p>
-            </div>
-          </div>
-          <div class="ev-card rv">
-            <div class="date-block">
+          <div class="ev-art" data-art="${esc(e.art)}"></div>
+          <div class="ev-body">
+            <p class="ev-kicker rv">${esc(e.kicker)}</p>
+            <h2 class="ev-title rv">${esc(e.title)}</h2>
+            <p class="ev-tagline rv">${esc(e.tagline)}</p>
+            <div class="date-block rv">
               <span class="db-side">${esc(fmt(d, { weekday: "long" }))}</span>
               <span class="db-mid"><small>${esc(fmt(d, { month: "long" }))}</small><b>${esc(fmt(d, { day: "2-digit" }))}</b></span>
               <span class="db-side">${esc(e.timeLabel)}</span>
             </div>
-            <div class="venue">
+            <div class="venue rv">
               <p class="v-name">${esc(e.venue)}</p>
               <p class="v-addr">${esc(e.address)}</p>
             </div>
-            ${e.note ? `<p class="ev-note">${esc(e.note)}</p>` : ""}
-            ${e.dressCode ? `<div class="dress"><span class="dress-label">Dress code</span><span class="dress-text">${esc(e.dressCode)}</span>
+            ${e.note ? `<p class="ev-note rv">${esc(e.note)}</p>` : ""}
+            ${e.dressCode ? `<div class="dress rv"><span class="dress-label">Dress code</span><span class="dress-text">${esc(e.dressCode)}</span>
                 <span class="swatches">${e.swatches.map((c) => `<i style="background:${c}"></i>`).join("")}</span></div>` : ""}
             ${schedule}
-            <div class="ev-actions">
+            <div class="ev-actions rv">
               <a class="btn" href="${esc(mapsUrl(e))}" target="_blank" rel="noopener">Directions</a>
               <a class="btn" href="${esc(cal.g)}" target="_blank" rel="noopener">Google Calendar</a>
               <a class="btn" href="${cal.ics}" download="${e.id}.ics">Apple / Outlook</a>
