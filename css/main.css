@@ -188,7 +188,7 @@ body.door-open .leaf-r { transform: rotateY(105deg); }
 .blessings { display: flex; justify-content: center; gap: 18px; font-size: 13px; color: var(--soft); margin-bottom: 18px; }
 .blessings [lang="hi"] { font-family: "Noto Serif Devanagari", serif; }
 .blessings [lang="pa"] { font-family: "Noto Serif Gurmukhi", serif; }
-.welcome .mono { --m: 78px; width: 78px; margin-bottom: 16px; }
+.welcome .mono { --m: 150px; width: 150px; margin-bottom: 14px; }
 .together { font: 500 11px var(--caps); letter-spacing: .28em; text-transform: uppercase; color: var(--soft); margin-bottom: 8px; }
 .couple { display: flex; flex-direction: column; align-items: center; font-weight: 400; }
 .couple span { font: 400 clamp(62px, 17vw, 96px)/1 var(--script); }
@@ -230,7 +230,7 @@ body.door-open .leaf-r { transform: rotateY(105deg); }
     content: ""; position: absolute; top: 6px; bottom: 6px; right: -6px; width: 8px; z-index: 0;
     background: repeating-linear-gradient(90deg, #efe6d4 0 1px, #d7ccb6 1px 2px); border-radius: 0 3px 3px 0;
 }
-.story-desk { position: absolute !important; inset: -150px -50vw -130px; z-index: -1; opacity: .75; -webkit-mask: linear-gradient(180deg, transparent, #000 22%, #000 78%, transparent); mask: linear-gradient(180deg, transparent, #000 22%, #000 78%, transparent); }
+.story-desk { pointer-events: none; position: absolute !important; inset: -150px -50vw -130px; z-index: -1; opacity: .75; -webkit-mask: linear-gradient(180deg, transparent, #000 22%, #000 78%, transparent); mask: linear-gradient(180deg, transparent, #000 22%, #000 78%, transparent); }
 .story-desk::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 50%, transparent 30%, var(--bg) 78%); }
 .page {
     position: absolute; inset: 0; transform-origin: left center; transform-style: preserve-3d;
@@ -257,7 +257,7 @@ body.door-open .leaf-r { transform: rotateY(105deg); }
     font: italic 500 clamp(38px, 11vw, 50px)/1 var(--display);
     background: linear-gradient(180deg, #fff3d8, #f2d49a 60%, #fff1d2); -webkit-background-clip: text; background-clip: text; color: transparent;
 }
-.cover-mono { --m: 92px; width: 92px; }
+.cover-mono { --m: 140px; width: 140px; }
 .cover-mono .mono-type { border-color: #fbe7c4; box-shadow: inset 0 0 0 4px #c06f7c, inset 0 0 0 5px #fbe7c4; }
 .cover-mono .mono-type i { color: #fff1d2 !important; }
 .cover-by { font: italic 400 17px var(--display); }
@@ -333,24 +333,24 @@ body.door-open .leaf-r { transform: rotateY(105deg); }
    EVENTS
    ========================================================================== */
 .event { padding: 0; }
-.ev-art { position: sticky !important; top: 0; height: 100svh; max-width: 620px; margin: 0 auto; }
+.ev-art { height: 100svh; max-width: 620px; margin: 0 auto; }
+.ev-art > img { object-position: 50% 100%; }
 .ev-art::after {
     content: ""; position: absolute; inset: 0; pointer-events: none;
-    background: linear-gradient(180deg, color-mix(in srgb, var(--bg) 40%, transparent), transparent 12%, transparent 88%, color-mix(in srgb, var(--bg) 60%, transparent));
+    background: linear-gradient(180deg, color-mix(in srgb, var(--bg) 35%, transparent), transparent 14%, transparent 86%, var(--bg));
 }
 .ev-art .ph { bottom: 8%; }
+/* title, date and venue sit in the painting's open upper half; the people below stay clear */
 .ev-body {
-    position: relative; z-index: 1; max-width: 430px; margin: -100svh auto 0; padding: 16svh 40px 30svh;
+    position: relative; z-index: 1; max-width: 430px; margin: -100svh auto 0; padding: 9svh 40px 0;
+    min-height: 0; height: 58svh; overflow: hidden;
     text-shadow: 0 0 18px var(--bg), 0 0 3px var(--bg);
 }
-.ev-body::before {
-    /* a soft glow of the page colour behind the words, for legibility over any painting */
-    content: ""; position: absolute; inset: 10svh 8px 22svh; z-index: -1; border-radius: 50%;
-    background: radial-gradient(ellipse at 50% 45%, color-mix(in srgb, var(--bg) 55%, transparent), transparent 70%);
-}
+.ev-more { position: relative; max-width: 460px; margin: 0 auto; padding: 46svh 22px 70px; }
+.ev-more::before { content: ""; display: block; width: 1px; height: 40px; margin: 0 auto 22px; background: currentColor; opacity: .25; }
 .ev-kicker { font: 500 11px var(--caps); letter-spacing: .3em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
-.ev-title { font: 400 clamp(64px, 18vw, 104px)/.95 var(--script); }
-.ev-tagline { font: italic 400 18px/1.45 var(--display); color: var(--soft); margin: 8px 0 28px; }
+.ev-title { font: 400 clamp(56px, 16vw, 96px)/.95 var(--script); }
+.ev-tagline { font: italic 400 17px/1.4 var(--display); color: var(--soft); margin: 6px 0 18px; }
 .date-block { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 14px; margin: 0 auto 26px; max-width: 340px; }
 .db-side { font: 500 10.5px var(--caps); letter-spacing: .2em; text-transform: uppercase; border-block: 1px solid currentColor; padding: 9px 0; }
 .db-mid { display: flex; flex-direction: column; align-items: center; line-height: 1; }
@@ -397,7 +397,7 @@ body.door-open .leaf-r { transform: rotateY(105deg); }
 .c-links { display: flex; justify-content: center; gap: 18px; margin-top: 4px; font-size: 14px; }
 .c-links a { color: var(--accent); text-underline-offset: 4px; }
 .closing { padding: 80px 22px 140px; }
-.closing .mono { --m: 96px; width: 96px; margin-bottom: 26px; }
+.closing .mono { --m: 200px; width: 200px; margin-bottom: 26px; }
 .signoff { font: 400 76px/1 var(--script); color: var(--accent); }
 .signoff-fam { font: italic 400 24px var(--display); margin: 12px 0 8px; }
 .signoff-line { font: italic 400 18px var(--display); color: var(--soft); }

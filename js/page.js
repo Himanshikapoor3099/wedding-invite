@@ -262,6 +262,8 @@
               <p class="v-name">${esc(e.venue)}</p>
               <p class="v-addr">${esc(e.address)}</p>
             </div>
+          </div>
+          <div class="ev-more">
             ${e.note ? `<p class="ev-note rv">${esc(e.note)}</p>` : ""}
             ${e.dressCode ? `<div class="dress rv"><span class="dress-label">Dress code</span><span class="dress-text">${esc(e.dressCode)}</span>
                 <span class="swatches">${e.swatches.map((c) => `<i style="background:${c}"></i>`).join("")}</span></div>` : ""}
