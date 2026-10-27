@@ -110,9 +110,10 @@
     const firstStart = range(events[0]).start;
     const lastEnd = range(events[events.length - 1]).end;
     $("#cd-label").textContent = S.events[S.saveTheDate.countdownTo] ? S.saveTheDate.countdownLabel : "until the celebrations begin";
-    $("#scratch-dates").innerHTML = events.length < S.eventCount
-        ? events.map((e) => esc(fmt(at(e.date, e.start), { day: "2-digit", month: "short" }))).join(" · ") + "<br>2026 · New Delhi"
-        : lines(S.saveTheDate.dates);
+    const bigDay = S.events[S.saveTheDate.countdownTo];
+    $("#scratch-dates").innerHTML = bigDay
+        ? lines(S.saveTheDate.dates)
+        : esc(fmt(at(events[0].date, events[0].start), { day: "2-digit", month: "long", year: "numeric" })) + "<br>New Delhi";
     function tick() {
         const now = Date.now();
         if (now >= target.start.getTime()) {
@@ -317,28 +318,45 @@
         return { g, ics: URL.createObjectURL(new Blob([ics], { type: "text/calendar" })) };
     }
 
+    // Each scene is a painted backdrop with cut-out figures that move on it
+    const SCENES = {
+        cocktail: `<img class="fig fig-him" src="assets/art/cocktail-him.webp" alt="">
+                   <img class="fig fig-her" src="assets/art/cocktail-her.webp" alt="">`,
+        haldi: `<img class="fig fig-him" src="assets/art/haldi-him.webp" alt="">
+                <span class="fig-her-wrap"><img class="fig fig-her" src="assets/art/haldi-her.webp" alt=""><i class="smudge"></i></span>`,
+        wedding: `<span class="flame" aria-hidden="true"><i></i><i></i><i></i></span>
+                  <img class="fig fig-pheras" src="assets/art/pheras.webp" alt="">
+                  <span class="bells bells-r bells-sm" aria-hidden="true"></span>`,
+    };
+
     $("#events").innerHTML = events.map((e) => {
         const d = at(e.date, e.start);
         const cal = calendar(e);
         const passage = S.passages["to" + e.id[0].toUpperCase() + e.id.slice(1)];
         const schedule = e.schedule ? `
-            <div class="schedule-wrap">
+            <div class="schedule-wrap rv">
               <p class="eyebrow">${esc(e.scheduleTitle)}</p>
               <p class="schedule-hint">${esc(e.scheduleHint)}</p>
-              <ol class="schedule">${e.schedule.map((s) => `
+              <ol class="timeline">${e.schedule.map((s) => `
                 <li><button type="button" aria-expanded="false">
-                  <span class="s-time">${esc(s.time)}</span><span class="s-dot"></span><span class="s-name">${esc(s.name)}</span></button>
-                  <p class="s-about" hidden>${esc(s.about)}</p></li>`).join("")}
+                  <span class="t-time">${esc(s.time)}</span><span class="t-dot"></span><span class="t-name">${esc(s.name)}</span>
+                </button></li>`).join("")}
               </ol>
+              <p class="t-about" aria-live="polite"></p>
             </div>` : "";
         return `
         <div class="passage">${passage ? `<p>${esc(passage)}</p>` : ""}</div>
         <section class="event ev-${e.id}" id="ev-${e.id}" data-theme="${e.id}">
-          <div class="ev-art" data-art="${esc(e.art)}"></div>
-          <div class="ev-body">
+          <div class="ev-head">
             <p class="ev-kicker rv">${esc(e.kicker)}</p>
             <h2 class="ev-title rv">${esc(e.title)}</h2>
             <p class="ev-tagline rv">${esc(e.tagline)}</p>
+          </div>
+          <div class="ev-scene scene-${e.id}">
+            <img class="scene-bg" src="assets/art/${e.id}-bg.jpg" alt="" loading="lazy">
+            ${SCENES[e.id] || ""}
+          </div>
+          <div class="ev-details">
             <div class="date-block rv">
               <span class="db-side">${esc(fmt(d, { weekday: "long" }))}</span>
               <span class="db-mid"><small>${esc(fmt(d, { month: "long" }))}</small><b>${esc(fmt(d, { day: "2-digit" }))}</b></span>
@@ -348,11 +366,7 @@
               <p class="v-name">${esc(e.venue)}</p>
               <p class="v-addr">${esc(e.address)}</p>
             </div>
-          </div>
-          <div class="ev-more">
             ${e.note ? `<p class="ev-note rv">${esc(e.note)}</p>` : ""}
-            ${e.dressCode ? `<div class="dress rv"><span class="dress-label">Dress code</span><span class="dress-text">${esc(e.dressCode)}</span>
-                <span class="swatches">${e.swatches.map((c) => `<i style="background:${c}"></i>`).join("")}</span></div>` : ""}
             ${schedule}
             <div class="ev-actions rv">
               <a class="btn" href="${esc(mapsUrl(e))}" target="_blank" rel="noopener">Directions</a>
@@ -363,11 +377,17 @@
         </section>`;
     }).join("");
 
-    $$(".schedule button").forEach((b) => b.addEventListener("click", () => {
-        const open = b.getAttribute("aria-expanded") === "true";
-        $$(".schedule button").forEach((x) => { x.setAttribute("aria-expanded", "false"); x.nextElementSibling.hidden = true; });
-        if (!open) { b.setAttribute("aria-expanded", "true"); b.nextElementSibling.hidden = false; }
-    }));
+    $$(".timeline").forEach((tl) => {
+        const about = tl.nextElementSibling;
+        const ev = events.find((x) => x.schedule);
+        const buttons = $$("button", tl);
+        const pick = (i) => {
+            buttons.forEach((b, j) => b.setAttribute("aria-expanded", String(j === i)));
+            about.textContent = ev.schedule[i].about;
+        };
+        buttons.forEach((b, i) => b.addEventListener("click", () => pick(i)));
+        pick(0);
+    });
 
     $$("[data-k-passage]").forEach((el) => {
         const t = S.passages[el.dataset.kPassage];
@@ -377,18 +397,6 @@
     // paintings and monograms, now that every slot is on the page
     $$("[data-art]").forEach(artSlot);
     $$("[data-monogram]").forEach(monogram);
-
-    /* ---------- RSVP ---------- */
-    const contact = S.contacts.people[0];
-    const rsvpBtn = $("#rsvp-btn");
-    if (S.rsvp.formUrl) {
-        let url = S.rsvp.formUrl;
-        if (S.rsvp.nameEntry && S.guest) url += (url.includes("?") ? "&" : "?") + encodeURIComponent(S.rsvp.nameEntry) + "=" + encodeURIComponent(S.guest);
-        rsvpBtn.href = url;
-    } else if (contact) {
-        const msg = `Hello! RSVP for ${S.couple.bride} & ${S.couple.groom}'s wedding.\nName: ${S.guest || ""}\nNumber of guests: \nAttending: ${events.map((e) => e.short).join(", ")}`;
-        rsvpBtn.href = `https://wa.me/${contact.phone.replace(/\D/g, "")}?text=${encodeURIComponent(msg)}`;
-    }
 
     /* ---------- families & contacts ---------- */
     $("#family-sides").innerHTML = S.family.sides.map((s) => `
@@ -470,6 +478,9 @@
     // into its place above the names.
     async function flyCrest() {
         const target = $(".mono-target");
+        const veil = document.createElement("div");
+        veil.className = "crest-veil";
+        document.body.appendChild(veil);
         const fly = document.createElement("div");
         fly.className = "crest-fly";
         fly.innerHTML = target.innerHTML;
@@ -496,6 +507,9 @@
         ], { duration: 1100, easing: "cubic-bezier(.6, 0, .25, 1)", fill: "forwards" }).finished;
         target.classList.add("landed");
         fly.remove();
+        const veil = $(".crest-veil");
+        await veil.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 700, easing: "ease", fill: "forwards" }).finished;
+        veil.remove();
     }
 
     let opened = false;

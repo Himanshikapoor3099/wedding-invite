@@ -14,7 +14,7 @@ window.SITE = {
         groom: "Karan",
         groomFull: "Karan Sachdeva",
         initials: ["H", "K"],
-        hashtag: "#KaranMani-fested",
+        hashtag: "#Karan-Mani-Fested",
     },
 
     /* ---------- The front door ------------------------------------------ */
@@ -31,6 +31,7 @@ window.SITE = {
             { line: "॥ ੴ ਵਾਹਿਗੁਰੂ ॥", lang: "pa" },
         ],
         together: "Together with their families",
+        inviteLine: "invite you to celebrate their wedding",
         brideParents: "Daughter of Mrs. Pramila & Mr. Gulshan Kapoor\nand Mrs. Chanchal & Mr. Praveen Kapoor",
         groomParents: "Son of Mrs. Meenu & Mr. Gulshan Sachdeva",
         request: "request the pleasure of your company\nat the celebration of their marriage",
@@ -40,10 +41,10 @@ window.SITE = {
     },
 
     saveTheDate: {
-        label: "Save the dates",
-        dates: "28 Nov — 01 Dec\n2026 · New Delhi",
+        label: "Save the Date",
+        dates: "01 December 2026\nNew Delhi",
         scratch: "Scratch gently",
-        hint: "Scratch the gold to reveal",
+        hint: "",
         countdownTo: "wedding",
         countdownLabel: "until forever, officially",
         during: "The celebrations are underway.",
@@ -52,16 +53,16 @@ window.SITE = {
 
     /* The lines shown between sections while the colours change */
     passages: {
-        toStory: "But first, how did we get here?",
+        toStory: "But first, a little look at how it all began.",
         toCocktail: "Saturday night. Dress to dazzle.",
         toHaldi: "Monday morning. Things are about to get yellow.",
-        toWedding: "And then, the main event.",
-        toRsvp: "Now, the only question that matters.",
+        toWedding: "And then, the D-Day.",
+        toFamily: "Hosted with all our love.",
     },
 
     /* ---------- Our story: a storybook ----------------------------------- */
     story: {
-        title: "KaranMani-fested",
+        title: "#Karan-Mani-Fested",
         subtitle: "Our story, in six chapters",
         coverBy: "by Himanshi & Karan",
         openHint: "Tap to open the book",
@@ -70,40 +71,40 @@ window.SITE = {
             {
                 title: "The Fixture",
                 art: "ch1-fixture",
-                text: "Every love story needs a meet-cute. Ours came with a match schedule. She was running a Reliance Foundation Youth Sports tournament; he was a name on her player list. The messages were strictly business, until, quietly, they weren't.",
+                text: "He was the captain of his football team. She was coordinating the tournament, which meant sending him every match schedule, every fixture, every time change. It was all very professional for a while. Then, somewhere between \"your match is at 10\" and \"good luck today\", the conversations started going in a completely different direction.",
             },
             {
-                title: "Pickup at Naraina Metro",
+                title: "Meeting at Naraina Metro",
                 art: "ch2-metro",
-                text: "He asked her out. She said yes. A trusty i10 pulled up at Naraina Metro, and somewhere between the station and the first stop, a conversation began that neither of them has managed to finish since.",
+                text: "Eventually he asked her out, and they decided to meet at Naraina Metro. He picked her up from the station that day, and he's been picking her up from that very same spot ever since. Different plans, same metro station, every single time.",
             },
             {
-                title: "Exploring Delhi, One Favourite at a Time",
+                title: "Exploring Each Other's Favourites",
                 art: "ch3-food",
-                text: "Then came a very thorough tour of Delhi's best tables: Burma Burma, PF Chang's, Concept Shawarma, Galaxy Pizza, Moet's and Yum Yum Cha. Research, they called it. Everyone else called it dating.",
+                text: "This was the getting-to-know-you phase. Endless car rides with no real destination, long talks, and a mission to eat their way across Delhi until they had a favourite for every cuisine. Burma Burma, PF Chang's, Concept Shawarma, Galaxy Pizza, Moet's, Yum Yum Cha… the list kept growing, and so did they.",
             },
             {
                 title: "Poles Apart",
                 art: "ch4-poles",
-                text: "She takes her tea strong and her mountains snow-capped. He takes his coffee black and his beaches sun-soaked, ideally from a shack by the sea. She loves a night sky; he loves an evening one. On paper, a mismatch. In person, a perfect fit.",
+                text: "Somewhere along the way, they realised they were complete opposites. He loves movies; she'd pick a book. He's coffee; she's chai. He wants the beach; she wants the mountains. He's non-veg, she's veg. He loves dressing up and surprises; she loves being comfy and planning everything. Poles apart, and somehow that's exactly what works.",
             },
             {
                 title: "The Surprise",
                 art: "ch5-book",
-                text: "He has a weakness for surprises. It began with a book, nothing unusual about that. She was still holding it when she turned to find a heart of red balloons, a sky full of fairy lights, and a question glowing in neon.",
+                text: "Surprises have always been one of his favourite things, and the proposal was his best one yet. Gifting each other books had become one of their little traditions, so of course he made it part of the most special day. He went down on one knee with a ring, and the book held the final question.",
                 surprise: { wrap: "Open for a surprise", card: "", after: "She said yes." },
             },
             {
                 title: "Game, Set, Match",
                 art: "ch6-tennis",
-                text: "Never one to be outdone, she returned the serve. On a tennis court, on one knee, with a row of tennis balls doing the asking.",
+                text: "He's always been into sports: football, cricket, pickleball, tennis. But tennis is his favourite, so that's exactly where she chose to propose to him, with a row of tennis balls spelling out the question. Two yeses later, the only thing left to do was plan a wedding.",
                 balls: "WILL YOU MARRY ME?",
             },
         ],
         finale: {
             art: "finale",
             title: "To be continued…",
-            text: "From fixing match schedules\nto fixing a wedding date.",
+            text: "From fixing match schedules to fixing a wedding date.\nAnd now, a brand-new chapter begins.",
         },
     },
 
@@ -133,7 +134,7 @@ window.SITE = {
             kicker: "Monday morning",
             short: "Haldi",
             title: "Haldi",
-            tagline: "A little haldi, a lot of hungama.",
+            tagline: "Bright colours, big laughs and a whole lot of yellow.",
             date: "2026-11-30", start: "11:00", end: "15:00",
             timeLabel: "11 am onwards",
             venue: "Pankh Punjabi Bagh Club",
@@ -145,7 +146,7 @@ window.SITE = {
         },
         wedding: {
             art: "ev-wedding",
-            kicker: "The big day",
+            kicker: "The D-Day",
             short: "The Wedding",
             title: "The Wedding",
             tagline: "A little teary-eyed, a lot of happily ever after.",
@@ -198,7 +199,7 @@ window.SITE = {
     closing: {
         signoff: "With love,",
         families: "The Kapoor & Sachdeva families",
-        line: "See you on the dance floor. Ivy will be at the door.",
+        line: "See you on the dance floor.",
     },
 
     shareText: "You're invited to the wedding of Himanshi & Karan · 28 Nov — 01 Dec 2026 · New Delhi",

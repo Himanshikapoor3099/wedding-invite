@@ -14,7 +14,7 @@
   <meta property="og:title" content="Himanshi &amp; Karan · Wedding Invitation">
   <meta property="og:description" content="You're invited. 28 Nov — 01 Dec 2026 · New Delhi · #KaranMani-fested">
   <meta property="og:url" content="https://himanshikapoor3099.github.io/wedding-invite/">
-  <meta property="og:image" content="https://himanshikapoor3099.github.io/wedding-invite/assets/share.jpg?v=6">
+  <meta property="og:image" content="https://himanshikapoor3099.github.io/wedding-invite/assets/share.jpg?v=7">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
@@ -23,8 +23,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Italianno&family=Jost:wght@300;400;500;600&family=Noto+Serif+Devanagari:wght@500&family=Noto+Serif+Gurmukhi:wght@500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css?v=6">
-  <script src="js/content.js?v=6"></script>
+  <link rel="stylesheet" href="css/main.css?v=7">
+  <script src="js/content.js?v=7"></script>
 </head>
 <body class="locked">
 
@@ -41,33 +41,40 @@
 
   <main id="main" inert>
 
-    <!-- ============ BEHIND THE DOOR: IVY'S DELIVERY ============ -->
+    <!-- ============ BEHIND THE DOOR: THE INVITATION ============ -->
     <section class="welcome" data-theme="peach">
-      <div class="welcome-art" data-art="ivy-room"></div>
+      <span class="bells bells-l" aria-hidden="true"></span>
+      <span class="bells bells-r" aria-hidden="true"></span>
       <div class="welcome-text">
         <p class="delivery hero-in" style="--d:.2s" data-k="invite.delivery"></p>
         <div class="blessings hero-in" style="--d:.5s" id="blessings"></div>
         <div class="mono mono-target" data-monogram></div>
         <p class="together hero-in" style="--d:.9s" data-k="invite.together"></p>
         <h1 class="couple" id="couple"></h1>
+        <p class="invite-line hero-in" style="--d:3.6s" data-k="invite.inviteLine"></p>
       </div>
+      <div class="welcome-art" data-art="ivy-room"></div>
     </section>
 
     <section class="invite-card-wrap" data-theme="peach">
-      <div class="bg-art" data-art="bg-invite" data-art-optional></div>
-      <div class="invite-card rv">
-        <div class="parents" id="parents"></div>
-        <p class="request" data-k="invite.request"></p>
-        <p class="ivy-note" data-k="invite.ivyNote"></p>
+      <div class="card-scene">
+        <img class="card-bg" src="assets/art/bg-invite.jpg" alt="" aria-hidden="true">
+        <span class="bells bells-l bells-sm" aria-hidden="true"></span>
+        <span class="bells bells-r bells-sm" aria-hidden="true"></span>
+        <div class="invite-card">
+          <div class="parents rv" id="parents"></div>
+          <p class="request rv" data-k="invite.request"></p>
+          <p class="ivy-note rv" data-k="invite.ivyNote"></p>
+        </div>
       </div>
     </section>
 
-    <!-- ============ SAVE THE DATES: scratch the foil to reveal ============ -->
+    <!-- ============ SAVE THE DATE: scratch the foil to reveal ============ -->
     <section class="dates" data-theme="peach">
       <p class="eyebrow rv" data-k="saveTheDate.label"></p>
       <div class="scratch rv" id="scratch">
         <p class="scratch-dates" id="scratch-dates"></p>
-        <canvas id="scratch-foil" aria-label="Scratch to reveal the dates" role="button" tabindex="0"></canvas>
+        <canvas id="scratch-foil" aria-label="Scratch to reveal the date" role="button" tabindex="0"></canvas>
       </div>
       <p class="scratch-hint rv" id="scratch-hint" data-k="saveTheDate.hint"></p>
       <div class="countdown" id="countdown">
@@ -99,16 +106,9 @@
     <!-- ============ EVENTS (built from js/content.js) ============ -->
     <div id="events"></div>
 
-    <div class="passage" data-k-passage="toRsvp"></div>
+    <div class="passage" data-k-passage="toFamily"></div>
 
-    <!-- ============ RSVP, FAMILIES, SIGN-OFF ============ -->
-    <section class="rsvp" id="rsvp" data-theme="paper">
-      <h2 class="rv" data-k="rsvp.title"></h2>
-      <p class="rv" data-k="rsvp.text"></p>
-      <a class="btn btn-solid rv" id="rsvp-btn" target="_blank" rel="noopener" data-k="rsvp.button"></a>
-      <p class="rsvp-by rv" data-k="rsvp.by"></p>
-    </section>
-
+    <!-- ============ FAMILIES, SIGN-OFF ============ -->
     <section class="family" data-theme="paper">
       <p class="eyebrow rv" data-k="family.label"></p>
       <div class="family-sides" id="family-sides"></div>
@@ -133,6 +133,6 @@
     <span></span><span></span><span></span><span></span>
   </button>
 
-  <script src="js/page.js?v=6"></script>
+  <script src="js/page.js?v=7"></script>
 </body>
 </html>
