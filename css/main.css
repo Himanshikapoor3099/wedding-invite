@@ -51,9 +51,19 @@ section { position: relative; padding: 96px 22px; }
 .rv.in { opacity: 1; transform: none; }
 .hero-in { opacity: 0; transform: translateY(12px); }
 body.ready .hero-in { animation: heroIn 1.3s ease forwards var(--d, 0s); }
+/* the names are "written" left to right, as in the reference */
+.hero-write { display: inline-block; opacity: 0; clip-path: inset(-35% 114% -35% -14%); }
+body.ready .hero-write { animation: write 1.7s cubic-bezier(.45, .05, .3, 1) forwards var(--d, 0s); }
+@keyframes write { 0% { opacity: 0; clip-path: inset(-35% 114% -35% -14%); } 12% { opacity: 1; } 100% { opacity: 1; clip-path: inset(-35% -14% -35% -14%); } }
+
+/* the crest that flies in when the door opens */
+.crest-fly { position: fixed; z-index: 55; pointer-events: none; transform-origin: center; }
+.crest-fly img { width: 100%; height: 100%; display: block; filter: drop-shadow(0 18px 30px rgba(75, 41, 27, .28)); }
+.mono-target { visibility: hidden; }
+.mono-target.landed { visibility: visible; }
 @keyframes heroIn { to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) {
-    .rv, .hero-in { opacity: 1; transform: none; transition: none; animation: none !important; }
+    .rv, .hero-in, .hero-write { opacity: 1; transform: none; clip-path: none; transition: none; animation: none !important; }
 }
 
 /* ---------- painting slots and their placeholders ---------- */
@@ -191,7 +201,7 @@ body.door-open .leaf-r { transform: rotateY(105deg); }
 .welcome .mono { --m: 150px; width: 150px; margin-bottom: 14px; }
 .together { font: 500 11px var(--caps); letter-spacing: .28em; text-transform: uppercase; color: var(--soft); margin-bottom: 8px; }
 .couple { display: flex; flex-direction: column; align-items: center; font-weight: 400; }
-.couple span { font: 400 clamp(62px, 17vw, 96px)/1 var(--script); }
+.couple span { font: 400 clamp(62px, 17vw, 96px)/1.15 var(--script); padding: 0 .12em; }
 .couple i { font: 400 44px/1.1 var(--script); color: var(--accent); }
 
 .invite-card-wrap { padding: 0 18px 30px; margin-top: -40px; }
@@ -206,13 +216,6 @@ body.door-open .leaf-r { transform: rotateY(105deg); }
 .parents span { font-size: 13px; line-height: 1.6; color: #7a5040; }
 .parents .amp { display: block; font: 400 38px var(--script); color: #b48a52; margin: 6px 0; }
 .request { font: italic 400 19px/1.5 var(--display); margin: 26px 0 18px; }
-.when { display: flex; flex-direction: column; gap: 2px; font: 500 13px var(--caps); letter-spacing: .14em; text-transform: uppercase; color: #9a6a2e; margin-bottom: 26px; }
-.countdown { display: flex; justify-content: center; }
-.cd { width: 72px; }
-.cd b { display: block; font: 400 42px/1 var(--display); font-variant-numeric: lining-nums tabular-nums; }
-.cd small { font: 600 9px var(--sans); letter-spacing: .24em; text-transform: uppercase; color: #7a5040; }
-.cd + .cd { border-left: 1px solid rgba(184, 137, 47, .45); }
-.cd-label { margin-top: 12px; font: italic 400 18px var(--display); color: #7a5040; }
 .ivy-note { margin-top: 26px; padding-top: 22px; border-top: 1px solid rgba(184, 137, 47, .4); font: italic 400 17px/1.5 var(--display); color: #7a5040; }
 
 /* ==========================================================================
@@ -418,3 +421,29 @@ body.door-open .leaf-r { transform: rotateY(105deg); }
     body { font-size: 17px; }
     .family-sides { flex-direction: row; justify-content: center; gap: 34px; }
 }
+
+/* ==========================================================================
+   SAVE THE DATES: scratch card, then the countdown
+   ========================================================================== */
+.dates { padding: 40px 22px 90px; }
+.scratch {
+    position: relative; width: min(300px, 84vw); height: 150px; margin: 0 auto;
+    display: grid; place-items: center; overflow: hidden; border-radius: 6px;
+    background: #fbf5ea; border: 1px solid rgba(180, 138, 82, .55);
+    box-shadow: 0 18px 36px -18px rgba(75, 41, 27, .45);
+}
+.scratch-dates { font: 400 26px/1.3 var(--display); color: #8a3a2a; }
+#scratch-foil { position: absolute; inset: 0; width: 100%; height: 100%; cursor: grab; touch-action: none; transition: opacity .8s ease; }
+.scratch.revealed #scratch-foil { opacity: 0; pointer-events: none; }
+.scratch-hint { margin-top: 14px; font: italic 400 16px var(--display); color: var(--soft); transition: opacity .5s; }
+.scratch-hint.gone { opacity: 0; }
+.countdown { margin-top: 10px; opacity: 0; visibility: hidden; transform: translateY(18px); transition: opacity 1s ease, transform 1s ease, visibility 0s 1s; }
+.countdown.visible { opacity: 1; visibility: visible; transform: none; transition: opacity 1s ease, transform 1s ease, visibility 0s; }
+.cd-units { display: flex; justify-content: center; }
+.cd { width: 72px; }
+.cd b { display: block; font: 400 42px/1 var(--display); font-variant-numeric: lining-nums tabular-nums; }
+.cd small { font: 600 9px var(--sans); letter-spacing: .24em; text-transform: uppercase; color: var(--soft); }
+.cd + .cd { border-left: 1px solid rgba(180, 138, 82, .45); }
+.cd-label { margin-top: 12px; font: italic 400 18px var(--display); color: var(--soft); }
+.confetti { position: fixed; inset: 0; z-index: 45; pointer-events: none; overflow: hidden; }
+.confetti span { position: absolute; }

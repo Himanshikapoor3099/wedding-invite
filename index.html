@@ -14,7 +14,7 @@
   <meta property="og:title" content="Himanshi &amp; Karan · Wedding Invitation">
   <meta property="og:description" content="You're invited. 28 Nov — 01 Dec 2026 · New Delhi · #KaranMani-fested">
   <meta property="og:url" content="https://himanshikapoor3099.github.io/wedding-invite/">
-  <meta property="og:image" content="https://himanshikapoor3099.github.io/wedding-invite/assets/share.jpg?v=5">
+  <meta property="og:image" content="https://himanshikapoor3099.github.io/wedding-invite/assets/share.jpg?v=6">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
@@ -23,8 +23,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Italianno&family=Jost:wght@300;400;500;600&family=Noto+Serif+Devanagari:wght@500&family=Noto+Serif+Gurmukhi:wght@500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css?v=5">
-  <script src="js/content.js?v=5"></script>
+  <link rel="stylesheet" href="css/main.css?v=6">
+  <script src="js/content.js?v=6"></script>
 </head>
 <body class="locked">
 
@@ -47,7 +47,7 @@
       <div class="welcome-text">
         <p class="delivery hero-in" style="--d:.2s" data-k="invite.delivery"></p>
         <div class="blessings hero-in" style="--d:.5s" id="blessings"></div>
-        <div class="mono hero-in" style="--d:.7s" data-monogram></div>
+        <div class="mono mono-target" data-monogram></div>
         <p class="together hero-in" style="--d:.9s" data-k="invite.together"></p>
         <h1 class="couple" id="couple"></h1>
       </div>
@@ -58,15 +58,26 @@
       <div class="invite-card rv">
         <div class="parents" id="parents"></div>
         <p class="request" data-k="invite.request"></p>
-        <p class="when"><span data-k="invite.dates"></span><span data-k="invite.city"></span></p>
-        <div class="countdown" id="countdown">
+        <p class="ivy-note" data-k="invite.ivyNote"></p>
+      </div>
+    </section>
+
+    <!-- ============ SAVE THE DATES: scratch the foil to reveal ============ -->
+    <section class="dates" data-theme="peach">
+      <p class="eyebrow rv" data-k="saveTheDate.label"></p>
+      <div class="scratch rv" id="scratch">
+        <p class="scratch-dates" id="scratch-dates"></p>
+        <canvas id="scratch-foil" aria-label="Scratch to reveal the dates" role="button" tabindex="0"></canvas>
+      </div>
+      <p class="scratch-hint rv" id="scratch-hint" data-k="saveTheDate.hint"></p>
+      <div class="countdown" id="countdown">
+        <div class="cd-units" id="cd-units">
           <div class="cd"><b data-u="d">00</b><small>days</small></div>
           <div class="cd"><b data-u="h">00</b><small>hours</small></div>
           <div class="cd"><b data-u="m">00</b><small>minutes</small></div>
           <div class="cd"><b data-u="s">00</b><small>seconds</small></div>
         </div>
         <p class="cd-label" id="cd-label"></p>
-        <p class="ivy-note" data-k="invite.ivyNote"></p>
       </div>
     </section>
 
@@ -122,6 +133,6 @@
     <span></span><span></span><span></span><span></span>
   </button>
 
-  <script src="js/page.js?v=5"></script>
+  <script src="js/page.js?v=6"></script>
 </body>
 </html>

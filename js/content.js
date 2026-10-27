@@ -40,6 +40,10 @@ window.SITE = {
     },
 
     saveTheDate: {
+        label: "Save the dates",
+        dates: "28 Nov — 01 Dec\n2026 · New Delhi",
+        scratch: "Scratch gently",
+        hint: "Scratch the gold to reveal",
         countdownTo: "wedding",
         countdownLabel: "until forever, officially",
         during: "The celebrations are underway.",
