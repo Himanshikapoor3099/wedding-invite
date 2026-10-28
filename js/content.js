@@ -193,6 +193,7 @@ window.SITE = {
     versions: {
         "bride-complete": { events: ["mehndi"] },
         "bride-no-cocktail": { events: ["mehndi"], hide: ["cocktail"], dates: "29 Nov — 01 Dec 2026" },
+        "bride-wedding": { hide: ["cocktail", "haldi"], dates: "01 Dec 2026" },
     },
 
     rsvp: {

@@ -18,6 +18,10 @@ VERSIONS = {
         "description": "Mehndi, Haldi and the Wedding",
         "dates": "29 Nov — 01 Dec 2026",
     },
+    "bride-wedding": {
+        "description": "The Wedding",
+        "dates": "01 Dec 2026",
+    },
 }
 
 main = (ROOT / "index.html").read_text()
