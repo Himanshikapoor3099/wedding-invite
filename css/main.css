@@ -451,7 +451,7 @@ body.door-open .leaf-r { transform: rotateY(105deg); }
 .day-list { list-style: none; margin: 4px 0 0; padding: 0; }
 .day-list li { display: flex; align-items: baseline; gap: 14px; padding: 7px 0; border-bottom: 1px solid rgba(155, 17, 30, .14); text-align: left; }
 .day-list li:last-child { border-bottom: 0; }
-.t-time { flex: 0 0 44px; text-align: right; font: 500 12px var(--sans); letter-spacing: .06em; color: var(--accent); }
+.t-time { flex: 0 0 66px; white-space: nowrap; text-align: right; font: 500 12px var(--sans); letter-spacing: .06em; color: var(--accent); }
 .t-name { font: italic 400 16.5px/1.3 var(--display); }
 
 /* ==========================================================================
