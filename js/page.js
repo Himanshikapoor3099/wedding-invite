@@ -318,19 +318,6 @@
         return { g, ics: URL.createObjectURL(new Blob([ics], { type: "text/calendar" })) };
     }
 
-    // Each scene is a painted backdrop with cut-out figures that move on it
-    const SCENES = {
-        cocktail: `<img class="fig fig-him" src="assets/art/cocktail-him.webp" alt="">
-                   <img class="fig fig-her" src="assets/art/cocktail-her.webp" alt="">`,
-        mehndi: `<span class="twinkle" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
-                 <img class="fig fig-her" src="assets/art/mehndi-her.webp" alt="">`,
-        haldi: `<img class="fig fig-him" src="assets/art/haldi-him.webp" alt="">
-                <span class="fig-her-wrap"><img class="fig fig-her" src="assets/art/haldi-her.webp" alt=""><i class="smudge"></i></span>`,
-        wedding: `<span class="flame" aria-hidden="true"><i></i><i></i><i></i></span>
-                  <img class="fig fig-pheras" src="assets/art/pheras.webp" alt="">
-                  <span class="bells bells-r bells-sm" aria-hidden="true"></span>`,
-    };
-
     $("#events").innerHTML = events.map((e) => {
         const d = at(e.date, e.start);
         const cal = calendar(e);
@@ -351,8 +338,7 @@
             ${e.tagline ? `<p class="ev-tagline rv">${esc(e.tagline)}</p>` : ""}
           </div>
           <div class="ev-scene scene-${e.id}">
-            <img class="scene-bg" src="assets/art/${e.id}-bg.jpg" alt="" loading="lazy">
-            ${SCENES[e.id] || ""}
+            <img class="scene-bg" src="assets/art/ev-${e.id}.jpg" alt="" loading="lazy">
           </div>
           <div class="ev-details">
             <div class="date-block rv">
