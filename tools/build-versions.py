@@ -14,6 +14,10 @@ VERSIONS = {
     "bride-complete": {
         "description": "Sagan & Cocktails, Mehndi, Haldi and the Wedding",
     },
+    "bride-no-cocktail": {
+        "description": "Mehndi, Haldi and the Wedding",
+        "dates": "29 Nov — 01 Dec 2026",
+    },
 }
 
 main = (ROOT / "index.html").read_text()
@@ -24,6 +28,8 @@ for name, v in VERSIONS.items():
     page = page.replace(
         '<meta name="description" content="Sagan &amp; Cocktails, Haldi and the Wedding',
         f'<meta name="description" content="{v["description"].replace("&", "&amp;")}', 1)
+    if v.get("dates"):
+        page = page.replace("28 Nov — 01 Dec 2026", v["dates"])
     page = page.replace('  <script src="js/content.js',
                         f'  <script>window.INVITE_VERSION = "{name}";</script>\n  <script src="js/content.js', 1)
     out = ROOT / name / "index.html"

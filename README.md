@@ -50,6 +50,7 @@ The main invite (`…/wedding-invite/`) has the Sagan & Cocktails, the Haldi and
 | Version | Link | Adds |
 |---|---|---|
 | Bride complete | `…/wedding-invite/bride-complete/` | The Mehndi night (bride's side only) |
+| Bride, without Cocktail | `…/wedding-invite/bride-no-cocktail/` | The Mehndi night, and leaves out the Sagan & Cocktails |
 
 The same `?to=`, `?side=` and `?events=` options work on every version, and `links.html` has a "Which version?" choice. Extra events live under `extraEvents` in `js/content.js`, and `versions` there says which version adds which. Each version page is a copy of `index.html` made by `python3 tools/build-versions.py`, so rerun that after changing `index.html`.
 

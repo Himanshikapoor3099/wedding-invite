@@ -174,7 +174,8 @@ window.SITE = {
 
     /* ---------- Events shown only in some versions ----------------------
        A version page (for example bride-complete/index.html) names the
-       version it is; "versions" below says which extra events it adds. */
+       version it is; "versions" below says which extra events it adds,
+       which events it leaves out, and the dates it spans. */
     extraEvents: {
         mehndi: {
             kicker: "Sunday night",
@@ -191,6 +192,7 @@ window.SITE = {
     },
     versions: {
         "bride-complete": { events: ["mehndi"] },
+        "bride-no-cocktail": { events: ["mehndi"], hide: ["cocktail"], dates: "29 Nov — 01 Dec 2026" },
     },
 
     rsvp: {
@@ -243,7 +245,9 @@ window.SITE = {
     // version pages add their extra events, kept in date order
     const version = S.versions[window.INVITE_VERSION];
     if (version) {
-        version.events.forEach((id) => { S.events[id] = S.extraEvents[id]; });
+        (version.events || []).forEach((id) => { S.events[id] = S.extraEvents[id]; });
+        (version.hide || []).forEach((id) => { delete S.events[id]; });
+        if (version.dates) S.shareText = S.shareText.replace("28 Nov — 01 Dec 2026", version.dates);
         const sorted = Object.entries(S.events).sort((a, b) => (a[1].date + a[1].start).localeCompare(b[1].date + b[1].start));
         S.events = Object.fromEntries(sorted);
     }
