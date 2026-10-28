@@ -58,7 +58,7 @@ body.ready .hero-write { animation: write 1.7s cubic-bezier(.45, .05, .3, 1) for
 
 /* the crest that flies in when the door opens */
 .crest-fly { position: fixed; z-index: 55; pointer-events: none; transform-origin: center; }
-.crest-fly img { width: 100%; height: 100%; display: block; filter: drop-shadow(0 18px 30px rgba(75, 41, 27, .28)); }
+.crest-fly img { width: 100%; height: 100%; display: block; }
 .mono-target { visibility: hidden; }
 .mono-target.landed { visibility: visible; }
 @keyframes heroIn { to { opacity: 1; transform: none; } }
@@ -220,16 +220,19 @@ body.door-open .leaf-r { transform: rotateY(105deg); }
 .card-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .card-scene::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, var(--bg), transparent 8%, transparent 92%, var(--bg)); }
 .card-scene .bells { top: 0; }
-.card-scene .bells-l { left: 21%; } .card-scene .bells-r { right: 21%; }
+.card-scene .bells-l { left: 8%; } .card-scene .bells-r { right: 8%; }
+.card-scene .bells-sm { height: 130px; } .card-scene .bells-sm.bells-r { height: 110px; }
+.invite-card .blessings { margin-bottom: 12px; }
+.invite-card .together { letter-spacing: .22em; }
 .invite-card {
-    position: absolute; z-index: 1; left: 23%; right: 23%; top: 15%; bottom: 33%;
+    position: absolute; z-index: 1; left: 15%; right: 15%; top: 21%; bottom: 33%;
     display: flex; flex-direction: column; justify-content: center; color: #4b291b;
 }
 .parents p { display: flex; flex-direction: column; gap: 2px; }
 .parents b { font: 400 clamp(30px, 8.5vw, 42px)/1 var(--script); }
-.parents span { font-size: clamp(10.5px, 2.8vw, 13px); line-height: 1.55; color: #6b4c3f; }
-.parents .amp { display: block; font: 400 34px/1 var(--script); font-style: normal; color: #9a6a2e; margin: 6px 0; }
-.request { font: italic 400 clamp(14px, 3.8vw, 18px)/1.45 var(--display); margin: 16px 0 12px; }
+.parents span { font-size: clamp(10px, 2.6vw, 12.5px); line-height: 1.55; color: #6b4c3f; }
+.parents .amp { display: block; font: 400 30px/1 var(--script); font-style: normal; color: #9a6a2e; margin: 2px 0; }
+.request { font: italic 400 clamp(13.5px, 3.6vw, 17px)/1.4 var(--display); margin: 12px 0 0; }
 .ivy-note { padding-top: 12px; border-top: 1px solid rgba(180, 138, 82, .45); font: italic 400 clamp(13px, 3.4vw, 16px)/1.45 var(--display); color: #6b4c3f; }
 
 /* the plain screen behind the flying crest */
@@ -443,20 +446,13 @@ body.door-open .leaf-r { transform: rotateY(105deg); }
 .ev-actions { display: flex; flex-wrap: nowrap; justify-content: center; gap: 6px; margin-top: 4px; }
 .ev-actions .btn { padding: 10px 11px; font-size: 9px; letter-spacing: .12em; white-space: nowrap; }
 
-/* order of the day as a horizontal timeline */
-.schedule-wrap { margin: 8px -22px 26px; }
-.schedule-hint { font: italic 400 15px var(--display); color: var(--soft); margin: -6px 0 12px; }
-.timeline { list-style: none; margin: 0; padding: 6px 14px 4px; display: flex; flex-wrap: wrap; justify-content: center; row-gap: 16px; }
-.timeline::-webkit-scrollbar { display: none; }
-.timeline li { flex: 0 0 25%; }
-.timeline button { position: relative; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 0 4px; border: 0; background: none; color: inherit; cursor: pointer; font: inherit; }
-.timeline button::before { content: ""; position: absolute; top: 31px; left: 0; right: 0; height: 1px; background: var(--accent); opacity: .6; }
-.timeline li:nth-child(4n+1) button::before { left: 50%; } .timeline li:nth-child(4n) button::before, .timeline li:last-child button::before { right: 50%; }
-.t-time { font: 600 12px var(--sans); letter-spacing: .08em; color: var(--accent); }
-.t-dot { position: relative; z-index: 1; width: 12px; height: 12px; rotate: 45deg; background: var(--bg); border: 1.5px solid var(--ink); transition: background .3s, scale .3s; }
-.t-name { font: italic 500 15px/1.2 var(--display); min-height: 2.4em; }
-.timeline button[aria-expanded="true"] .t-dot { background: var(--accent); border-color: var(--accent); scale: 1.3; }
-.t-about { min-height: 3em; max-width: 340px; margin: 10px auto 0; padding: 0 22px; font: italic 400 16px/1.5 var(--display); color: var(--soft); }
+/* order of the day: a quiet list of times and rituals */
+.schedule-wrap { margin: 6px auto 26px; max-width: 300px; }
+.day-list { list-style: none; margin: 4px 0 0; padding: 0; }
+.day-list li { display: flex; align-items: baseline; gap: 14px; padding: 7px 0; border-bottom: 1px solid rgba(155, 17, 30, .14); text-align: left; }
+.day-list li:last-child { border-bottom: 0; }
+.t-time { flex: 0 0 44px; text-align: right; font: 500 12px var(--sans); letter-spacing: .06em; color: var(--accent); }
+.t-name { font: italic 400 16.5px/1.3 var(--display); }
 
 /* ==========================================================================
    RSVP, FAMILIES, SIGN-OFF

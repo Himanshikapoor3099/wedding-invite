@@ -46,7 +46,7 @@ window.SITE = {
         scratch: "Scratch gently",
         hint: "",
         countdownTo: "wedding",
-        countdownLabel: "until forever, officially",
+        countdownLabel: "until the beginning of the most beautiful chapter",
         during: "The celebrations are underway.",
         after: "Thank you for celebrating with us.",
     },
@@ -57,7 +57,6 @@ window.SITE = {
         toCocktail: "Saturday night. Dress to dazzle.",
         toHaldi: "Monday morning. Things are about to get yellow.",
         toWedding: "And then, the D-Day.",
-        toFamily: "Hosted with all our love.",
     },
 
     /* ---------- Our story: a storybook ----------------------------------- */
@@ -71,7 +70,7 @@ window.SITE = {
             {
                 title: "The Fixture",
                 art: "ch1-fixture",
-                text: "He was the captain of his football team. She was coordinating the tournament, which meant sending him every match schedule, every fixture, every time change. It was all very professional for a while. Then, somewhere between \"your match is at 10\" and \"good luck today\", the conversations started going in a completely different direction.",
+                text: "He was the captain of his football team. She was coordinating the tournament, which meant sending him every match schedule, every fixture, every time change. It was all very professional for a while. Then, somewhere between \"your match is at 10\" and \"good luck today\", the conversations drifted to flirting.",
             },
             {
                 title: "Meeting at Naraina Metro",
@@ -91,7 +90,7 @@ window.SITE = {
             {
                 title: "The Surprise",
                 art: "ch5-book",
-                text: "Surprises have always been one of his favourite things, and the proposal was his best one yet. Gifting each other books had become one of their little traditions, so of course he made it part of the most special day. He went down on one knee with a ring, and the book held the final question.",
+                text: "Surprises have always been one of his favourite things, and the proposal was his best one yet. He's always loved gifting her books, so of course a book had to be part of the most special day. He went down on one knee with a ring, and the book held the final question.",
                 surprise: { wrap: "Open for a surprise", card: "", after: "She said yes." },
             },
             {
@@ -104,7 +103,7 @@ window.SITE = {
         finale: {
             art: "finale",
             title: "To be continued…",
-            text: "From fixing match schedules to fixing a wedding date.\nAnd now, a brand-new chapter begins.",
+            text: "From fixing match schedules to fixing a wedding date.\nTo a lifetime of love.",
         },
     },
 
@@ -119,7 +118,7 @@ window.SITE = {
             kicker: "Saturday night",
             short: "Sagan & Cocktails",
             title: "Sagan & Cocktails",
-            tagline: "A little shagun, a lot of sparkle.",
+            tagline: "",
             date: "2026-11-28", start: "19:00", end: "23:30",
             timeLabel: "7 pm onwards",
             venue: "ClubXO",
@@ -134,7 +133,7 @@ window.SITE = {
             kicker: "Monday morning",
             short: "Haldi",
             title: "Haldi",
-            tagline: "Bright colours, big laughs and a whole lot of yellow.",
+            tagline: "",
             date: "2026-11-30", start: "11:00", end: "15:00",
             timeLabel: "11 am onwards",
             venue: "Pankh Punjabi Bagh Club",
@@ -149,7 +148,7 @@ window.SITE = {
             kicker: "",
             short: "The Wedding",
             title: "The Wedding",
-            tagline: "A little teary-eyed, a lot of happily ever after.",
+            tagline: "",
             date: "2026-12-01", start: "11:00", end: "16:00",
             timeLabel: "11 am — 4 pm",
             venue: "Ambria Pushpanjali",
@@ -159,7 +158,7 @@ window.SITE = {
             swatches: ["#e8d8bf", "#9b111e"],
             note: "Come early. The baraat waits for no one.",
             scheduleTitle: "Order of the day",
-            scheduleHint: "Tap a ritual to learn more",
+            scheduleHint: "",
             schedule: [
                 { time: "9:00", name: "Sehrabandi & Ghodi Chadhi", about: "The groom's family ties on his sehra, and he mounts the ghodi for the journey ahead." },
                 { time: "10:00", name: "Baraat", about: "The groom arrives with family and friends in a procession of dhol, dancing and no small amount of noise." },
@@ -197,8 +196,8 @@ window.SITE = {
     },
 
     closing: {
-        signoff: "With love,",
-        families: "The Kapoor & Sachdeva families",
+        signoff: "",
+        families: "",
         line: "See you on the dance floor.",
     },
 
@@ -223,7 +222,6 @@ window.SITE = {
     if (S.groomFirst) {
         S.family.sides.reverse();
         S.contacts.people.reverse();
-        S.closing.families = "The Sachdeva & Kapoor families";
     }
 
     S.eventCount = Object.keys(S.events).length;

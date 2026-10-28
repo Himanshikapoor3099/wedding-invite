@@ -96,14 +96,13 @@
 
     /* ---------- behind the door ---------- */
     $("#blessings").innerHTML = S.invite.blessings.map((b) => `<span lang="${b.lang}">${esc(b.line)}</span>`).join("");
-    const names = S.groomFirst ? [S.couple.groomFull, S.couple.brideFull] : [S.couple.brideFull, S.couple.groomFull];
-    $("#couple").innerHTML = `<span class="hero-write" style="--d:.9s">${esc(names[0])}</span><i class="hero-in" style="--d:2.3s">&amp;</i><span class="hero-write" style="--d:2.5s">${esc(names[1])}</span>`;
     const parentLines = [
         { name: S.couple.brideFull, p: S.invite.brideParents },
         { name: S.couple.groomFull, p: S.invite.groomParents },
     ];
     if (S.groomFirst) parentLines.reverse();
-    $("#parents").innerHTML = parentLines.map((x) => `<p><b>${esc(x.name)}</b><span>${lines(x.p)}</span></p>`).join('<i class="amp">&amp;</i>');
+    $("#parents").innerHTML = parentLines.map((x, i) => `<p><b class="hero-write" style="--d:${0.7 + i * 1.1}s">${esc(x.name)}</b><span class="hero-in" style="--d:${1.4 + i * 1.1}s">${lines(x.p)}</span></p>`)
+        .join('<i class="amp hero-in" style="--d:1.6s">&amp;</i>');
 
     /* ---------- countdown ---------- */
     const target = range(S.events[S.saveTheDate.countdownTo] || events[0]);
@@ -336,13 +335,9 @@
         const schedule = e.schedule ? `
             <div class="schedule-wrap rv">
               <p class="eyebrow">${esc(e.scheduleTitle)}</p>
-              <p class="schedule-hint">${esc(e.scheduleHint)}</p>
-              <ol class="timeline">${e.schedule.map((s) => `
-                <li><button type="button" aria-expanded="false">
-                  <span class="t-time">${esc(s.time)}</span><span class="t-dot"></span><span class="t-name">${esc(s.name)}</span>
-                </button></li>`).join("")}
+              <ol class="day-list">${e.schedule.map((s) => `
+                <li><span class="t-time">${esc(s.time)}</span><span class="t-name">${esc(s.name)}</span></li>`).join("")}
               </ol>
-              <p class="t-about" aria-live="polite"></p>
             </div>` : "";
         return `
         <div class="passage">${passage ? `<p>${esc(passage)}</p>` : ""}</div>
@@ -350,7 +345,7 @@
           <div class="ev-head">
             ${e.kicker ? `<p class="ev-kicker rv">${esc(e.kicker)}</p>` : ""}
             <h2 class="ev-title rv">${esc(e.title)}</h2>
-            <p class="ev-tagline rv">${esc(e.tagline)}</p>
+            ${e.tagline ? `<p class="ev-tagline rv">${esc(e.tagline)}</p>` : ""}
           </div>
           <div class="ev-scene scene-${e.id}">
             <img class="scene-bg" src="assets/art/${e.id}-bg.jpg" alt="" loading="lazy">
@@ -364,7 +359,6 @@
             </div>
             <div class="venue rv">
               <p class="v-name">${esc(e.venue)}</p>
-              <p class="v-addr">${esc(e.address)}</p>
             </div>
             ${e.note ? `<p class="ev-note rv">${esc(e.note)}</p>` : ""}
             ${schedule}
@@ -376,18 +370,6 @@
           </div>
         </section>`;
     }).join("");
-
-    $$(".timeline").forEach((tl) => {
-        const about = tl.nextElementSibling;
-        const ev = events.find((x) => x.schedule);
-        const buttons = $$("button", tl);
-        const pick = (i) => {
-            buttons.forEach((b, j) => b.setAttribute("aria-expanded", String(j === i)));
-            about.textContent = ev.schedule[i].about;
-        };
-        buttons.forEach((b, i) => b.addEventListener("click", () => pick(i)));
-        pick(0);
-    });
 
     $$("[data-k-passage]").forEach((el) => {
         const t = S.passages[el.dataset.kPassage];
@@ -474,41 +456,34 @@
     const wait = (ms) => new Promise((r) => setTimeout(r, ms));
     const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    // The crest grows to the middle of the screen, holds, then glides down
-    // into its place above the names.
-    async function flyCrest() {
-        const target = $(".mono-target");
+    // After the door opens, a plain screen fades in and the crest grows in
+    // its middle. It holds for a moment, then fades away to reveal the
+    // invitation.
+    async function showCrest() {
         const veil = document.createElement("div");
         veil.className = "crest-veil";
         document.body.appendChild(veil);
+        await veil.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 600, easing: "ease", fill: "forwards" }).finished;
         const fly = document.createElement("div");
         fly.className = "crest-fly";
-        fly.innerHTML = target.innerHTML;
+        fly.innerHTML = '<img src="assets/art/monogram.png" alt="">';
         document.body.appendChild(fly);
-        const size = Math.min(window.innerWidth * 0.78, 360);
+        const size = Math.min(window.innerWidth * 0.8, 380);
         Object.assign(fly.style, { width: size + "px", height: size + "px", left: (window.innerWidth - size) / 2 + "px", top: (window.innerHeight - size) / 2 + "px" });
         await fly.animate([
-            { opacity: 0, transform: "scale(.25) rotate(-12deg)" },
-            { opacity: 1, transform: "scale(1.04) rotate(2deg)", offset: 0.75 },
-            { opacity: 1, transform: "scale(1) rotate(0deg)" },
-        ], { duration: 1200, easing: "cubic-bezier(.2, .8, .2, 1)", fill: "forwards" }).finished;
-        await wait(1500);
-        return fly;
+            { opacity: 0, transform: "scale(.3)" },
+            { opacity: 1, transform: "scale(1.03)", offset: 0.8 },
+            { opacity: 1, transform: "scale(1)" },
+        ], { duration: 1800, easing: "cubic-bezier(.2, .8, .2, 1)", fill: "forwards" }).finished;
+        await wait(2600);
+        return { veil, fly };
     }
-    async function landCrest(fly) {
-        const target = $(".mono-target");
-        const from = fly.getBoundingClientRect(), to = target.getBoundingClientRect();
-        const s = to.width / from.width;
-        const dx = to.left + to.width / 2 - (from.left + from.width / 2);
-        const dy = to.top + to.height / 2 - (from.top + from.height / 2);
-        await fly.animate([
-            { transform: "translate(0, 0) scale(1)" },
-            { transform: `translate(${dx}px, ${dy}px) scale(${s})` },
-        ], { duration: 1100, easing: "cubic-bezier(.6, 0, .25, 1)", fill: "forwards" }).finished;
-        target.classList.add("landed");
+    async function hideCrest({ veil, fly }) {
+        await Promise.all([
+            fly.animate([{ opacity: 1, transform: "scale(1)" }, { opacity: 0, transform: "scale(1.08)" }], { duration: 1200, easing: "ease", fill: "forwards" }).finished,
+            veil.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 1400, delay: 300, easing: "ease", fill: "forwards" }).finished,
+        ]);
         fly.remove();
-        const veil = $(".crest-veil");
-        await veil.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 700, easing: "ease", fill: "forwards" }).finished;
         veil.remove();
     }
 
@@ -522,21 +497,20 @@
             $("#door-screen") && $("#door-screen").remove();
             document.body.classList.remove("locked");
             $("#main").inert = false;
+            window.scrollTo(0, 0);
             blend();
         };
         if (still) {
             finish();
-            $(".mono-target").classList.add("landed");
             document.body.classList.add("ready");
             scratchCard();
             return;
         }
-        await wait(900);
-        const fly = await flyCrest();
+        await wait(2000);            // let the door swing fully open
+        const crest = await showCrest();
         finish();
-        window.scrollTo(0, 0);
-        await landCrest(fly);
         document.body.classList.add("ready");
+        await hideCrest(crest);
         scratchCard();
         if (location.hash && $(location.hash)) $(location.hash).scrollIntoView();
     });
