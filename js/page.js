@@ -456,14 +456,16 @@
     const wait = (ms) => new Promise((r) => setTimeout(r, ms));
     const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    // After the door opens, a plain screen fades in and the crest grows in
-    // its middle. It holds for a moment, then fades away to reveal the
-    // invitation.
-    async function showCrest() {
+    // The plain screen sits right behind the door from the first tap, so the
+    // invitation never peeks through. The crest grows in its middle, holds
+    // briefly, then everything fades away to reveal the invitation.
+    function showVeil() {
         const veil = document.createElement("div");
         veil.className = "crest-veil";
         document.body.appendChild(veil);
-        await veil.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 600, easing: "ease", fill: "forwards" }).finished;
+        return veil;
+    }
+    async function showCrest() {
         const fly = document.createElement("div");
         fly.className = "crest-fly";
         fly.innerHTML = '<img src="assets/art/monogram.png" alt="">';
@@ -471,17 +473,17 @@
         const size = Math.min(window.innerWidth * 0.8, 380);
         Object.assign(fly.style, { width: size + "px", height: size + "px", left: (window.innerWidth - size) / 2 + "px", top: (window.innerHeight - size) / 2 + "px" });
         await fly.animate([
-            { opacity: 0, transform: "scale(.3)" },
+            { opacity: 0, transform: "scale(.4)" },
             { opacity: 1, transform: "scale(1.03)", offset: 0.8 },
             { opacity: 1, transform: "scale(1)" },
-        ], { duration: 1800, easing: "cubic-bezier(.2, .8, .2, 1)", fill: "forwards" }).finished;
-        await wait(2600);
-        return { veil, fly };
+        ], { duration: 900, easing: "cubic-bezier(.2, .8, .2, 1)", fill: "forwards" }).finished;
+        await wait(1300);
+        return fly;
     }
-    async function hideCrest({ veil, fly }) {
+    async function hideCrest(veil, fly) {
         await Promise.all([
-            fly.animate([{ opacity: 1, transform: "scale(1)" }, { opacity: 0, transform: "scale(1.08)" }], { duration: 1200, easing: "ease", fill: "forwards" }).finished,
-            veil.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 1400, delay: 300, easing: "ease", fill: "forwards" }).finished,
+            fly.animate([{ opacity: 1, transform: "scale(1)" }, { opacity: 0, transform: "scale(1.08)" }], { duration: 700, easing: "ease", fill: "forwards" }).finished,
+            veil.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 1000, delay: 200, easing: "ease", fill: "forwards" }).finished,
         ]);
         fly.remove();
         veil.remove();
@@ -506,11 +508,12 @@
             scratchCard();
             return;
         }
-        await wait(2000);            // let the door swing fully open
-        const crest = await showCrest();
+        const veil = showVeil();
+        await wait(1500);            // the door swings open and fades
+        const fly = await showCrest();
         finish();
         document.body.classList.add("ready");
-        await hideCrest(crest);
+        await hideCrest(veil, fly);
         scratchCard();
         if (location.hash && $(location.hash)) $(location.hash).scrollIntoView();
     });

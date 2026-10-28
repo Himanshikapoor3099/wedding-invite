@@ -236,7 +236,7 @@ body.door-open .leaf-r { transform: rotateY(105deg); }
 .ivy-note { padding-top: 12px; border-top: 1px solid rgba(180, 138, 82, .45); font: italic 400 clamp(13px, 3.4vw, 16px)/1.45 var(--display); color: #6b4c3f; }
 
 /* the plain screen behind the flying crest */
-.crest-veil { position: fixed; inset: 0; z-index: 54; background: #fcefd3; pointer-events: none; }
+.crest-veil { position: fixed; inset: 0; z-index: 49; background: #fcefd3; pointer-events: none; }
 
 /* ==========================================================================
    THE STORYBOOK
