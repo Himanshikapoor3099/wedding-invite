@@ -43,6 +43,15 @@
   </div>
 
   <div class="card">
+    <h2>Which version?</h2>
+    <div class="row">
+      <label><input type="radio" name="version" value="" checked> Main invite</label>
+      <label><input type="radio" name="version" value="bride-complete"> Bride complete (with Mehndi)</label>
+    </div>
+    <p class="hint">Bride complete adds the Mehndi night, for the bride's side only.</p>
+  </div>
+
+  <div class="card">
     <h2>Which side are they from?</h2>
     <div class="row">
       <label><input type="radio" name="side" value="bride" checked> Bride's side</label>
@@ -66,9 +75,17 @@
 <script>
   const S = window.SITE;
   const base = location.href.replace(/links\.html.*$/, "");
-  const all = Object.keys(S.events);
-  document.getElementById("events").innerHTML = all.map((id) =>
-    `<label><input type="checkbox" value="${id}" checked> ${S.events[id].short}</label>`).join("");
+  const version = () => document.querySelector("input[name=version]:checked").value;
+  let all = [];
+  function showEvents() {
+    // the main events plus this version's extras, in date order
+    const evs = Object.assign({}, S.events);
+    ((S.versions[version()] || {}).events || []).forEach((id) => { evs[id] = S.extraEvents[id]; });
+    all = Object.keys(evs).sort((a, b) => (evs[a].date + evs[a].start).localeCompare(evs[b].date + evs[b].start));
+    document.getElementById("events").innerHTML = all.map((id) =>
+      `<label><input type="checkbox" value="${id}" checked> ${evs[id].short}</label>`).join("");
+  }
+  showEvents();
 
   function link(name) {
     const q = new URLSearchParams();
@@ -77,7 +94,7 @@
     const ev = [...document.querySelectorAll("#events input:checked")].map((i) => i.value);
     if (ev.length && ev.length < all.length) q.set("events", ev.join(","));
     const s = q.toString().replace(/\+/g, "%20").replace(/%2C/g, ",");
-    return base + (s ? "?" + s : "");
+    return base + (version() ? version() + "/" : "") + (s ? "?" + s : "");
   }
   const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
@@ -94,7 +111,7 @@
     }).join("");
   }
   document.addEventListener("input", render);
-  document.addEventListener("change", render);
+  document.addEventListener("change", (e) => { if (e.target.name === "version") showEvents(); render(); });
   document.getElementById("out").addEventListener("click", async (e) => {
     const b = e.target.closest("button[data-url]");
     if (!b) return;

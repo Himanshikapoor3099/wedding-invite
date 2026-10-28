@@ -380,6 +380,16 @@ body.door-open .leaf-r { transform: rotateY(105deg); }
     62%, 100% { scale: -1 1; rotate: 0deg; z-index: 3; }
 }
 
+/* mehndi night (bride-complete version only): she shows off her mehndi, swaying to the dholki, under twinkling lights */
+.scene-mehndi .fig-her { left: 50%; bottom: 9%; width: 60%; z-index: 2; translate: -50% 0; transform-origin: 50% 100%; animation: mehndi-sway 3.2s ease-in-out infinite; }
+@keyframes mehndi-sway { 0%, 100% { rotate: -2.5deg; } 50% { rotate: 2.5deg; translate: -50% -1.5%; } }
+.twinkle i { position: absolute; z-index: 3; width: 7px; height: 7px; border-radius: 50%; background: #ffe2a0; box-shadow: 0 0 10px 4px rgba(255, 196, 92, .7); animation: twinkle 2.4s ease-in-out infinite; }
+.twinkle i:nth-child(1) { left: 12%; top: 6%; } .twinkle i:nth-child(2) { left: 30%; top: 3%; animation-delay: -.6s; }
+.twinkle i:nth-child(3) { left: 48%; top: 7%; animation-delay: -1.2s; } .twinkle i:nth-child(4) { left: 66%; top: 4%; animation-delay: -1.8s; }
+.twinkle i:nth-child(5) { left: 84%; top: 9%; animation-delay: -.3s; } .twinkle i:nth-child(6) { left: 7%; top: 70%; animation-delay: -.9s; }
+.twinkle i:nth-child(7) { left: 92%; top: 66%; animation-delay: -1.5s; }
+@keyframes twinkle { 0%, 100% { opacity: .15; scale: .6; } 50% { opacity: 1; scale: 1; } }
+
 /* morning three: they sit apart, he leans in, his fingers touch her cheek, the haldi appears */
 .scene-haldi .fig-him { left: 6.4%; bottom: 7%; width: 52%; z-index: 3; transform-origin: 30% 95%; animation: dab 6s ease-in-out infinite; }
 .scene-haldi .fig-her-wrap { position: absolute; left: 52%; bottom: 7%; width: 50%; z-index: 2; animation: giggle 6s ease-in-out infinite; transform-origin: 50% 100%; }

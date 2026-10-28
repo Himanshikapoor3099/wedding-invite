@@ -55,6 +55,7 @@ window.SITE = {
     passages: {
         toStory: "But first, a little look at how it all began.",
         toCocktail: "Saturday night. Dress to dazzle.",
+        toMehndi: "Sunday night. Turn the volume up.",
         toHaldi: "Monday morning. Things are about to get yellow.",
         toWedding: "And then, the D-Day.",
     },
@@ -171,6 +172,27 @@ window.SITE = {
         },
     },
 
+    /* ---------- Events shown only in some versions ----------------------
+       A version page (for example bride-complete/index.html) names the
+       version it is; "versions" below says which extra events it adds. */
+    extraEvents: {
+        mehndi: {
+            kicker: "Sunday night",
+            short: "Mehndi, Music & Masti",
+            title: "Mehndi, Music & Masti",
+            tagline: "",
+            date: "2026-11-29", start: "20:00", end: "23:59",
+            timeLabel: "8 pm onwards",
+            venue: "Chatoreee Restaurant",
+            address: "Shop No. 7, AU Block, Ranikhet, Pitampura, Delhi 110034",
+            mapUrl: "",
+            note: "Henna on the hands, a playlist with no skip button, and an open invitation to dance like nobody's filming. Somebody will be.",
+        },
+    },
+    versions: {
+        "bride-complete": { events: ["mehndi"] },
+    },
+
     rsvp: {
         title: "Kindly reply",
         text: "The guest list is long; the dance floor is longer. Let us know you're coming, and to which celebrations.",
@@ -217,6 +239,14 @@ window.SITE = {
     const to = (q.get("to") || "").trim().slice(0, 60);
     S.guest = to;
     if (to) S.door.pretext = "Dear " + to;
+
+    // version pages add their extra events, kept in date order
+    const version = S.versions[window.INVITE_VERSION];
+    if (version) {
+        version.events.forEach((id) => { S.events[id] = S.extraEvents[id]; });
+        const sorted = Object.entries(S.events).sort((a, b) => (a[1].date + a[1].start).localeCompare(b[1].date + b[1].start));
+        S.events = Object.fromEntries(sorted);
+    }
 
     S.groomFirst = q.get("side") === "groom";
     if (S.groomFirst) {

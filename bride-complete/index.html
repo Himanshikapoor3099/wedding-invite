@@ -1,0 +1,130 @@
+<!doctype html>
+<!-- Made by tools/build-versions.py from index.html. Edit index.html, then rerun it. -->
+<html lang="en">
+<head>
+  <base href="../">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="only light">
+  <meta name="theme-color" content="#fcefd3">
+  <title>Himanshi &amp; Karan · Wedding Invitation</title>
+  <meta name="description" content="Sagan &amp; Cocktails, Mehndi, Haldi and the Wedding · 28 Nov — 01 Dec 2026 · New Delhi · #KaranMani-fested">
+
+  <!-- What WhatsApp / Instagram show when the link is shared -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Himanshi &amp; Karan">
+  <meta property="og:title" content="Himanshi &amp; Karan · Wedding Invitation">
+  <meta property="og:description" content="You're invited. 28 Nov — 01 Dec 2026 · New Delhi · #KaranMani-fested">
+  <meta property="og:url" content="https://himanshikapoor3099.github.io/wedding-invite/bride-complete/">
+  <meta property="og:image" content="https://himanshikapoor3099.github.io/wedding-invite/assets/share.jpg?v=11">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='50' fill='%239b111e'/><text x='50' y='66' font-size='44' text-anchor='middle' fill='%23f3d9a0' font-family='Georgia'>HK</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Italianno&family=Jost:wght@300;400;500;600&family=Noto+Serif+Devanagari:wght@500&family=Noto+Serif+Gurmukhi:wght@500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css?v=11">
+  <script>window.INVITE_VERSION = "bride-complete";</script>
+  <script src="js/content.js?v=11"></script>
+</head>
+<body class="locked">
+
+  <!-- ============ THE DOOR ============ -->
+  <div id="door-screen">
+    <p class="door-pretext" data-k="door.pretext"></p>
+    <div class="door-stage">
+    <button class="door" id="door" aria-label="Open the door">
+        <span class="door-frame"></span>
+        <span class="leaf leaf-l"><span class="leaf-face" data-door="l"></span></span>
+        <span class="leaf leaf-r"><span class="leaf-face" data-door="r"></span></span>
+      </button>
+      <img class="door-ivy" src="assets/art/ivy-door.webp" alt="Ivy, waiting at the door with your invitation">
+    </div>
+    <p class="door-hint" data-k="door.hint"></p>
+  </div>
+
+  <main id="main" inert>
+
+    <!-- ============ BEHIND THE DOOR: THE INVITATION ============ -->
+    <section class="invite-card-wrap" data-theme="peach">
+      <div class="card-scene">
+        <img class="card-bg" src="assets/art/bg-invite.jpg" alt="" aria-hidden="true">
+        <span class="bells bells-l bells-sm" aria-hidden="true"></span>
+        <span class="bells bells-r bells-sm" aria-hidden="true"></span>
+        <div class="invite-card">
+          <div class="blessings hero-in" style="--d:.1s" id="blessings"></div>
+          <p class="together hero-in" style="--d:.4s" data-k="invite.together"></p>
+          <div class="parents" id="parents"></div>
+          <p class="request hero-in" style="--d:2.6s" data-k="invite.request"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SAVE THE DATE: scratch the foil to reveal ============ -->
+    <section class="dates" data-theme="peach">
+      <p class="eyebrow rv" data-k="saveTheDate.label"></p>
+      <div class="scratch rv" id="scratch">
+        <p class="scratch-dates" id="scratch-dates"></p>
+        <canvas id="scratch-foil" aria-label="Scratch to reveal the date" role="button" tabindex="0"></canvas>
+      </div>
+      <p class="scratch-hint rv" id="scratch-hint" data-k="saveTheDate.hint"></p>
+      <div class="countdown" id="countdown">
+        <div class="cd-units" id="cd-units">
+          <div class="cd"><b data-u="d">00</b><small>days</small></div>
+          <div class="cd"><b data-u="h">00</b><small>hours</small></div>
+          <div class="cd"><b data-u="m">00</b><small>minutes</small></div>
+          <div class="cd"><b data-u="s">00</b><small>seconds</small></div>
+        </div>
+        <p class="cd-label" id="cd-label"></p>
+      </div>
+    </section>
+
+    <div class="passage" data-k-passage="toStory"></div>
+
+    <!-- ============ OUR STORY: A STORYBOOK ============ -->
+    <section class="story" id="story" data-theme="desk">
+      <div class="storybook-wrap rv">
+        <div class="storybook" id="storybook"></div>
+        <div class="book-nav" id="book-nav">
+          <button type="button" id="pg-prev" aria-label="Previous page">‹</button>
+          <span class="pg-dots" id="pg-dots"></span>
+          <button type="button" id="pg-next" aria-label="Next page">›</button>
+        </div>
+        <p class="book-hint" id="book-hint"></p>
+      </div>
+    </section>
+
+    <!-- ============ EVENTS (built from js/content.js) ============ -->
+    <div id="events"></div>
+
+
+    <!-- ============ FAMILIES, SIGN-OFF ============ -->
+    <section class="family" data-theme="paper">
+      <p class="eyebrow rv" data-k="family.label"></p>
+      <div class="family-sides" id="family-sides"></div>
+      <div class="contacts rv">
+        <p class="eyebrow" data-k="contacts.title"></p>
+        <ul id="contact-list"></ul>
+      </div>
+    </section>
+
+    <section class="closing" data-theme="paper">
+      <div class="bg-art" data-art="bg-closing" data-art-optional></div>
+      <div class="mono rv" data-monogram></div>
+      <p class="signoff rv" data-k="closing.signoff"></p>
+      <p class="signoff-fam rv" data-k="closing.families"></p>
+      <p class="signoff-line rv" data-k="closing.line"></p>
+      <p class="hashtag rv" data-k="couple.hashtag"></p>
+      <button class="btn rv" id="share-btn" type="button">Share the invitation</button>
+    </section>
+  </main>
+
+  <button class="music" id="music" type="button" aria-label="Pause music" hidden>
+    <span></span><span></span><span></span><span></span>
+  </button>
+
+  <script src="js/page.js?v=11"></script>
+</body>
+</html>

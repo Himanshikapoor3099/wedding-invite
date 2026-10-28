@@ -43,6 +43,16 @@ The link itself carries the details, so you can also write them by hand:
 
 Combine them with `&`: `…/wedding-invite/?to=Sharma%20Family&side=groom&events=haldi,wedding`
 
+## Versions for different guests
+
+The main invite (`…/wedding-invite/`) has the Sagan & Cocktails, the Haldi and the Wedding. Other versions add events for some guests:
+
+| Version | Link | Adds |
+|---|---|---|
+| Bride complete | `…/wedding-invite/bride-complete/` | The Mehndi night (bride's side only) |
+
+The same `?to=`, `?side=` and `?events=` options work on every version, and `links.html` has a "Which version?" choice. Extra events live under `extraEvents` in `js/content.js`, and `versions` there says which version adds which. Each version page is a copy of `index.html` made by `python3 tools/build-versions.py`, so rerun that after changing `index.html`.
+
 ## RSVP with a Google Form
 
 Until a form is set, the RSVP button opens WhatsApp to the family contact with the reply already filled in.

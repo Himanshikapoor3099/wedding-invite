@@ -17,6 +17,7 @@
         peach:    { bg: "#fcefd3", ink: "#4b291b", soft: "#6b4c3f", accent: "#b48a52" },
         desk:     { bg: "#f6ead9", ink: "#4b291b", soft: "#6b4c3f", accent: "#b48a52" },
         cocktail: { bg: "#0f1a33", ink: "#eef2f8", soft: "#b8c4d8", accent: "#c9d1dc" },
+        mehndi:   { bg: "#1d3124", ink: "#f6ead0", soft: "#d2c39e", accent: "#e3a63a" },
         haldi:    { bg: "#fdf4e2", ink: "#7a5aa8", soft: "#8a5a4a", accent: "#e8a33d" },
         wedding:  { bg: "#ece0cc", ink: "#6b2a12", soft: "#7a5a3c", accent: "#a8452f" },
         paper:    { bg: "#e5d7c3", ink: "#7a4900", soft: "#7a5a3c", accent: "#9a7259" },
@@ -321,6 +322,8 @@
     const SCENES = {
         cocktail: `<img class="fig fig-him" src="assets/art/cocktail-him.webp" alt="">
                    <img class="fig fig-her" src="assets/art/cocktail-her.webp" alt="">`,
+        mehndi: `<span class="twinkle" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+                 <img class="fig fig-her" src="assets/art/mehndi-her.webp" alt="">`,
         haldi: `<img class="fig fig-him" src="assets/art/haldi-him.webp" alt="">
                 <span class="fig-her-wrap"><img class="fig fig-her" src="assets/art/haldi-her.webp" alt=""><i class="smudge"></i></span>`,
         wedding: `<span class="flame" aria-hidden="true"><i></i><i></i><i></i></span>
