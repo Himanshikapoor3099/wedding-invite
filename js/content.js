@@ -161,7 +161,7 @@ window.SITE = {
             scheduleTitle: "Order of the day",
             scheduleHint: "",
             schedule: [
-                { time: "9:00 am", name: "Sehrabandi & Ghodi Chadhi", about: "The groom's family ties on his sehra, and he mounts the ghodi for the journey ahead." },
+                { time: "9:00 am", name: "Sehrabandi & Ghudchadi", about: "The groom's family ties on his sehra, and he mounts the ghodi for the journey ahead." },
                 { time: "10:00 am", name: "Baraat", about: "The groom arrives with family and friends in a procession of dhol, dancing and no small amount of noise." },
                 { time: "11:00 am", name: "Milni", about: "The elders of both families meet and embrace. Two families become one." },
                 { time: "12:00 pm", name: "Varmala", about: "Garlands are exchanged, and the bride and groom choose each other in front of everyone they love." },
