@@ -17,7 +17,7 @@
         peach:    { bg: "#fcefd3", ink: "#4b291b", soft: "#6b4c3f", accent: "#b48a52" },
         desk:     { bg: "#f6ead9", ink: "#4b291b", soft: "#6b4c3f", accent: "#b48a52" },
         cocktail: { bg: "#0f1a33", ink: "#eef2f8", soft: "#b8c4d8", accent: "#c9d1dc" },
-        mehndi:   { bg: "#1d3124", ink: "#f6ead0", soft: "#d2c39e", accent: "#e3a63a" },
+        mehndi:   { bg: "#f6efda", ink: "#4f5b2c", soft: "#7a6a40", accent: "#c8921c" },
         haldi:    { bg: "#fdf4e2", ink: "#7a5aa8", soft: "#8a5a4a", accent: "#e8a33d" },
         wedding:  { bg: "#ece0cc", ink: "#6b2a12", soft: "#7a5a3c", accent: "#a8452f" },
         paper:    { bg: "#e5d7c3", ink: "#7a4900", soft: "#7a5a3c", accent: "#9a7259" },
