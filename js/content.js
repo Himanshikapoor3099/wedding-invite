@@ -227,7 +227,7 @@ window.SITE = {
     },
 
     shareText: "You're invited to the wedding of Himanshi & Karan · 28 Nov — 01 Dec 2026 · New Delhi",
-    musicUrl: "assets/audio/music.mp3",
+    musicUrl: "assets/audio/music.mp3?v=2",
 };
 
 /* ---------- Changes made by the link --------------------------------------

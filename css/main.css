@@ -410,6 +410,19 @@ body.door-open .leaf-r { transform: rotateY(105deg); }
 .hashtag { font: 600 11px var(--sans); letter-spacing: .24em; text-transform: uppercase; color: var(--accent); margin: 26px 0 30px; }
 
 /* ---------- music ---------- */
+/* "Scroll" nudge at the foot of the first page, gone once the guest scrolls */
+.scroll-hint {
+    position: fixed; left: 50%; bottom: calc(18px + env(safe-area-inset-bottom)); z-index: 20; translate: -50% 0;
+    display: flex; flex-direction: column; align-items: center; gap: 6px; pointer-events: none;
+    font: 500 10px var(--caps); letter-spacing: .32em; text-transform: uppercase; color: #4b291b;
+    opacity: 0; transition: opacity .6s ease;
+}
+body.ready .scroll-hint { opacity: .85; transition-delay: 3.4s; }
+body.ready .scroll-hint.gone { opacity: 0; transition-delay: 0s; }
+.scroll-hint span { padding-left: .32em; }
+.scroll-hint i { width: 12px; height: 12px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; rotate: 45deg; animation: nudge 1.6s ease-in-out infinite; }
+@keyframes nudge { 0%, 100% { translate: 0 -3px; opacity: .5; } 50% { translate: 0 4px; opacity: 1; } }
+
 .music {
     position: fixed; right: 16px; bottom: 16px; z-index: 40; width: 44px; height: 44px; border-radius: 50%;
     border: 1px solid color-mix(in srgb, var(--ink) 30%, transparent); background: color-mix(in srgb, var(--bg) 85%, transparent);

@@ -507,6 +507,10 @@
         if (location.hash && $(location.hash)) $(location.hash).scrollIntoView();
     });
 
+    // the "Scroll" nudge goes away as soon as the guest starts scrolling
+    const nudge = $("#scroll-hint");
+    addEventListener("scroll", () => nudge.classList.toggle("gone", scrollY > 40), { passive: true });
+
     /* ---------- reveal on scroll ---------- */
     const io = new IntersectionObserver((list) => list.forEach((en) => {
         if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
