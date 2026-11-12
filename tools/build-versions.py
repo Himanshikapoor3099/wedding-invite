@@ -27,7 +27,8 @@ VERSIONS = {
 main = (ROOT / "index.html").read_text()
 for name, v in VERSIONS.items():
     page = main
-    page = page.replace("<head>\n", f'<head>\n  <base href="../">\n', 1)
+    # the base tag goes after the share-preview tags, which stay exactly as on the main page
+    page = page.replace('  <link rel="icon"', '  <base href="../">\n  <link rel="icon"', 1)
     page = page.replace(f'content="{SITE}"', f'content="{SITE}{name}/"', 1)
     page = page.replace(
         '<meta name="description" content="Sagan &amp; Cocktails, Haldi and the Wedding',
@@ -38,6 +39,6 @@ for name, v in VERSIONS.items():
                         f'  <script>window.INVITE_VERSION = "{name}";</script>\n  <script src="js/content.js', 1)
     out = ROOT / name / "index.html"
     out.parent.mkdir(exist_ok=True)
-    page = page.replace("<html", "<!-- Made by tools/build-versions.py from index.html. Edit index.html, then rerun it. -->\n<html", 1)
+    page = page.replace('  <base href="../">', '  <!-- Made by tools/build-versions.py from index.html. Edit index.html, then rerun it. -->\n  <base href="../">', 1)
     out.write_text(page)
     print("wrote", out.relative_to(ROOT))
