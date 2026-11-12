@@ -387,7 +387,9 @@
     }).join("");
 
     $("#share-btn").addEventListener("click", async () => {
-        const url = location.href.split("#")[0];
+        // keep a version tag (#bride-complete), drop a section anchor
+        const tag = location.hash.slice(1);
+        const url = location.href.split("#")[0] + (S.versions[tag] ? "#" + tag : "");
         try {
             if (navigator.share) await navigator.share({ title: document.title, text: S.shareText, url });
             else { await navigator.clipboard.writeText(url); $("#share-btn").textContent = "Link copied"; }

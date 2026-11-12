@@ -239,7 +239,8 @@ window.SITE = {
 };
 
 /* ---------- Changes made by the link --------------------------------------
-   ?invite=bride-complete   → that version of the invite (see "versions")
+   #bride-complete          → that version of the invite (see "versions");
+                              ?invite=bride-complete does the same
    ?to=Sharma%20Family      → "Dear Sharma Family" on the door
    ?side=groom              → groom's name and family first, groom's contact for RSVP
    ?events=haldi,wedding    → only those celebrations
@@ -253,8 +254,10 @@ window.SITE = {
     if (to) S.door.pretext = "Dear " + to;
 
     // version pages add their extra events, kept in date order
-    // a version is named by its folder page, or by ?invite= on the main page
-    const version = S.versions[window.INVITE_VERSION || q.get("invite")];
+    // a version is named by its folder page, by ?invite= or by #name on the main page.
+    // The #name form keeps WhatsApp's saved preview of the main link.
+    const hash = (window.location.hash || "").slice(1);
+    const version = S.versions[window.INVITE_VERSION || q.get("invite") || hash];
     if (version) {
         (version.events || []).forEach((id) => { S.events[id] = S.extraEvents[id]; });
         (version.hide || []).forEach((id) => { delete S.events[id]; });

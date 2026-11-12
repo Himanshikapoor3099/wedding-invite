@@ -97,9 +97,8 @@
     if (document.querySelector("input[name=side]:checked").value === "groom") q.set("side", "groom");
     const ev = [...document.querySelectorAll("#events input:checked")].map((i) => i.value);
     if (ev.length && ev.length < all.length) q.set("events", ev.join(","));
-    if (version()) q.set("invite", version());
     const s = q.toString().replace(/\+/g, "%20").replace(/%2C/g, ",");
-    return base + (s ? "?" + s : "");
+    return base + (s ? "?" + s : "") + (version() ? "#" + version() : "");
   }
   const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
