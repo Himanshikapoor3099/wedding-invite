@@ -34,7 +34,7 @@ window.SITE = {
         inviteLine: "invite you to celebrate their wedding",
         brideParents: "Daughter of Mrs. Pramila & Mr. Gulshan Kapoor\nand Mrs. Chanchal & Mr. Praveen Kapoor",
         groomParents: "Son of Mrs. Meenu & Mr. Gulshan Sachdeva",
-        request: "request the pleasure of your company\nat the celebration of their marriage",
+        request: "request your gracious presence\nat the celebration of their marriage",
         dates: "28 November — 01 December 2026",
         city: "New Delhi",
         ivyNote: "Ivy insisted on delivering this one herself.\nShe also insists you come.",
