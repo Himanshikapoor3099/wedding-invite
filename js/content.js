@@ -220,6 +220,14 @@ window.SITE = {
         ],
     },
 
+    /* ---------- A handwritten note from Nivi, the bride's nephew ---------- */
+    nivi: {
+        label: "One more invitation, from Nivi",
+        note: "Meri Masi ki shaadi hai! 🎉\nI've practised my dance moves,\nso you HAVE to come and watch.\nAap zaroor aana, okay? Pinky promise 🤙",
+        sign: "— Nivi",
+        role: "Masi's favourite nephew & official dance-floor manager",
+    },
+
     closing: {
         signoff: "",
         families: "",

@@ -402,6 +402,28 @@ body.door-open .leaf-r { transform: rotateY(105deg); }
 .contacts li small { font: 600 9.5px var(--sans); letter-spacing: .22em; text-transform: uppercase; color: var(--soft); }
 .c-links { display: flex; justify-content: center; gap: 18px; margin-top: 4px; font-size: 14px; }
 .c-links a { color: var(--accent); text-underline-offset: 4px; }
+/* Nivi's note: a page torn from a school notebook, taped on, crayon doodles */
+.nivi { padding: 30px 26px 20px; }
+.nivi-note {
+    position: relative; max-width: 340px; margin: 0 auto; padding: 30px 22px 44px 46px; rotate: -2deg; text-align: left; color: #2f3a6b;
+    background:
+        linear-gradient(90deg, transparent 32px, rgba(214, 84, 84, .45) 32px 34px, transparent 34px),
+        repeating-linear-gradient(180deg, transparent 0 29px, rgba(96, 140, 200, .28) 29px 30px),
+        #fffdf6;
+    background-position: 0 0, 0 22px, 0 0;
+    box-shadow: 0 12px 28px rgba(75, 41, 27, .16);
+    font-family: "Patrick Hand", "Comic Sans MS", cursive;
+}
+.nivi-note::before { content: ""; position: absolute; top: -12px; left: 50%; width: 96px; height: 26px; translate: -50% 0; rotate: 3deg; background: rgba(245, 214, 140, .75); }
+.nivi-label { font: 600 9.5px/30px var(--sans); letter-spacing: .24em; text-transform: uppercase; color: var(--accent); }
+.nivi-text { font-size: 21px; line-height: 30px; }
+.nivi-sign { font-size: 26px; line-height: 30px; text-align: right; color: #c2452f; }
+.nivi-role { font-size: 15px; line-height: 30px; text-align: right; opacity: .8; }
+.doodle { position: absolute; overflow: visible; fill: none; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.doodle-star { top: 10px; right: 16px; width: 30px; stroke: #e0a21c; rotate: 12deg; }
+.doodle-heart { bottom: 70px; left: 6px; width: 24px; stroke: #d6455d; rotate: -14deg; }
+.doodle-loop { bottom: 10px; left: 50px; width: 80px; stroke: #4f8fd6; }
+
 .closing { padding: 80px 22px 140px; }
 .closing .mono { --m: 200px; width: 200px; margin-bottom: 26px; }
 .signoff { font: 400 76px/1 var(--script); color: var(--accent); }
