@@ -54,9 +54,9 @@ window.SITE = {
     /* The lines shown between sections while the colours change */
     passages: {
         toStory: "But first, a little look at how it all began.",
-        toCocktail: "Saturday night. Dress to dazzle.",
-        toMehndi: "Sunday night. Turn the volume up.",
-        toHaldi: "Monday morning. Things are about to get yellow.",
+        toCocktail: "Let the celebrations begin.",
+        toMehndi: "Next, an evening of henna.",
+        toHaldi: "After that, things turn yellow.",
         toWedding: "And then, the D-Day.",
     },
 
@@ -71,33 +71,33 @@ window.SITE = {
             {
                 title: "The Fixture",
                 art: "ch1-fixture",
-                text: "He was the captain of his football team. She was coordinating the tournament, which meant sending him every match schedule, every fixture, every time change. It was all very professional for a while. Then, somewhere between \"your match is at 10\" and \"good luck today\", the conversations drifted to flirting.",
+                text: "He was the captain of his football team. She was running the tournament, so she sent him every match schedule and every change. It was all very professional at first. Then, somewhere between \"your match is at 10\" and \"good luck today\", the conversations drifted to flirting.",
             },
             {
-                title: "Meeting at Naraina Metro",
+                title: "Naraina Metro",
                 art: "ch2-metro",
-                text: "Eventually he asked her out, and they decided to meet at Naraina Metro. He picked her up from the station that day, and he's been picking her up from that very same spot ever since. Different plans, same metro station, every single time.",
+                text: "Soon he asked her out. He picked her up from Naraina Metro station that day, and he has picked her up from the same spot ever since.",
             },
             {
-                title: "Exploring Each Other's Favourites",
+                title: "A Taste of Delhi",
                 art: "ch3-food",
-                text: "This was the getting-to-know-you phase. Endless car rides with no real destination, long talks, and a mission to eat their way across Delhi until they had a favourite for every cuisine. Burma Burma, PF Chang's, Concept Shawarma, Galaxy Pizza, Moet's, Yum Yum Cha… the list kept growing, and so did their love.",
+                text: "Next came drives with no destination, late-night talks and a mission to find a favourite place for every cuisine in Delhi. Burma Burma, PF Chang's, Concept Shawarma, Galaxy Pizza, Moet's, Yum Yum Cha… the list kept growing, and so did their love.",
             },
             {
                 title: "Poles Apart",
                 art: "ch4-poles",
-                text: "Somewhere along the way, they realised they were complete opposites. He loves movies; she'd pick a book. He's coffee; she's chai. He wants the beach; she wants the mountains. He's non-veg, she's veg. He loves dressing up and surprises; she loves being comfy and planning everything. Poles apart, and somehow that's exactly what works.",
+                text: "They soon realised they had almost nothing in common. He loves movies, she loves books. He drinks coffee, she drinks chai. He wants the beach, she wants the mountains. He is non-veg, she is veg. He loves dressing up, she loves being comfy. Poles apart, and that is exactly why it works.",
             },
             {
-                title: "The Surprise",
+                title: "Between the Pages",
                 art: "ch5-book",
-                text: "Surprises have always been one of his favourite things, and the proposal was his best one yet. He's always loved gifting her books, so of course a book had to be part of the most special day. He went down on one knee with a ring, and the book held the final question.",
+                text: "He loves planning surprises, and the proposal was his best one yet. He has always gifted her books, so a book had to be part of the day. He went down on one knee with a ring, and the book held the question.",
                 surprise: { wrap: "Open for a surprise", card: "", after: "She said yes." },
             },
             {
                 title: "Game, Set, Match",
                 art: "ch6-tennis",
-                text: "He's always been into sports: football, cricket, pickleball, tennis. But tennis is his favourite, so that's exactly where she chose to propose to him, with a row of tennis balls spelling out the question. Two yeses later, the only thing left to do was plan a wedding.",
+                text: "Of all the sports he plays, tennis is his favourite. So she proposed to him on a tennis court, spelling it out in tennis balls. Two yeses later, all that was left was to plan a wedding.",
                 balls: "WILL YOU MARRY ME?",
             },
         ],
@@ -116,7 +116,7 @@ window.SITE = {
     events: {
         cocktail: {
             art: "ev-cocktail",
-            kicker: "Saturday night",
+            kicker: "",
             short: "Sagan & Cocktails",
             title: "Sagan & Cocktails",
             tagline: "",
@@ -127,11 +127,11 @@ window.SITE = {
             mapUrl: "https://share.google/Hy4zNm8MEn87sH9yP",
             dressCode: "Blue and silver",
             swatches: ["#8fa9cf", "#c9d1dc"],
-            note: "Blessings first, then the bar opens and the dance floor takes over. Wear something that catches the light.",
+            note: "Blessings first, then drinks and music. Wear something that sparkles.",
         },
         haldi: {
             art: "ev-haldi",
-            kicker: "Monday morning",
+            kicker: "",
             short: "Haldi",
             title: "Haldi",
             tagline: "",
@@ -142,7 +142,7 @@ window.SITE = {
             mapUrl: "https://share.google/j9eCTfdyrUy5IeD31",
             dressCode: "Lavender and yellow",
             swatches: ["#b9a3e3", "#f6cf3e"],
-            note: "Wear nothing you'd miss. Turmeric has a long memory.",
+            note: "Wear something you don't mind getting stained.",
         },
         wedding: {
             art: "ev-wedding",
@@ -157,7 +157,7 @@ window.SITE = {
             mapUrl: "https://share.google/MnzBjltmZXg6iUMne",
             dressCode: "Beige and cherry red",
             swatches: ["#e8d8bf", "#9b111e"],
-            note: "Come early. The baraat waits for no one.",
+            note: "Please come early for the baraat.",
             scheduleTitle: "Order of the day",
             scheduleHint: "",
             schedule: [
@@ -178,7 +178,7 @@ window.SITE = {
        which events it leaves out, and the dates it spans. */
     extraEvents: {
         mehndi: {
-            kicker: "Sunday night",
+            kicker: "",
             short: "Mehndi, Music & Masti",
             title: "Mehndi, Music & Masti",
             tagline: "",
@@ -187,7 +187,7 @@ window.SITE = {
             venue: "Chatoreee Restaurant",
             address: "Shop No. 7, AU Block, Ranikhet, Pitampura, Delhi 110034",
             mapUrl: "",
-            note: "Henna on the hands, a playlist with no skip button, and an open invitation to dance like nobody's filming. Somebody will be.",
+            note: "Good food, great songs and a lot of fun.",
         },
     },
     versions: {
@@ -208,15 +208,15 @@ window.SITE = {
     family: {
         label: "Hosted with love by",
         sides: [
-            { side: "bride", title: "The bride's family", family: "The Kapoors", names: [] },
-            { side: "groom", title: "The groom's family", family: "The Sachdevas", names: [] },
+            { side: "bride", title: "", family: "The Kapoors", names: [] },
+            { side: "groom", title: "", family: "The Sachdevas", names: [] },
         ],
     },
     contacts: {
         title: "Questions? Call us",
         people: [
-            { side: "bride", name: "Urvashi Kapoor", role: "The bride's family", phone: "+91 92107 08587" },
-            { side: "groom", name: "Gulshan Sachdeva", role: "The groom's family", phone: "+91 98111 38797" },
+            { side: "bride", name: "Urvashi Kapoor", role: "Bride's family", phone: "+91 92107 08587" },
+            { side: "groom", name: "Gulshan Sachdeva", role: "Groom's family", phone: "+91 98111 38797" },
         ],
     },
 
@@ -231,7 +231,7 @@ window.SITE = {
     closing: {
         signoff: "",
         families: "",
-        line: "See you on the dance floor.",
+        line: "See you there.",
     },
 
     shareText: "You're invited to the wedding of Himanshi & Karan · 28 Nov — 01 Dec 2026 · New Delhi",

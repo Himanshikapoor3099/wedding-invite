@@ -373,7 +373,7 @@
     $("#family-sides").innerHTML = S.family.sides.map((s) => `
         <div class="side rv">
           <p class="side-family">${esc(s.family)}</p>
-          <p class="side-title">${esc(s.title)}</p>
+          ${s.title ? `<p class="side-title">${esc(s.title)}</p>` : ""}
           ${s.names.length ? `<p class="side-names">${s.names.map(esc).join(" · ")}</p>` : ""}
         </div>`).join('<span class="side-amp rv">&amp;</span>');
     $("#contact-list").innerHTML = S.contacts.people.map((p) => {
