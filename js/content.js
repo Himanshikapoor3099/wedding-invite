@@ -239,6 +239,7 @@ window.SITE = {
 };
 
 /* ---------- Changes made by the link --------------------------------------
+   ?invite=bride-complete   → that version of the invite (see "versions")
    ?to=Sharma%20Family      → "Dear Sharma Family" on the door
    ?side=groom              → groom's name and family first, groom's contact for RSVP
    ?events=haldi,wedding    → only those celebrations
@@ -252,7 +253,8 @@ window.SITE = {
     if (to) S.door.pretext = "Dear " + to;
 
     // version pages add their extra events, kept in date order
-    const version = S.versions[window.INVITE_VERSION];
+    // a version is named by its folder page, or by ?invite= on the main page
+    const version = S.versions[window.INVITE_VERSION || q.get("invite")];
     if (version) {
         (version.events || []).forEach((id) => { S.events[id] = S.extraEvents[id]; });
         (version.hide || []).forEach((id) => { delete S.events[id]; });
