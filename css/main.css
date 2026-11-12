@@ -501,4 +501,11 @@ body.ready .scroll-hint.gone { opacity: 0; transition-delay: 0s; }
 @keyframes ivy-wag { 0%, 100% { rotate: 0deg; } 50% { rotate: -2deg; } }
 body.door-open .door-ivy { animation: ivy-step .9s ease forwards; }
 @keyframes ivy-step { to { translate: 40% 0; opacity: 0; } }
+/* Nivi waves from a little basket on the other side of the door */
+.door-nivi {
+    position: absolute; z-index: 3; left: -20%; bottom: -4px; width: 36%; pointer-events: none;
+    filter: drop-shadow(0 8px 10px rgba(75, 41, 27, .22));
+}
+body.door-open .door-nivi { animation: nivi-step .9s ease forwards; }
+@keyframes nivi-step { to { translate: -40% 0; opacity: 0; } }
 .welcome-text { padding-bottom: 50px; }
