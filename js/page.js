@@ -376,10 +376,14 @@
           ${s.title ? `<p class="side-title">${esc(s.title)}</p>` : ""}
           ${s.names.length ? `<p class="side-names">${s.names.map(esc).join(" · ")}</p>` : ""}
         </div>`).join('<span class="side-amp rv">&amp;</span>');
+    const ICON_CALL = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>';
+    const ICON_WA = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a9.9 9.9 0 0 0-8.5 15l-1.4 5 5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.25-.12-1.47-.72-1.7-.8s-.39-.12-.56.12-.64.8-.78.97-.29.18-.54.06a6.7 6.7 0 0 1-3.3-2.9c-.25-.43.25-.4.71-1.33a.45.45 0 0 0-.02-.42c-.06-.12-.56-1.34-.76-1.84s-.4-.42-.56-.43h-.48a.92.92 0 0 0-.66.31 2.8 2.8 0 0 0-.87 2.07 4.8 4.8 0 0 0 1 2.55 11 11 0 0 0 4.2 3.7c1.56.67 2.17.73 2.95.62a2.5 2.5 0 0 0 1.66-1.17 2 2 0 0 0 .14-1.17c-.06-.1-.23-.16-.48-.29z"/></svg>';
     $("#contact-list").innerHTML = S.contacts.people.map((p) => {
         const num = p.phone.replace(/\D/g, "");
         return `<li><b>${esc(p.name)}</b><small>${esc(p.role)}</small>
-            <span class="c-links"><a href="tel:+${num}">${esc(p.phone)}</a><a href="https://wa.me/${num}" target="_blank" rel="noopener">WhatsApp</a></span></li>`;
+            <span class="c-links"><span class="c-num">${esc(p.phone)}</span>
+              <a class="c-icon" href="tel:+${num}" aria-label="Call ${esc(p.name)}">${ICON_CALL}</a>
+              <a class="c-icon c-wa" href="https://wa.me/${num}" target="_blank" rel="noopener" aria-label="WhatsApp ${esc(p.name)}">${ICON_WA}</a></span></li>`;
     }).join("");
 
     $("#share-btn").addEventListener("click", async () => {

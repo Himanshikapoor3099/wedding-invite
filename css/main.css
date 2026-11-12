@@ -400,8 +400,11 @@ body.door-open .leaf-r { transform: rotateY(105deg); }
 .contacts li { display: flex; flex-direction: column; gap: 3px; }
 .contacts li b { font: 500 22px var(--display); }
 .contacts li small { font: 600 9.5px var(--sans); letter-spacing: .22em; text-transform: uppercase; color: var(--soft); }
-.c-links { display: flex; justify-content: center; gap: 18px; margin-top: 4px; font-size: 14px; }
-.c-links a { color: var(--accent); text-underline-offset: 4px; }
+.c-links { display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 6px; font-size: 15px; }
+.c-num { margin-right: 4px; letter-spacing: .02em; }
+.c-icon { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; border: 1px solid color-mix(in srgb, var(--accent) 55%, transparent); color: var(--accent); }
+.c-icon svg { width: 16px; height: 16px; fill: currentColor; }
+.c-wa { color: #1f9d55; border-color: rgba(31, 157, 85, .45); }
 /* Nivi's note: a page torn from a school notebook, taped on, crayon doodles */
 .nivi { padding: 30px 26px 20px; }
 .nivi-note {
