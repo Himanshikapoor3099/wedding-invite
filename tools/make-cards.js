@@ -4,8 +4,10 @@ const { chromium } = require("playwright");
 (async () => {
     const b = await chromium.launch();
     const p = await b.newPage({ viewport: { width: 1080, height: 1920 } });
-    for (const name of ["wedding", "sangeet"]) {
-        await p.goto(`http://localhost:8770/tools/card/card.html#${name}`);
+    // card name → layout chosen for it (see tools/card/card.html)
+    const LOOKS = { wedding: "wedding", sangeet: "sangeet-arch-night" };
+    for (const name of Object.keys(LOOKS)) {
+        await p.goto(`http://localhost:8770/tools/card/card.html#${LOOKS[name]}`);
         await p.reload();
         await p.waitForLoadState("networkidle");
         await p.evaluate(() => document.fonts.ready);

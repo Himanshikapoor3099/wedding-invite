@@ -22,6 +22,20 @@
   .when { font: 500 26px Cinzel, serif; letter-spacing: .16em; }
   .venue { font: 500 30px "Playfair Display", serif; margin-top: 10px; }
   .tag { font: 500 20px Jost, sans-serif; letter-spacing: .3em; color: #9a6a2e; margin-top: 16px; }
+
+  /* themes and layouts, chosen by the hash: #sangeet-full, #wedding-arch ... */
+  body.t-night { background: #0f1a33; color: #eef2f8; }
+  body.t-night .bless, body.t-night .together, body.t-night .par { color: #c3cde0; }
+  body.t-night .name { color: #f4f7fb; } body.t-night .amp, body.t-night .tag { color: #c9d1dc; }
+  body.t-night .frame { border-color: rgba(201,209,220,.55); }
+  body.t-blush { background: #f8ece4; }
+  .t-night.l-fade .art::before { background: linear-gradient(180deg, #0f1a33 0%, #0f1a33 10%, rgba(15,26,51,.6) 24%, rgba(15,26,51,0) 42%); }
+  .l-full .art { top: 0; height: 100%; background-position: 50% 100%; }
+  .l-full .art::before { background: linear-gradient(180deg, var(--wash) 0%, var(--wash) 44%, var(--wash-0) 70%); }
+  .l-arch .art { left: 150px; right: 150px; bottom: 90px; height: 37%; border-radius: 390px 390px 18px 18px; border: 6px solid var(--rim); box-shadow: 0 18px 40px rgba(0,0,0,.25); }
+  .l-arch .art::before { display: none; }
+  .l-arch .text { padding-top: 60px; }
+  .l-arch .mono { width: 180px; height: 180px; }
 </style></head>
 <body><div class="card">
   <div class="art" id="art"></div>
@@ -47,13 +61,24 @@
     wedding:  { event: "Wedding", when: "Tuesday · 01 December 2026 · 11 am", venue: "Ambria Pushpanjali, New Delhi", art: "ev-wedding.jpg", accent: "#9b111e", pos: "50% 31%" },
     sangeet:  { event: "Sangeet Night", when: "Saturday · 28 November 2026 · 7 pm", venue: "ClubXO, New Delhi", art: "ev-cocktail.jpg", accent: "#2c3f6b", pos: "50% 45%" },
   };
-  const c = CARDS[location.hash.slice(1)] || CARDS.wedding;
+  // optional "-layout" and "-theme" after the card name, e.g. #sangeet-full-night
+  const [name, layout = "fade", theme] = location.hash.slice(1).split("-");
+  const c = CARDS[name] || CARDS.wedding;
+  const THEMES = {
+    night: { wash: "rgba(15,26,51,.94)", wash0: "rgba(15,26,51,0)", rim: "#c9d1dc", accent: "#dfe6f0" },
+    blush: { wash: "rgba(248,236,228,.95)", wash0: "rgba(248,236,228,0)", rim: "#d9b48a", accent: "#9b111e" },
+    cream: { wash: "rgba(252,239,211,.95)", wash0: "rgba(252,239,211,0)", rim: "#c9a26b", accent: c.accent },
+  };
+  const t = THEMES[theme] || THEMES.cream;
+  document.body.classList.add("l-" + layout, "t-" + (theme || "cream"));
   document.getElementById("event").textContent = c.event;
   document.getElementById("when").textContent = c.when;
   document.getElementById("venue").textContent = c.venue;
-  document.body.style.setProperty("--accent", c.accent);
+  const st = document.body.style;
+  st.setProperty("--accent", t.accent); st.setProperty("--wash", t.wash); st.setProperty("--wash-0", t.wash0); st.setProperty("--rim", t.rim);
   const art = document.getElementById("art");
   art.style.backgroundImage = `url(../../assets/art/${c.art})`;
-  art.style.backgroundPosition = c.pos;
+  if (layout === "fade") art.style.backgroundPosition = c.pos;
+  if (layout === "arch") art.style.backgroundPosition = name === "wedding" ? "50% 30%" : "50% 40%";
 </script>
 </body></html>
