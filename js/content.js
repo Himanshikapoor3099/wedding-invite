@@ -70,18 +70,18 @@ window.SITE = {
         chapters: [
             {
                 title: "The Fixture",
-                art: "ch1-fixture",
-                text: "He was the captain of a football team, and she was running the tournament. It started with match schedules and \"good luck today\" texts, and somewhere along the way, the conversations drifted to flirting.",
+                art: "ch1-fixture-groom",
+                text: "He captained the college team.\nShe managed the football tournament.\nAnd that's how it all began.",
             },
             {
-                title: "Naraina Metro",
+                title: "Meeting",
                 art: "ch2-metro",
-                text: "For their first date, he came to pick her up at Naraina Metro. Years later, he still picks her up from the very same spot.",
+                text: "For their first meeting, he came to pick her up at Naraina Metro. Years later, he still picks her up from the very same spot.",
             },
             {
                 title: "A Taste of Delhi",
                 art: "ch3-food",
-                text: "Then came the long drives, the late-night talks and a lot of eating out. Burma Burma, Galaxy Pizza, Yum Yum Cha… one favourite at a time, they fell in love.",
+                text: "Lots of going out. From their first conversations to countless food trails across Delhi, they discovered that everything tastes better together.",
             },
             {
                 title: "Poles Apart",
@@ -203,11 +203,6 @@ window.SITE = {
     /* ---------- What changes on the groom-side invites ----------------- */
     groomSide: {
         cocktailTitle: "Cocktails & Thumkas",
-        chapters: [
-            { title: "The Fixture", art: "ch1-fixture-groom", text: "He captained the college team.\nShe managed the football tournament.\nAnd that's how it all began." },
-            { title: "Meeting", text: "For their first meeting, he came to pick her up at Naraina Metro. Years later, he still picks her up from the very same spot." },
-            { text: "Lots of going out. From their first conversations to countless food trails across Delhi, they discovered that everything tastes better together." },
-        ],
     },
 
     rsvp: {
@@ -285,7 +280,6 @@ window.SITE = {
     if (version && version.groom) {
         const G = S.groomSide;
         if (S.events.cocktail) S.events.cocktail = Object.assign({}, S.events.cocktail, { title: G.cocktailTitle, short: G.cocktailTitle });
-        G.chapters.forEach((c, i) => { Object.assign(S.story.chapters[i], c); });
         S.nivi = {};
         document.documentElement.classList.add("groom-side");
     }
