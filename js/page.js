@@ -348,6 +348,7 @@
             </div>
             <div class="venue rv">
               <p class="v-name">${esc(e.venue)}</p>
+              ${e.area ? `<p class="v-addr">${esc(e.area)}</p>` : ""}
             </div>
             ${e.note ? `<p class="ev-note rv">${esc(e.note)}</p>` : ""}
             ${schedule}

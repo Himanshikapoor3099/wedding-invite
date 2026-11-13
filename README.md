@@ -53,8 +53,8 @@ The main invite (`…/wedding-invite/`) has the Sagan & Cocktails, the Haldi and
 | Bride, without Cocktail | `…/wedding-invite/#bride-no-cocktail` | The Mehndi night, and leaves out the Sagan & Cocktails |
 | Bride, Wedding only | `…/wedding-invite/#bride-wedding` | Only the Wedding; leaves out the Sagan & Cocktails and the Haldi |
 | Groom complete | `…/wedding-invite/#groom-complete` | Sangeet, Haldi and Wedding |
-| Groom, Sangeet + Wedding | `…/wedding-invite/#groom-cocktail` | Sangeet and Wedding |
-| Groom, Wedding only | `…/wedding-invite/#groom-wedding` | Only the Wedding |
+| Groom, Sangeet + Wedding | `…/wedding-invite/#groom-cocktail` | Sangeet and Wedding (no storybook) |
+| Groom, Wedding only | `…/wedding-invite/#groom-wedding` | Only the Wedding (no storybook) |
 
 The groom versions put Karan and the Sachdevas first, show four children at the door instead of Ivy and Nivi, call the cocktail evening "Cocktails & Thumkas", and leave out Nivi's note.
 
