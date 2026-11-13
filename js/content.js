@@ -205,7 +205,7 @@ window.SITE = {
         cocktailTitle: "Sangeet",
         chapters: [
             { title: "The Fixture", art: "ch1-fixture-groom", text: "He captained the college team.\nShe managed the football tournament.\nAnd that's how it all began." },
-            { title: "Meeting" },
+            { title: "Meeting", text: "For their first meeting, he came to pick her up at Naraina Metro. Years later, he still picks her up from the very same spot." },
             { text: "Lots of going out. From their first conversations to countless food trails across Delhi, they discovered that everything tastes better together." },
         ],
     },
