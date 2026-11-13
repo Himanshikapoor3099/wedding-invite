@@ -5,7 +5,7 @@ const { chromium } = require("playwright");
     const b = await chromium.launch();
     const p = await b.newPage({ viewport: { width: 1080, height: 1920 } });
     // card name → layout chosen for it (see tools/card/card.html)
-    const LOOKS = { wedding: "wedding", sangeet: "sangeet-arch-night" };
+    const LOOKS = { wedding: "wedding", sangeet: "sangeet-arch-night", "sangeet-cream": "sangeet-arch-cream" };
     for (const name of Object.keys(LOOKS)) {
         await p.goto(`http://localhost:8770/tools/card/card.html#${LOOKS[name]}`);
         await p.reload();
