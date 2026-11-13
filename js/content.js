@@ -97,7 +97,7 @@ window.SITE = {
             {
                 title: "Game, Set, Match",
                 art: "ch6-tennis",
-                text: "Tennis is his happy place, so that's where she asked him, with tennis balls spelling out the words. Two yeses later, here we are.",
+                text: "The tennis court is his happy place, so that's where she asked him, with tennis balls spelling out the words. Two yeses later, here we are.",
                 balls: "WILL YOU MARRY ME?",
             },
         ],
