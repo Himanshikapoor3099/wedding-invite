@@ -197,7 +197,7 @@ window.SITE = {
         // groom side: groom's family first, the children at the door, the cocktail called "Sangeet"
         "groom-cocktail": { groom: true, hide: ["haldi"] },
         "groom-complete": { groom: true },
-        "groom-wedding": { groom: true, hide: ["cocktail", "haldi"], dates: "01 Dec 2026" },
+        "groom-wedding": { groom: true, hide: ["cocktail", "haldi"], dates: "01 Dec 2026", noStory: true },
     },
 
     /* ---------- What changes on the groom-side invites ----------------- */
@@ -279,6 +279,8 @@ window.SITE = {
         const sorted = Object.entries(S.events).sort((a, b) => (a[1].date + a[1].start).localeCompare(b[1].date + b[1].start));
         S.events = Object.fromEntries(sorted);
     }
+
+    if (version && version.noStory) document.documentElement.classList.add("no-story");
 
     if (version && version.groom) {
         const G = S.groomSide;
