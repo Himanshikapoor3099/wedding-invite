@@ -56,7 +56,7 @@ The main invite (`…/wedding-invite/`) has the Sagan & Cocktails, the Haldi and
 | Groom, Sangeet + Wedding | `…/wedding-invite/#groom-cocktail` | Sangeet and Wedding |
 | Groom, Wedding only | `…/wedding-invite/#groom-wedding` | Only the Wedding |
 
-The groom versions put Karan and the Sachdevas first, show four children at the door instead of Ivy and Nivi, call the cocktail evening "Sangeet & Sips", use the groom-side text for chapters 1–3 (`groomSide` in `js/content.js`) and leave out Nivi's note.
+The groom versions put Karan and the Sachdevas first, show four children at the door instead of Ivy and Nivi, call the cocktail evening "Cocktails & Thumkas", use the groom-side text for chapters 1–3 (`groomSide` in `js/content.js`) and leave out Nivi's note.
 
 **Image-only invitations** (no website, just a picture to send): `assets/cards/invite-wedding.jpg` and `assets/cards/invite-sangeet.jpg`. To change them, edit `tools/card/card.html`, then run `node tools/make-cards.js` with a local server on port 8770.
 

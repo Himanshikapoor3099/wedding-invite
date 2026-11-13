@@ -202,7 +202,7 @@ window.SITE = {
 
     /* ---------- What changes on the groom-side invites ----------------- */
     groomSide: {
-        cocktailTitle: "Sangeet & Sips",
+        cocktailTitle: "Cocktails & Thumkas",
         chapters: [
             { title: "The Fixture", art: "ch1-fixture-groom", text: "He captained the college team.\nShe managed the football tournament.\nAnd that's how it all began." },
             { title: "Meeting", text: "For their first meeting, he came to pick her up at Naraina Metro. Years later, he still picks her up from the very same spot." },

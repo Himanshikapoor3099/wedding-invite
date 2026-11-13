@@ -18,8 +18,8 @@ VERSIONS = {
         "description": "Mehndi, Haldi and the Wedding",
         "dates": "29 Nov — 01 Dec 2026",
     },
-    "groom-cocktail": {"description": "Sangeet & Sips and the Wedding"},
-    "groom-complete": {"description": "Sangeet & Sips, Haldi and the Wedding"},
+    "groom-cocktail": {"description": "Cocktails & Thumkas and the Wedding"},
+    "groom-complete": {"description": "Cocktails & Thumkas, Haldi and the Wedding"},
     "groom-wedding": {"description": "The Wedding", "dates": "01 Dec 2026"},
     "bride-wedding": {
         "description": "The Wedding",
