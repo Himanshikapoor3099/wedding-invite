@@ -52,6 +52,13 @@ The main invite (`…/wedding-invite/`) has the Sagan & Cocktails, the Haldi and
 | Bride complete | `…/wedding-invite/#bride-complete` | The Mehndi night (bride's side only) |
 | Bride, without Cocktail | `…/wedding-invite/#bride-no-cocktail` | The Mehndi night, and leaves out the Sagan & Cocktails |
 | Bride, Wedding only | `…/wedding-invite/#bride-wedding` | Only the Wedding; leaves out the Sagan & Cocktails and the Haldi |
+| Groom complete | `…/wedding-invite/#groom-complete` | Sangeet, Haldi and Wedding |
+| Groom, Sangeet + Wedding | `…/wedding-invite/#groom-cocktail` | Sangeet and Wedding |
+| Groom, Wedding only | `…/wedding-invite/#groom-wedding` | Only the Wedding |
+
+The groom versions put Karan and the Sachdevas first, show four children at the door instead of Ivy and Nivi, call the cocktail evening "Sangeet", use the groom-side text for chapters 1–3 (`groomSide` in `js/content.js`) and leave out Nivi's note.
+
+**Image-only invitations** (no website, just a picture to send): `assets/cards/invite-wedding.jpg` and `assets/cards/invite-sangeet.jpg`. To change them, edit `tools/card/card.html`, then run `node tools/make-cards.js` with a local server on port 8770.
 
 Use these `#` links: WhatsApp treats them as the main address and shows its share preview. The folder pages (`…/bride-complete/` etc.) still work but show no preview. The same `?to=`, `?side=` and `?events=` options work on every version, and `links.html` has a "Which version?" choice. Extra events live under `extraEvents` in `js/content.js`, and `versions` there says which version adds which. Each version page is a copy of `index.html` made by `python3 tools/build-versions.py`, so rerun that after changing `index.html`.
 

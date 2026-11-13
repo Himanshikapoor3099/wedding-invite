@@ -1,0 +1,59 @@
+<!doctype html>
+<!-- Image-only invitation card. Rendered to a 1080x1920 picture by tools/make-cards.js -->
+<html lang="en"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Italianno&family=Jost:wght@400;500&family=Noto+Serif+Devanagari:wght@500&family=Noto+Serif+Gurmukhi:wght@500&family=Playfair+Display:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  body { width: 1080px; height: 1920px; overflow: hidden; background: #fcefd3; color: #4b291b; font-family: Jost, sans-serif; text-align: center; }
+  .card { position: relative; width: 100%; height: 100%; }
+  .art { position: absolute; left: 0; right: 0; bottom: 0; height: 47%; background-size: cover; background-position: 50% 62%; }
+  .art::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, #fcefd3 0%, rgba(252,239,211,.85) 12%, rgba(252,239,211,0) 34%); }
+  .frame { position: absolute; inset: 28px; border: 2px solid rgba(180,138,82,.6); border-radius: 18px; pointer-events: none; }
+  .text { position: relative; padding: 70px 90px 0; }
+  .mono { width: 210px; height: 210px; display: block; margin: 0 auto 18px; }
+  .bless { display: flex; justify-content: center; gap: 28px; font-size: 26px; color: #6b4c3f; margin-bottom: 18px; }
+  .bless [lang=hi] { font-family: "Noto Serif Devanagari", serif; } .bless [lang=pa] { font-family: "Noto Serif Gurmukhi", serif; }
+  .together { font: 500 22px Cinzel, serif; letter-spacing: .28em; color: #6b4c3f; margin-bottom: 14px; }
+  .name { font: 400 96px/1 Italianno, cursive; color: #4b291b; }
+  .par { font-size: 24px; line-height: 1.45; color: #6b4c3f; margin-top: 2px; }
+  .amp { font: 400 70px/1 Italianno, cursive; color: #9a6a2e; margin: 6px 0 2px; }
+  .req { font: italic 400 32px/1.4 "Playfair Display", serif; margin: 24px 0 8px; }
+  .event { font: 400 120px/1 Italianno, cursive; color: var(--accent, #9b111e); margin: 4px 0 10px; }
+  .when { font: 500 26px Cinzel, serif; letter-spacing: .16em; }
+  .venue { font: 500 30px "Playfair Display", serif; margin-top: 10px; }
+  .tag { font: 500 20px Jost, sans-serif; letter-spacing: .3em; color: #9a6a2e; margin-top: 16px; }
+</style></head>
+<body><div class="card">
+  <div class="art" id="art"></div>
+  <div class="text">
+    <img class="mono" src="../../assets/art/monogram.png" alt="">
+    <div class="bless"><span lang="hi">॥ श्री गणेशाय नमः ॥</span><span lang="pa">॥ ੴ ਵਾਹਿਗੁਰੂ ॥</span></div>
+    <p class="together">TOGETHER WITH THEIR FAMILIES</p>
+    <p class="name">Karan Sachdeva</p>
+    <p class="par">Son of Mrs. Meenu &amp; Mr. Gulshan Sachdeva</p>
+    <p class="amp">&amp;</p>
+    <p class="name">Himanshi Kapoor</p>
+    <p class="par">Daughter of Mrs. Pramila &amp; Mr. Gulshan Kapoor<br>and Mrs. Chanchal &amp; Mr. Praveen Kapoor</p>
+    <p class="req">request your gracious presence at the</p>
+    <p class="event" id="event"></p>
+    <p class="when" id="when"></p>
+    <p class="venue" id="venue"></p>
+    <p class="tag">#KARAN-MANI-FESTED</p>
+  </div>
+  <div class="frame"></div>
+</div>
+<script>
+  const CARDS = {
+    wedding:  { event: "Wedding", when: "Tuesday · 01 December 2026 · 11 am", venue: "Ambria Pushpanjali, New Delhi", art: "ev-wedding.jpg", accent: "#9b111e", pos: "50% 60%" },
+    sangeet:  { event: "Sangeet", when: "Saturday · 28 November 2026 · 7 pm", venue: "ClubXO, New Delhi", art: "ev-cocktail.jpg", accent: "#2c3f6b", pos: "50% 45%" },
+  };
+  const c = CARDS[location.hash.slice(1)] || CARDS.wedding;
+  document.getElementById("event").textContent = c.event;
+  document.getElementById("when").textContent = c.when;
+  document.getElementById("venue").textContent = c.venue;
+  document.body.style.setProperty("--accent", c.accent);
+  const art = document.getElementById("art");
+  art.style.backgroundImage = `url(../../assets/art/${c.art})`;
+  art.style.backgroundPosition = c.pos;
+</script>
+</body></html>

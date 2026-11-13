@@ -194,6 +194,20 @@ window.SITE = {
         "bride-complete": { events: ["mehndi"] },
         "bride-no-cocktail": { events: ["mehndi"], hide: ["cocktail"], dates: "29 Nov — 01 Dec 2026" },
         "bride-wedding": { hide: ["cocktail", "haldi"], dates: "01 Dec 2026" },
+        // groom side: groom's family first, the children at the door, the cocktail called "Sangeet"
+        "groom-cocktail": { groom: true, hide: ["haldi"] },
+        "groom-complete": { groom: true },
+        "groom-wedding": { groom: true, hide: ["cocktail", "haldi"], dates: "01 Dec 2026" },
+    },
+
+    /* ---------- What changes on the groom-side invites ----------------- */
+    groomSide: {
+        cocktailTitle: "Sangeet",
+        chapters: [
+            { title: "The Fixture", art: "ch1-fixture-groom", text: "He captained the college team.\nShe managed the football tournament.\nAnd that's how it all began." },
+            { title: "Meeting" },
+            { text: "Lots of going out. From their first conversations to countless food trails across Delhi, they discovered that everything tastes better together." },
+        ],
     },
 
     rsvp: {
@@ -266,7 +280,15 @@ window.SITE = {
         S.events = Object.fromEntries(sorted);
     }
 
-    S.groomFirst = q.get("side") === "groom";
+    if (version && version.groom) {
+        const G = S.groomSide;
+        if (S.events.cocktail) S.events.cocktail = Object.assign({}, S.events.cocktail, { title: G.cocktailTitle, short: G.cocktailTitle });
+        G.chapters.forEach((c, i) => { Object.assign(S.story.chapters[i], c); });
+        S.nivi = {};
+        document.documentElement.classList.add("groom-side");
+    }
+
+    S.groomFirst = q.get("side") === "groom" || !!(version && version.groom);
     if (S.groomFirst) {
         S.family.sides.reverse();
         S.contacts.people.reverse();
