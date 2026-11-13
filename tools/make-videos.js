@@ -8,7 +8,12 @@ const path = require("path");
 
 const FPS = 30, SECONDS = 10;
 const VIDEOS = { wedding: "wedding", sangeet: "sangeet-arch-night", "sangeet-cream": "sangeet-arch-cream" };
-const MUSIC = { file: "assets/audio/music.mp3", start: 0 };
+// each video's music: the invite song for the wedding, an upbeat track for the sangeet
+const MUSIC = {
+    wedding: { file: "assets/audio/music.mp3", start: 0 },
+    sangeet: { file: "assets/audio/sangeet.mp3", start: 40 },
+    "sangeet-cream": { file: "assets/audio/sangeet.mp3", start: 40 },
+};
 
 (async () => {
     const b = await chromium.launch();
@@ -26,8 +31,8 @@ const MUSIC = { file: "assets/audio/music.mp3", start: 0 };
         }
         const out = `assets/cards/invite-${name}.mp4`;
         execFileSync("ffmpeg", ["-v", "error", "-y", "-framerate", String(FPS), "-i", path.join(dir, "f%04d.jpg"),
-            "-ss", String(MUSIC.start), "-t", String(SECONDS), "-i", MUSIC.file,
-            "-filter_complex", `[1:a]afade=t=in:d=1,afade=t=out:st=${SECONDS - 2}:d=2[a]`,
+            "-ss", String(MUSIC[name].start), "-t", String(SECONDS), "-i", MUSIC[name].file,
+            "-filter_complex", `[1:a]afade=t=in:d=0.5,afade=t=out:st=${SECONDS - 2}:d=2[a]`,
             "-map", "0:v", "-map", "[a]", "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "23", "-preset", "medium",
             "-c:a", "aac", "-b:a", "128k", "-shortest", "-movflags", "+faststart", out]);
         fs.rmSync(dir, { recursive: true });
