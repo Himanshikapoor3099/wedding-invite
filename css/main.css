@@ -525,7 +525,7 @@ body.door-open .door-nivi { animation: nivi-step .9s ease forwards; }
 .groom-side .door-kids { display: block; }
 /* Wedding-only invites skip the storybook */
 .no-story #story, .no-story [data-k-passage="toStory"] { display: none; }
-.door-kids-r { right: -20%; width: 44%; animation: ivy-wag 3.2s ease-in-out infinite; }
+.door-kids-r { right: -26%; width: 58%; animation: ivy-wag 3.2s ease-in-out infinite; }
 .door-babies { left: -26%; width: 56%; animation: nivi-crawl 3.2s ease-in-out infinite; }
 body.door-open .door-kids-r { animation: ivy-step .9s ease forwards; }
 body.door-open .door-babies { animation: nivi-step .9s ease forwards; }
