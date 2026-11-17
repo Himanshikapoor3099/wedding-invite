@@ -21,6 +21,8 @@
   .event { font: 400 120px/1 Italianno, cursive; color: var(--accent, #9b111e); margin: 4px 0 10px; }
   .when { font: 500 26px Cinzel, serif; letter-spacing: .16em; }
   .venue { font: 500 30px "Playfair Display", serif; margin-top: 10px; }
+  .addr { font: 400 22px/1.4 Jost, sans-serif; color: #6b4c3f; margin-top: 6px; }
+  body.t-night .addr { color: #c3cde0; }
   .tag { font: 500 20px Jost, sans-serif; letter-spacing: .3em; color: #9a6a2e; margin-top: 16px; }
 
   /* themes and layouts, chosen by the hash: #sangeet-full, #wedding-arch ... */
@@ -61,14 +63,15 @@
     <p class="event" id="event"></p>
     <p class="when" id="when"></p>
     <p class="venue" id="venue"></p>
+    <p class="addr" id="addr"></p>
     <p class="tag">#KARAN-MANI-FESTED</p>
   </div>
   <div class="frame"></div>
 </div>
 <script>
   const CARDS = {
-    wedding:  { event: "Wedding", when: "Tuesday · 01 December 2026 · 11 am", venue: "Ambria Pushpanjali, Dwarka Link Road, Samalka", art: "ev-wedding.jpg", accent: "#9b111e", pos: "50% 31%" },
-    sangeet:  { event: "Sangeet Night", when: "Saturday · 28 November 2026 · 7 pm", venue: "Club XO, Raja Garden, New Delhi", art: "ev-cocktail.jpg", accent: "#2c3f6b", pos: "50% 45%" },
+    wedding:  { event: "Wedding", when: "Tuesday · 01 December 2026 · 11 am", venue: "Ambria Pushpanjali", addr: "F-20, Dwarka Link Road, Samalka, New Delhi 110061", art: "ev-wedding.jpg", accent: "#9b111e", pos: "50% 31%" },
+    sangeet:  { event: "Sangeet Night", when: "Saturday · 28 November 2026 · 7 pm", venue: "Club XO", addr: "Site 2, Shivaji Place, Shivaji Enclave, Raja Garden, New Delhi 110027", art: "ev-cocktail.jpg", accent: "#2c3f6b", pos: "50% 45%" },
   };
   // optional "-layout" and "-theme" after the card name, e.g. #sangeet-full-night
   const [name, layout = "fade", theme] = location.hash.slice(1).split("-");
@@ -83,6 +86,7 @@
   document.getElementById("event").textContent = c.event;
   document.getElementById("when").textContent = c.when;
   document.getElementById("venue").textContent = c.venue;
+  document.getElementById("addr").textContent = c.addr || "";
   const st = document.body.style;
   st.setProperty("--accent", t.accent); st.setProperty("--wash", t.wash); st.setProperty("--wash-0", t.wash0); st.setProperty("--rim", t.rim);
   if (location.search.includes("video")) {
