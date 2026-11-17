@@ -7,7 +7,7 @@ const os = require("os");
 const path = require("path");
 
 const FPS = 30, SECONDS = 10;
-const VIDEOS = { wedding: "wedding", sangeet: "sangeet-arch-combo" };
+const VIDEOS = { wedding: "wedding", sangeet: "sangeet-arch-night" };
 // each video's music: the invite song for the wedding, an upbeat track for the sangeet
 const MUSIC = {
     wedding: { file: "assets/audio/music.mp3", start: 0 },
