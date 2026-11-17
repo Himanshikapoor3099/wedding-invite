@@ -1,7 +1,7 @@
 <!doctype html>
 <!-- Image-only invitation card. Rendered to a 1080x1920 picture by tools/make-cards.js -->
 <html lang="en"><head><meta charset="utf-8">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Italianno&family=Jost:wght@400;500&family=Noto+Serif+Devanagari:wght@500&family=Noto+Serif+Gurmukhi:wght@500&family=Playfair+Display:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Italianno&family=Jost:wght@400;500&family=Noto+Serif+Devanagari:wght@500&family=Noto+Serif+Gurmukhi:wght@500&family=Playfair+Display:ital,wght@0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; }
   body { width: 1080px; height: 1920px; overflow: hidden; background: #fcefd3; color: #4b291b; font-family: Jost, sans-serif; text-align: center; }
@@ -18,11 +18,19 @@
   .par { font-size: 24px; line-height: 1.45; color: #6b4c3f; margin-top: 2px; }
   .amp { font: 400 70px/1 Italianno, cursive; color: #9a6a2e; margin: 6px 0 2px; }
   .req { font: italic 400 32px/1.4 "Playfair Display", serif; margin: 24px 0 8px; }
-  .event { font: 400 120px/1 Italianno, cursive; color: var(--accent, #9b111e); margin: 4px 0 10px; }
+  .event { font: italic 600 88px/1.05 "Playfair Display", serif; letter-spacing: .01em; color: var(--accent, #9b111e); margin: 10px 0 14px; }
   .when { font: 500 26px Cinzel, serif; letter-spacing: .16em; }
-  .venue { font: 500 30px "Playfair Display", serif; margin-top: 10px; }
-  .addr { font: 400 22px/1.4 Jost, sans-serif; color: #6b4c3f; margin-top: 6px; }
-  body.t-night .addr { color: #c3cde0; }
+  .place { display: inline-block; margin-top: 16px; padding: 14px 34px 16px; border: 1.5px solid var(--rim, #c9a26b); border-radius: 16px; background: var(--panel, rgba(252,239,211,.92)); }
+  .venue { font: 600 34px "Playfair Display", serif; }
+  .addr { font: 500 23px/1.4 Jost, sans-serif; color: #4b291b; margin-top: 4px; }
+  body.t-night .addr { color: #e3e9f3; }
+  body.t-night .place { --panel: rgba(22,36,68,.95); }
+  /* navy + cream: cream card, navy event name, navy venue box, navy arch border */
+  body.t-combo .place { --panel: #1b2a4e; border-color: #c9a26b; }
+  body.t-combo .venue, body.t-combo .addr { color: #f6ecd8; }
+  body.t-combo .amp, body.t-combo .tag { color: #1b2a4e; }
+  body.t-combo .frame { border-color: rgba(27,42,78,.55); }
+  .tag { margin-top: 18px !important; }
   .tag { font: 500 20px Jost, sans-serif; letter-spacing: .3em; color: #9a6a2e; margin-top: 16px; }
 
   /* themes and layouts, chosen by the hash: #sangeet-full, #wedding-arch ... */
@@ -34,7 +42,7 @@
   .t-night.l-fade .art::before { background: linear-gradient(180deg, #0f1a33 0%, #0f1a33 10%, rgba(15,26,51,.6) 24%, rgba(15,26,51,0) 42%); }
   .l-full .art { top: 0; height: 100%; background-position: 50% 100%; }
   .l-full .art::before { background: linear-gradient(180deg, var(--wash) 0%, var(--wash) 44%, var(--wash-0) 70%); }
-  .l-arch .art { left: 150px; right: 150px; bottom: 90px; height: 37%; border-radius: 390px 390px 18px 18px; border: 6px solid var(--rim); box-shadow: 0 18px 40px rgba(0,0,0,.25); }
+  .l-arch .art { left: 165px; right: 165px; bottom: 80px; height: 34%; border-radius: 390px 390px 18px 18px; border: 6px solid var(--rim); box-shadow: 0 18px 40px rgba(0,0,0,.25); }
   .l-arch .art::before { display: none; }
   .l-arch .text { padding-top: 60px; }
   .l-arch .mono { width: 180px; height: 180px; }
@@ -63,8 +71,7 @@
     <p class="req">request your gracious presence at the</p>
     <p class="event" id="event"></p>
     <p class="when" id="when"></p>
-    <p class="venue" id="venue"></p>
-    <p class="addr" id="addr"></p>
+    <div class="place"><p class="venue" id="venue"></p><p class="addr" id="addr"></p></div>
     <p class="tag">#KARAN-MANI-FESTED</p>
   </div>
   <div class="frame"></div>
@@ -80,6 +87,7 @@
   const THEMES = {
     night: { wash: "rgba(15,26,51,.94)", wash0: "rgba(15,26,51,0)", rim: "#c9d1dc", accent: "#dfe6f0" },
     blush: { wash: "rgba(248,236,228,.95)", wash0: "rgba(248,236,228,0)", rim: "#d9b48a", accent: "#9b111e" },
+    combo: { wash: "rgba(252,239,211,.95)", wash0: "rgba(252,239,211,0)", rim: "#1b2a4e", accent: "#1b2a4e" },
     cream: { wash: "rgba(252,239,211,.95)", wash0: "rgba(252,239,211,0)", rim: "#c9a26b", accent: c.accent },
   };
   const t = THEMES[theme] || THEMES.cream;
