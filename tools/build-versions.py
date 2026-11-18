@@ -18,8 +18,8 @@ VERSIONS = {
         "description": "Mehndi, Haldi and the Wedding",
         "dates": "29 Nov — 01 Dec 2026",
     },
-    "groom-cocktail": {"description": "Cocktails & Thumkas and the Wedding"},
-    "groom-complete": {"description": "Cocktails & Thumkas, Haldi and the Wedding"},
+    "groom-cocktail": {"description": "Cocktails & Thumkas and the Wedding", "dates": "28 Nov & 01 Dec 2026"},
+    "groom-complete": {"description": "Cocktails & Thumkas, Haldi and the Wedding", "dates": "28 Nov — 01 Dec 2026"},
     "groom-wedding": {"description": "The Wedding", "dates": "01 Dec 2026"},
     "bride-wedding": {
         "description": "The Wedding",
@@ -38,8 +38,9 @@ for name, v in VERSIONS.items():
         f'<meta name="description" content="{v["description"].replace("&", "&amp;")}', 1)
     if name.startswith("groom"):
         # groom side: Karan first in the preview, with the KH monogram thumbnail
-        page = page.replace("assets/share-card.jpg", "assets/share-card-groom.jpg")
+        page = page.replace("assets/share-card.jpg", f"assets/share-{name}.jpg")
         page = page.replace("Himanshi &amp; Karan", "Karan &amp; Himanshi")
+        page = page.replace("Karan &amp; Himanshi · New Delhi", f"Karan &amp; Himanshi · {v['dates'].replace('&', '&amp;')} · New Delhi")
     if v.get("dates"):
         page = page.replace("28 Nov — 01 Dec 2026", v["dates"])
     page = page.replace('  <script src="js/content.js',

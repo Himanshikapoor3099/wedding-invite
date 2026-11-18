@@ -13,5 +13,11 @@
   .d { font: italic 26px "Playfair Display", serif; color: #6b4c3f; margin-top: 20px; }
 </style></head>
 <body><img src="../../assets/art/monogram-groom.png" alt="">
-<div class="t"><p class="k">YOU'RE INVITED</p><p class="n">Karan <i>&amp;</i><br>Himanshi</p><p class="d">28 Nov — 01 Dec 2026 · New Delhi</p></div>
+<div class="t"><p class="k">YOU'RE INVITED</p><p class="n">Karan <i>&amp;</i><br>Himanshi</p><p class="d" id="d">28 Nov — 01 Dec 2026 · New Delhi</p></div>
+<script>
+  // dates per invite, chosen by the hash: #complete, #cocktail, #wedding
+  const DATES = { complete: "28 Nov — 01 Dec 2026", cocktail: "28 Nov &amp; 01 Dec 2026", wedding: "01 Dec 2026" };
+  const d = DATES[location.hash.slice(1)];
+  if (d) document.getElementById("d").innerHTML = d + " · New Delhi";
+</script>
 </body></html>
