@@ -287,6 +287,12 @@ window.SITE = {
     }
 
     S.groomFirst = q.get("side") === "groom" || !!(version && version.groom);
+    // groom side: Karan's name first wherever both names appear
+    S.names = S.groomFirst ? `${S.couple.groom} & ${S.couple.bride}` : `${S.couple.bride} & ${S.couple.groom}`;
+    if (S.groomFirst) {
+        S.story.coverBy = `by ${S.names}`;
+        S.shareText = S.shareText.replace(`${S.couple.bride} & ${S.couple.groom}`, S.names);
+    }
     if (S.groomFirst) {
         S.family.sides.reverse();
         S.contacts.people.reverse();

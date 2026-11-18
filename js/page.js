@@ -93,7 +93,7 @@
         const v = get(el.dataset.k);
         if (v) el.innerHTML = lines(v); else el.hidden = true;
     });
-    document.title = `${S.couple.bride} & ${S.couple.groom} · Wedding Invitation`;
+    document.title = `${S.names} · Wedding Invitation`;
 
     /* ---------- behind the door ---------- */
     $("#blessings").innerHTML = S.invite.blessings.map((b) => `<span lang="${b.lang}">${esc(b.line)}</span>`).join("");
@@ -305,7 +305,7 @@
     /* ---------- events ---------- */
     function calendar(e) {
         const { start, end } = range(e);
-        const title = `${e.title} · ${S.couple.bride} & ${S.couple.groom}`;
+        const title = `${e.title} · ${S.names}`;
         const loc = `${e.venue}, ${e.address}`;
         const g = "https://calendar.google.com/calendar/render?action=TEMPLATE"
             + "&text=" + encodeURIComponent(title)
