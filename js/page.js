@@ -69,7 +69,7 @@
 
     /* ---------- monogram: the painted one if it exists, else a typeset one ---------- */
     function monogram(el) {
-        findArt("monogram", (img) => {
+        findArt(S.monogramArt || "monogram", (img) => {
             if (img) { img.alt = "H & K"; el.appendChild(img); el.classList.add("has-art"); return; }
             const [h, k] = S.couple.initials;
             el.innerHTML = `<span class="mono-type" aria-label="${esc(h)} and ${esc(k)}"><i>${esc(h)}</i><i>${esc(k)}</i></span>`;
@@ -464,7 +464,7 @@
     async function showCrest() {
         const fly = document.createElement("div");
         fly.className = "crest-fly";
-        fly.innerHTML = '<img src="assets/art/monogram.png" alt="">';
+        fly.innerHTML = `<img src="assets/art/${S.monogramArt || "monogram"}.png" alt="">`;
         document.body.appendChild(fly);
         const size = Math.min(window.innerWidth * 0.8, 380);
         Object.assign(fly.style, { width: size + "px", height: size + "px", left: (window.innerWidth - size) / 2 + "px", top: (window.innerHeight - size) / 2 + "px" });

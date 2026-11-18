@@ -101,6 +101,8 @@
     const ev = [...document.querySelectorAll("#events input:checked")].map((i) => i.value);
     if (ev.length && ev.length < all.length) q.set("events", ev.join(","));
     const s = q.toString().replace(/\+/g, "%20").replace(/%2C/g, ",");
+    // groom versions use their own page so the WhatsApp preview says "Karan & Himanshi"
+    if (version().startsWith("groom")) return base + version() + "/" + (s ? "?" + s : "");
     return base + (s ? "?" + s : "") + (version() ? "#" + version() : "");
   }
   const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));

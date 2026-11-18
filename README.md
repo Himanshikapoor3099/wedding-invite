@@ -52,11 +52,11 @@ The main invite (`…/wedding-invite/`) has the Sagan & Cocktails, the Haldi and
 | Bride complete | `…/wedding-invite/#bride-complete` | The Mehndi night (bride's side only) |
 | Bride, without Cocktail | `…/wedding-invite/#bride-no-cocktail` | The Mehndi night, and leaves out the Sagan & Cocktails |
 | Bride, Wedding only | `…/wedding-invite/#bride-wedding` | Only the Wedding; leaves out the Sagan & Cocktails and the Haldi |
-| Groom complete | `…/wedding-invite/#groom-complete` | Sangeet, Haldi and Wedding |
-| Groom, Sangeet + Wedding | `…/wedding-invite/#groom-cocktail` | Sangeet and Wedding (no storybook) |
-| Groom, Wedding only | `…/wedding-invite/#groom-wedding` | Only the Wedding (no storybook) |
+| Groom complete | `…/wedding-invite/groom-complete/` | Sangeet, Haldi and Wedding |
+| Groom, Sangeet + Wedding | `…/wedding-invite/groom-cocktail/` | Sangeet and Wedding (no storybook) |
+| Groom, Wedding only | `…/wedding-invite/groom-wedding/` | Only the Wedding (no storybook) |
 
-The groom versions put Karan and the Sachdevas first, show four children at the door instead of Ivy and Nivi, call the cocktail evening "Cocktails & Thumkas", and leave out Nivi's note.
+The groom versions use their own pages, so their WhatsApp preview reads "Karan & Himanshi" with the KH monogram. They put Karan and the Sachdevas first, use the KH monogram, show four children at the door instead of Ivy and Nivi, call the cocktail evening "Cocktails & Thumkas", and leave out Nivi's note.
 
 **Image-only invitations** (no website, just a picture to send): `assets/cards/invite-wedding.jpg` and `assets/cards/invite-sangeet.jpg`. To change them, edit `tools/card/card.html`, then run `node tools/make-cards.js` with a local server on port 8770.
 

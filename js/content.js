@@ -287,7 +287,8 @@ window.SITE = {
     }
 
     S.groomFirst = q.get("side") === "groom" || !!(version && version.groom);
-    // groom side: Karan's name first wherever both names appear
+    // groom side: Karan's name first wherever both names appear, and the KH monogram
+    S.monogramArt = S.groomFirst ? "monogram-groom" : "monogram";
     S.names = S.groomFirst ? `${S.couple.groom} & ${S.couple.bride}` : `${S.couple.bride} & ${S.couple.groom}`;
     if (S.groomFirst) {
         S.story.coverBy = `by ${S.names}`;

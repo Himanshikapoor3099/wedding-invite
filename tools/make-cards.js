@@ -14,5 +14,12 @@ const { chromium } = require("playwright");
         await p.screenshot({ path: `assets/cards/invite-${name}.jpg`, type: "jpeg", quality: 90 });
         console.log("wrote assets/cards/invite-" + name + ".jpg");
     }
+    // the groom-side share preview
+    const sp = await b.newPage({ viewport: { width: 1200, height: 630 } });
+    await sp.goto("http://localhost:8770/tools/card/share.html?t=" + Date.now());
+    await sp.waitForLoadState("networkidle");
+    await sp.evaluate(() => document.fonts.ready);
+    await sp.screenshot({ path: "assets/share-card-groom.jpg", type: "jpeg", quality: 90 });
+    console.log("wrote assets/share-card-groom.jpg");
     await b.close();
 })();
